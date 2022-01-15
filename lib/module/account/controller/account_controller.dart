@@ -1,0 +1,21 @@
+import 'package:flutterx/core.dart';
+
+
+class AccountController extends GetxController {
+  AccountView? view;
+
+  @override
+  void onInit() {
+    super.onInit();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
+}

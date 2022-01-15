@@ -1,0 +1,11 @@
+{
+    "modules": [
+        "rika/rika_dashboard",
+        "rika/rika_main_navigation",
+        "rika/rika_login",
+        "rika/rika_category_list",
+        "rika/rika_cart",
+        "tutorial/tutorial_form",
+        "tutorial/tutorial_image_List"
+    ]
+}

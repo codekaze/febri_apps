@@ -1,0 +1,1 @@
+flutter build web && xcopy .\build\web\ .\server\public\ /E /H /C /I /Y && cd server && firebase deploy --only hosting

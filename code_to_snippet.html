@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Code to User Snippet String</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <textarea name="" id="code" cols="30" rows="10" class="form-control"></textarea>
+                <button id="convertBtn" class="btn btn-success mt-2">Convert to Snippet String</button>
+            </div>
+            <div class="col-md-6">
+                <textarea name="" id="snippetCode" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $("#convertBtn").click(function () {
+            var code = $("#code").val();
+
+            code = code.replaceAll("\"", "\\\"");
+
+            var arr = code.split("\n");
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] = `"${arr[i]}"`;
+            }
+
+            code = arr.join(",\n");
+            if (code[code.length - 1] = ",") {
+                code = code.substring(0, code.length - 1);
+            }
+
+            code += "\"";
+
+            code = `"snippetName": {
+		"prefix": "snippetName",
+		"body": [
+			${code},
+			"$2"
+		],
+	},`.trim();
+
+            $("#snippetCode").val(code);
+        });
+    </script>
+</body>
+
+</html>
