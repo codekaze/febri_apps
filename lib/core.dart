@@ -1,5 +1,3 @@
-export 'package:flutterx/core.dart';
-export 'package:flutterx/main.dart';
 export 'package:flutterx/module/cart/controller/cart_controller.dart';
 export 'package:flutterx/module/cart/view/cart_view.dart';
 export 'package:flutterx/module/cart_empty/controller/cart_empty_controller.dart';
@@ -14,6 +12,7 @@ export 'package:flutterx/module/login/view/login_view.dart';
 export 'package:flutterx/module/main_navigation/controller/main_navigation_controller.dart';
 export 'package:flutterx/module/main_navigation/view/main_navigation_view.dart';
 export 'package:flutterx/module/menu_management/controller/menu_management_controller.dart';
+export 'package:flutterx/module/menu_management/view/menu_management_view.dart';
 export 'package:flutterx/module/order_success/controller/order_success_controller.dart';
 export 'package:flutterx/module/order_success/view/order_success_view.dart';
 export 'package:flutterx/module/product_category_selector/controller/product_category_selector_controller.dart';
@@ -22,6 +21,11 @@ export 'package:flutterx/module/product_detail/controller/product_detail_control
 export 'package:flutterx/module/product_detail/view/product_detail_view.dart';
 export 'package:flutterx/module/search/controller/search_controller.dart';
 export 'package:flutterx/module/search/view/search_view.dart';
+export 'package:flutterx/module/user_profile/personal_detail/controller/personal_detail_controller.dart';
+export 'package:flutterx/module/user_profile/personal_detail/view/personal_detail_view.dart';
+export 'package:flutterx/module/user_profile/profile/controller/profile_controller.dart';
+export 'package:flutterx/module/user_profile/profile/view/profile_view.dart';
+export 'package:flutterx/module/user_profile/profile/widget/profile_row.dart';
 export 'package:flutterx/responsive.dart';
 export 'package:flutterx/shared/abstract/input_control/input_control.dart';
 export 'package:flutterx/shared/util/firebase/firebase.dart';
@@ -44,5 +48,4 @@ export 'package:flutterx/shared/widget/text/row_label.dart';
 export 'package:flutterx/shared/widget/textfield/searchfield.dart';
 export 'package:flutterx/shared/widget/textfield/textarea.dart';
 export 'package:flutterx/shared/widget/textfield/textfield.dart';
-
 export 'package:get/get.dart';
