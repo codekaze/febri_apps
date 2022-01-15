@@ -1,6 +1,7 @@
 import 'package:flutterx/core.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterx/module/user_profile/profile/view/profile_view.dart';
 
 class MainNavigationView extends StatelessWidget {
   final controller = Get.put(MainNavigationController());
@@ -13,7 +14,7 @@ class MainNavigationView extends StatelessWidget {
     } else if (controller.selectedTabIndex == 2) {
       return FavouriteView();
     } else if (controller.selectedTabIndex == 3) {
-      return AccountView();
+      return ProfileView();
     }
   }
 

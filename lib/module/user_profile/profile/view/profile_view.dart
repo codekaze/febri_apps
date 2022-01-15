@@ -1,15 +1,18 @@
-import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterx/module/user_profile/personal_detail/view/personal_detail_view.dart';
+import 'package:flutterx/module/user_profile/profile/widget/profile_row.dart';
+import '../controller/profile_controller.dart';
 
-class AccountView extends StatelessWidget {
-  final controller = Get.put(AccountController());
+import 'package:get/get.dart';
 
+class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    controller.view = this;
+    return GetBuilder<ProfileController>(
+      init: ProfileController(),
+      builder: (controller) {
+        controller.view = this;
 
-    return GetBuilder<AccountController>(
-      builder: (_) {
         return Scaffold(
           appBar: AppBar(
             title: Text("My Account"),
@@ -82,6 +85,9 @@ class AccountView extends StatelessWidget {
                         ProfileRowItem(
                           label: "Personal Details",
                           leading: Icon(Icons.person),
+                          onTap: () {
+                            Get.to(PersonalDetailView());
+                          },
                         ),
                         ProfileRowItem(
                           label: "My Order",

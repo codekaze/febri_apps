@@ -1,8 +1,5 @@
 export 'package:flutterx/core.dart';
 export 'package:flutterx/main.dart';
-export 'package:flutterx/module/account/controller/account_controller.dart';
-export 'package:flutterx/module/account/view/account_view.dart';
-export 'package:flutterx/module/account/widget/profile_row.dart';
 export 'package:flutterx/module/cart/controller/cart_controller.dart';
 export 'package:flutterx/module/cart/view/cart_view.dart';
 export 'package:flutterx/module/cart_empty/controller/cart_empty_controller.dart';
@@ -17,7 +14,6 @@ export 'package:flutterx/module/login/view/login_view.dart';
 export 'package:flutterx/module/main_navigation/controller/main_navigation_controller.dart';
 export 'package:flutterx/module/main_navigation/view/main_navigation_view.dart';
 export 'package:flutterx/module/menu_management/controller/menu_management_controller.dart';
-export 'package:flutterx/module/menu_management/view/menu_management_view.dart';
 export 'package:flutterx/module/order_success/controller/order_success_controller.dart';
 export 'package:flutterx/module/order_success/view/order_success_view.dart';
 export 'package:flutterx/module/product_category_selector/controller/product_category_selector_controller.dart';

@@ -1,8 +1,8 @@
-import 'package:flutterx/core.dart';
+import 'package:get/get.dart';
+import '../view/personal_detail_view.dart';
 
-
-class AccountController extends GetxController {
-  AccountView? view;
+class PersonalDetailController extends GetxController {
+  PersonalDetailView? view;
 
   @override
   void onInit() {

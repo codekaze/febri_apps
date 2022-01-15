@@ -11,6 +11,7 @@ class ExButton extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final List<BoxShadow>? boxShadow;
   final double? fontSize;
+  final EdgeInsets? margin;
 
   ExButton({
     required this.label,
@@ -22,6 +23,7 @@ class ExButton extends StatelessWidget {
     this.borderRadius,
     this.boxShadow,
     this.fontSize,
+    this.margin,
   });
 
   @override
@@ -30,12 +32,13 @@ class ExButton extends StatelessWidget {
       onTap: () => onPressed(),
       child: Container(
         width: width,
-        margin: EdgeInsets.only(
-          left: 10.0,
-          right: 10.0,
-          bottom: 10.0,
-          top: 10.0,
-        ),
+        margin: margin ??
+            EdgeInsets.only(
+              left: 10.0,
+              right: 10.0,
+              bottom: 10.0,
+              top: 10.0,
+            ),
         height: height,
         decoration: BoxDecoration(
           borderRadius: borderRadius,
@@ -48,10 +51,10 @@ class ExButton extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.only(
-              top: 10.0,
-              bottom: 10.0,
-              left: 20.0,
-              right: 20.0,
+              top: 8.0,
+              bottom: 8.0,
+              left: 26.0,
+              right: 26.0,
             ),
             child: Center(
               child: Row(
