@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutterx/core.dart';
+
 
 class ExButton extends StatelessWidget {
   final String label;
@@ -12,6 +13,7 @@ class ExButton extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final double? fontSize;
   final EdgeInsets? margin;
+  final bool enabled;
 
   ExButton({
     required this.label,
@@ -24,12 +26,16 @@ class ExButton extends StatelessWidget {
     this.boxShadow,
     this.fontSize,
     this.margin,
+    this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onPressed(),
+      onTap: () {
+        if (!enabled) return;
+        onPressed();
+      },
       child: Container(
         width: width,
         margin: margin ??
@@ -46,7 +52,7 @@ class ExButton extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: color ?? Get.theme.primaryColor,
+            color: enabled ? (color ?? Get.theme.primaryColor) : disabledColor,
             borderRadius: BorderRadius.all(Radius.circular(30.0)),
           ),
           child: Padding(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/shared/widget/location_picker/location_picker.dart';
 import 'package:flutterx/shared/widget/radio/switch.dart';
 import '../controller/developer_main_navigation_controller.dart';
 
@@ -196,7 +197,10 @@ class DeveloperMainNavigationView extends StatelessWidget {
                             id: "memo",
                             label: "Memo",
                           ),
-                          ComingSoon(label: "Location Picker"),
+                          ExLocationPicker(
+                            id: "location",
+                            label: "Location",
+                          ),
                           ComingSoon(label: "Checkbox Picker"),
                           ComingSoon(label: "Time Picker"),
                           ComingSoon(label: "Color Picker"),
