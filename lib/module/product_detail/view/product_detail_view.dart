@@ -29,7 +29,7 @@ class ProductDetailView extends StatelessWidget {
                   backgroundColor: Colors.white,
                   child: Icon(
                     Icons.favorite,
-                    color: Colors.red[300],
+                    color: dangerColor,
                     size: 24.0,
                   ),
                 ),
@@ -46,7 +46,7 @@ class ProductDetailView extends StatelessWidget {
                   backgroundColor: Colors.grey[200],
                   child: Icon(
                     Icons.shopping_bag,
-                    color: Colors.red[300],
+                    color: dangerColor,
                   ),
                 ),
                 SizedBox(
@@ -55,7 +55,7 @@ class ProductDetailView extends StatelessWidget {
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.red[300],
+                      color: dangerColor,
                       borderRadius: BorderRadius.all(Radius.circular(40.0)),
                     ),
                     child: Center(
@@ -145,7 +145,7 @@ class ProductDetailView extends StatelessWidget {
                           Text(
                             "\$${item["price"]}",
                             style: TextStyle(
-                              color: Colors.red[300],
+                              color: Get.theme.primaryColor,
                               fontWeight: FontWeight.bold,
                               fontSize: 26.0,
                             ),

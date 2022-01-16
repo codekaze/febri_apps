@@ -16,13 +16,16 @@ void main() async {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
-      primaryColor: Colors.red[300],
+      primaryColor: primaryColor,
       scaffoldBackgroundColor: Colors.grey[100],
       cardTheme: CardTheme(
         elevation: 0.6,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.grey[800  ],
       ),
       appBarTheme: AppBarTheme(
         elevation: 0.0,

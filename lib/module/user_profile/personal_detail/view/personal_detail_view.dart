@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/shared/widget/textfield/textfield.dart';
-import '../controller/personal_detail_controller.dart';
-
-import 'package:get/get.dart';
 
 class PersonalDetailView extends StatelessWidget {
   @override
@@ -25,17 +21,22 @@ class PersonalDetailView extends StatelessWidget {
           ),
           body: Container(
             padding: EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                ExImagePicker(
-                  id: "photo_url",
-                  label: "Photo",
+            child: Card(
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    ExImagePicker(
+                      id: "photo_url",
+                      label: "Photo",
+                    ),
+                    ExTextField(
+                      id: "display_name",
+                      label: "Display Name",
+                    ),
+                  ],
                 ),
-                ExTextField(
-                  id: "display_name",
-                  label: "Display Name",
-                ),
-              ],
+              ),
             ),
           ),
         );

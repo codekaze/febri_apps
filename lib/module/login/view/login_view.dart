@@ -53,7 +53,7 @@ class LoginView extends StatelessWidget {
                         child: Text(
                           'Sign Up',
                           style:
-                              TextStyle(color: Colors.red[300], fontSize: 12),
+                              TextStyle(color: dangerColor, fontSize: 12),
                         ),
                       ),
                     ],

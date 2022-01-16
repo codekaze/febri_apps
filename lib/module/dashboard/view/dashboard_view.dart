@@ -131,7 +131,7 @@ class DashboardView extends StatelessWidget {
                                             backgroundColor: Colors.white,
                                             child: Icon(
                                               Icons.favorite,
-                                              color: Colors.red[300],
+                                              color: dangerColor,
                                               size: 18.0,
                                             ),
                                           ),
@@ -152,7 +152,7 @@ class DashboardView extends StatelessWidget {
                                 Text(
                                   "\$${item["price"]}",
                                   style: TextStyle(
-                                    color: Colors.red[300],
+                                    color: Get.theme.primaryColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.0,
                                   ),

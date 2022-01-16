@@ -87,7 +87,7 @@ class CartView extends StatelessWidget {
                                 Text(
                                   "\$${item["price"]}",
                                   style: TextStyle(
-                                    color: Colors.red[300],
+                                    color: Get.theme.primaryColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16.0,
                                   ),

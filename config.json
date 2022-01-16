@@ -1,6 +1,7 @@
 {
     "modules": [
         "user_profile/profile",
-        "user_profile/personal_detail"
+        "user_profile/personal_detail",
+        "developer/developer_main_navigation"
     ]
 }

@@ -20,7 +20,6 @@ class ExSearchBarState extends State<ExSearchBar> {
     return Container(
       padding: EdgeInsets.all(6.0),
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
       child: TextField(

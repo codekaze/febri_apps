@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutterx/module/user_profile/personal_detail/view/personal_detail_view.dart';
-import 'package:flutterx/module/user_profile/profile/widget/profile_row.dart';
-import '../controller/profile_controller.dart';
+import 'package:flutterx/core.dart';
+import 'package:flutterx/module/developer/developer_main_navigation/view/developer_main_navigation_view.dart';
 
-import 'package:get/get.dart';
+
+
+
+
 
 class ProfileView extends StatelessWidget {
   @override
@@ -132,6 +134,28 @@ class ProfileView extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 12.0,
+                  ),
+                  Card(
+                    child: Column(
+                      children: [
+                        ProfileRowItem(
+                          label: "Developer",
+                          leading: Icon(Icons.developer_board),
+                          onTap: () => Get.to(DeveloperMainNavigationView()),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12.0,
+                  ),
+                  ExButton(
+                    label: "Logout",
+                    color: dangerColor,
+                    onPressed: () {},
                   ),
                 ],
               ),

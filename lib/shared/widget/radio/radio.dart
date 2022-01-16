@@ -12,7 +12,7 @@ class ExRadio extends StatefulWidget {
   ExRadio({
     required this.id,
     required this.items,
-    this.label,
+    this.label = "",
     this.value,
     this.onChanged,
     this.keyboardType,
@@ -28,7 +28,13 @@ class _ExRadioState extends State<ExRadio> implements InputControlState {
   @override
   void initState() {
     super.initState();
-    selectedValue = widget.value!;
+    if (widget.value == null) {
+      selectedValue = widget.items![0]["label"];
+      Input.set(widget.id, widget.items![0]["value"]);
+    } else {
+      selectedValue = widget.value!;
+    }
+
     if (widget.value == null) {
       selectedValue = widget.items![0]["value"];
     }

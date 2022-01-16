@@ -18,7 +18,7 @@ class ExButton extends StatelessWidget {
     required this.onPressed,
     this.color,
     this.icon,
-    this.height,
+    this.height = 48,
     this.width,
     this.borderRadius,
     this.boxShadow,
@@ -47,12 +47,10 @@ class ExButton extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: color ?? Get.theme.primaryColor,
-            borderRadius: BorderRadius.all(Radius.circular(16.0)),
+            borderRadius: BorderRadius.all(Radius.circular(30.0)),
           ),
           child: Padding(
             padding: const EdgeInsets.only(
-              top: 8.0,
-              bottom: 8.0,
               left: 26.0,
               right: 26.0,
             ),

@@ -10,7 +10,7 @@ class DashboardDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.red[300],
+              color: dangerColor,
               image: DecorationImage(
                 fit: BoxFit.fill,
                 image: NetworkImage(
