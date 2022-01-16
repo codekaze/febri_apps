@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/shared/widget/datepicker/timepicker.dart';
 import 'package:flutterx/shared/widget/location_picker/location_picker.dart';
 import 'package:flutterx/shared/widget/radio/switch.dart';
 import '../controller/developer_main_navigation_controller.dart';
@@ -193,6 +194,10 @@ class DeveloperMainNavigationView extends StatelessWidget {
                             id: "birth_date",
                             label: "Birth Date",
                           ),
+                          ExTimePicker(
+                            id: "time",
+                            label: "Time",
+                          ),
                           ExTextArea(
                             id: "memo",
                             label: "Memo",
@@ -202,7 +207,6 @@ class DeveloperMainNavigationView extends StatelessWidget {
                             label: "Location",
                           ),
                           ComingSoon(label: "Checkbox Picker"),
-                          ComingSoon(label: "Time Picker"),
                           ComingSoon(label: "Color Picker"),
                           ComingSoon(label: "Qty Picker"),
                           ComingSoon(label: "Rating Picker"),
