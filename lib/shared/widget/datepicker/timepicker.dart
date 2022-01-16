@@ -81,7 +81,7 @@ class ExTimePickerState extends State<ExTimePicker>
             onTap: () async {
               var selectedDay = await showTimePicker(
                 context: context,
-                initialTime: TimeOfDay.now(),
+                initialTime: dateValue ?? TimeOfDay.now(),
                 builder: (context, child) {
                   return child!;
                 },
