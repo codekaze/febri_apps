@@ -11,146 +11,69 @@ class LoginView extends StatelessWidget {
     return GetBuilder<LoginController>(
       builder: (_) {
         return Scaffold(
-          body: SafeArea(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: Get.width / 6),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.network(
-                    'https://icons.iconarchive.com/icons/rockettheme/ecommerce/128/shop-icon.png',
-                    width: 100,
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    'Log in to C-Commerce',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+          body: Container(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Card(
+                  child: Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: Column(
+                      children: [
+                        Image.network(
+                          "https://i.ibb.co/b3SDqgp/logo.png",
+                          width: 120.0,
+                          height: 120.0,
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        ExTextField(
+                          id: "email",
+                          label: "Email",
+                        ),
+                        ExTextField(
+                          id: "password",
+                          label: "Password",
+                          textFieldType: TextFieldType.password,
+                        ),
+                        ExButton(
+                          label: "Login",
+                          onPressed: () {
+                            Get.back();
+                          },
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Don\'t have an account?',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
-                        ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Register",
+                      style: TextStyle(
+                        fontSize: 16,
                       ),
-                      SizedBox(
-                        width: 5,
+                    ),
+                    Spacer(),
+                    Text(
+                      "Forgot Password",
+                      style: TextStyle(
+                        fontSize: 16,
                       ),
-                      InkWell(
-                        onTap: () {},
-                        child: Text(
-                          'Sign Up',
-                          style:
-                              TextStyle(color: dangerColor, fontSize: 12),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  SocialMediaList(),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  ExTextField(
-                    id: "email",
-                    label: 'Email',
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ExTextField(
-                    id: "password",
-                    label: 'Password',
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  ExButton(
-                    label: "Login",
-                    onPressed: () {
-                      Get.back();
-                    },
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         );
       },
-    );
-  }
-}
-
-class SocialMediaList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SocialMediaIcon(
-          onPressed: () {},
-          color: Colors.blue[900]!,
-          imageUrl:
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png',
-        ),
-        SizedBox(width: 15),
-        SocialMediaIcon(
-          onPressed: () {},
-          color: Colors.red[400]!,
-          imageUrl:
-              'https://www.freeiconspng.com/thumbs/google-plus-logo/google-plus-logo-4.png',
-        ),
-        SizedBox(width: 15),
-        SocialMediaIcon(
-          onPressed: () {},
-          color: Colors.grey,
-          imageUrl:
-              'http://www.pngplay.com/wp-content/uploads/3/Black-Apple-Logo-PNG-Images-HD.png',
-        ),
-      ],
-    );
-  }
-}
-
-class SocialMediaIcon extends StatelessWidget {
-  final Color color;
-  final String imageUrl;
-  final VoidCallback onPressed;
-
-  const SocialMediaIcon({
-    required this.color,
-    required this.imageUrl,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-      ),
-      child: Image.network(
-        imageUrl,
-        height: 16,
-        width: 16,
-      ),
     );
   }
 }
