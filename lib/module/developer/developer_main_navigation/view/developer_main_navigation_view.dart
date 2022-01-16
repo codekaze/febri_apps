@@ -198,6 +198,7 @@ class DeveloperMainNavigationView extends StatelessWidget {
                           ),
                           ComingSoon(label: "Location Picker"),
                           ComingSoon(label: "Checkbox Picker"),
+                          ComingSoon(label: "Time Picker"),
                           ComingSoon(label: "Color Picker"),
                           ExButton(
                             label: "Save",
@@ -233,7 +234,12 @@ class ComingSoon extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Coming Soon"),
+            Text(
+              "Coming Soon",
+              style: TextStyle(
+                fontSize: 10.0,
+              ),
+            ),
             SizedBox(
               height: 6.0,
             ),
