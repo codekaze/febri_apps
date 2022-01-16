@@ -25,7 +25,7 @@ void main() async {
         ),
       ),
       iconTheme: IconThemeData(
-        color: Colors.grey[800  ],
+        color: Colors.grey[800],
       ),
       appBarTheme: AppBarTheme(
         elevation: 0.0,
