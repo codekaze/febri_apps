@@ -200,6 +200,8 @@ class DeveloperMainNavigationView extends StatelessWidget {
                           ComingSoon(label: "Checkbox Picker"),
                           ComingSoon(label: "Time Picker"),
                           ComingSoon(label: "Color Picker"),
+                          ComingSoon(label: "Qty Picker"),
+                          ComingSoon(label: "Rating Picker"),
                           ExButton(
                             label: "Save",
                             onPressed: () {},
