@@ -202,6 +202,10 @@ class DeveloperMainNavigationView extends StatelessWidget {
                             id: "memo",
                             label: "Memo",
                           ),
+                          ExImagePicker(
+                            id: "photo_url",
+                            label: "Photo",
+                          ),
                           ExLocationPicker(
                             id: "location",
                             label: "Location",
