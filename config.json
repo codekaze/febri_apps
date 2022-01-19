@@ -3,6 +3,7 @@
         "user_profile/profile",
         "user_profile/personal_detail",
         "user_profile/privacy_policy",
+        "user_profile/term_and_condition",
         "developer/developer_main_navigation",
         "developer/developer_dashboard"
     ]

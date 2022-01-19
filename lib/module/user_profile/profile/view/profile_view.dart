@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutterx/module/developer/developer_main_navigation/view/developer_main_navigation_view.dart';
 import 'package:flutterx/module/user_profile/privacy_policy/view/privacy_policy_view.dart';
+import 'package:flutterx/module/user_profile/term_and_condition/view/term_and_condition_view.dart';
 
 class ProfileView extends StatelessWidget {
   @override
@@ -126,8 +127,9 @@ class ProfileView extends StatelessWidget {
                           onTap: () => Get.to(PrivacyPolicyView()),
                         ),
                         ProfileRowItem(
-                          label: "TOS",
+                          label: "Term & Conditions",
                           leading: Icon(Icons.privacy_tip_outlined),
+                          onTap: () => Get.to(TermAndConditionView()),
                         ),
                       ],
                     ),

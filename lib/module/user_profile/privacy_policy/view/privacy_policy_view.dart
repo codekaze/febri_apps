@@ -16,7 +16,7 @@ class PrivacyPolicyView extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("PrivacyPolicy"),
+            title: Text("Privacy Policy"),
           ),
           body: SingleChildScrollView(
             child: Container(
