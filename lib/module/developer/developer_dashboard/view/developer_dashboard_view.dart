@@ -206,7 +206,28 @@ class DeveloperDashboardView extends StatelessWidget {
                             id: "location",
                             label: "Location",
                           ),
-                          ComingSoon(label: "Checkbox Picker"),
+                          ExCheckBox(
+                            id: "roles",
+                            label: "Roles",
+                            items: [
+                              {
+                                "label": "Programmer",
+                                "value": "Programmer",
+                              },
+                              {
+                                "label": "Designer",
+                                "value": "Designer",
+                              },
+                              {
+                                "label": "System Analyst",
+                                "value": "System Analyst",
+                              }
+                            ],
+                            value: [
+                              "Programmer",
+                              "System Analyst",
+                            ],
+                          ),
                           ComingSoon(label: "Color Picker"),
                           ComingSoon(label: "Qty Picker"),
                           ComingSoon(label: "Rating Picker"),
