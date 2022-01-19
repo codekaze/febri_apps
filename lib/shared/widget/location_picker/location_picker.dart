@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/shared/widget/location_picker/location_picker_map_view.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class ExLocationPicker extends StatefulWidget {

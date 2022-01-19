@@ -1,7 +1,5 @@
-import 'package:flutterx/module/developer/developer_dashboard/view/developer_dashboard_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import '../controller/developer_main_navigation_controller.dart';
 
 class DeveloperMainNavigationView extends StatelessWidget {
   @override

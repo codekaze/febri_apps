@@ -8,8 +8,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:flutterx/core.dart';
 import 'package:latlong2/latlong.dart';
 
-import 'map_viewer.dart';
-
 class ExLocationPickerMapView extends StatefulWidget {
   final String id;
 

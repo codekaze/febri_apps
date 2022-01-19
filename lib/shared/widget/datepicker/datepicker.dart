@@ -2,11 +2,6 @@ import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-Map<String, ExDatePickerState> datePickerInstance = {};
-
-DateTime firstBlankDate = DateTime(1900, 1, 1);
-DateTime lastBlankDate = DateTime(3000, 1, 1);
-
 class ExDatePicker extends StatefulWidget {
   final String id;
   final String? label;
@@ -34,7 +29,6 @@ class ExDatePickerState extends State<ExDatePicker>
     // value = widget.value ?? DateTime.now();
     dateValue = widget.value;
     Input.set(widget.id, dateValue);
-    datePickerInstance[widget.id] = this;
     Input.inputController[widget.id] = this;
   }
 

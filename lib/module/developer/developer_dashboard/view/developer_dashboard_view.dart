@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/developer/developer_main_navigation/widget/coming_soon.dart';
-import 'package:flutterx/shared/widget/datepicker/timepicker.dart';
-import 'package:flutterx/shared/widget/location_picker/location_picker.dart';
-import 'package:flutterx/shared/widget/radio/switch.dart';
-import '../controller/developer_dashboard_controller.dart';
 
 class DeveloperDashboardView extends StatelessWidget {
   @override

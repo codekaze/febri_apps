@@ -3,7 +3,6 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutterx/core.dart';
 
-
 import 'package:path/path.dart' as path;
 
 import 'package:file_picker_cross/file_picker_cross.dart';
