@@ -1,9 +1,6 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 
-
-Map<String, ExComboState> comboController = {};
-
 class ExCombo extends StatefulWidget {
   final String id;
   final String label;
@@ -74,7 +71,7 @@ class ExComboState extends State<ExCombo> implements InputControlState {
     if (widget.value != null) {
       updateValueByValue(widget.value!);
     }
-    comboController[widget.id] = this;
+    Input.inputController[widget.id] = this;
     if (this.mounted) {
       setState(() {});
     }

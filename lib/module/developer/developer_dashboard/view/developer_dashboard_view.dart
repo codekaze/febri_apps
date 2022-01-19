@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/shared/widget/rating/rating.dart';
 
 class DeveloperDashboardView extends StatelessWidget {
   @override
@@ -228,9 +229,13 @@ class DeveloperDashboardView extends StatelessWidget {
                               "System Analyst",
                             ],
                           ),
+                          ExRating(
+                            id: "rating",
+                            label: "Rating",
+                            value: 5.0,
+                          ),
                           ComingSoon(label: "Color Picker"),
                           ComingSoon(label: "Qty Picker"),
-                          ComingSoon(label: "Rating Picker"),
                           ExButton(
                             label: "Save",
                             onPressed: () {},
