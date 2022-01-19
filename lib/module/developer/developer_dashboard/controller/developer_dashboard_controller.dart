@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import '../view/developer_main_navigation_view.dart';
+import '../view/developer_dashboard_view.dart';
 
-class DeveloperMainNavigationController extends GetxController {
-  DeveloperMainNavigationView? view;
-  int selectedIndex = 0;
+class DeveloperDashboardController extends GetxController {
+  DeveloperDashboardView? view;
 
   @override
   void onInit() {

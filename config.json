@@ -2,6 +2,8 @@
     "modules": [
         "user_profile/profile",
         "user_profile/personal_detail",
-        "developer/developer_main_navigation"
+        "user_profile/privacy_policy",
+        "developer/developer_main_navigation",
+        "developer/developer_dashboard"
     ]
 }

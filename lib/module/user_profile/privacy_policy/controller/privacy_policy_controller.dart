@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import '../view/developer_main_navigation_view.dart';
+import '../view/privacy_policy_view.dart';
 
-class DeveloperMainNavigationController extends GetxController {
-  DeveloperMainNavigationView? view;
-  int selectedIndex = 0;
+class PrivacyPolicyController extends GetxController {
+  PrivacyPolicyView? view;
 
   @override
   void onInit() {

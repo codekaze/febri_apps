@@ -5,32 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Web - Chrome",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "-d",
-                "chrome",
-                "--web-port",
-                "4000"
-            ],
-        },
-        {
-            "name": "Web - Chrome (Web Renderer)",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "-d",
-                "chrome",
-                "--web-port",
-                "4000",
-                "--web-renderer",
-                "html",
-                "--dart-define",
-                "FLUTTER_WEB_USE_SKIA"
-            ],
-        },
-        {
             "name": "Flutter",
             "request": "launch",
             "type": "dart",
