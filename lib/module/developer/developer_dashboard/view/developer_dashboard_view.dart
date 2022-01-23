@@ -249,6 +249,7 @@ class DeveloperDashboardView extends StatelessWidget {
                             ],
                           ),
                           ComingSoon(label: "Qty Picker"),
+                          ComingSoon(label: "File(Attachment) Picker"),
                           ExButton(
                             label: "Save",
                             onPressed: () {},
