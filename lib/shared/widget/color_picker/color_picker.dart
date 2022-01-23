@@ -1,3 +1,4 @@
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +39,7 @@ class ExColorPicker extends StatefulWidget {
 
 class ExColorPickerState extends State<ExColorPicker>
     implements InputControlState {
+  bool customColor = false;
   Color? selectedValue;
   List<Color> colorList = [
     Colors.red[300]!,
@@ -50,6 +52,7 @@ class ExColorPickerState extends State<ExColorPicker>
     super.initState();
     colorList = widget.colorsList ?? colorList;
     selectedValue = widget.value;
+    checkColorExistence();
     Input.set(widget.id, selectedValue);
     Input.inputController[widget.id] = this;
   }
@@ -59,8 +62,19 @@ class ExColorPickerState extends State<ExColorPicker>
     super.dispose();
   }
 
+  void checkColorExistence() {
+    if (selectedValue == null) return;
+
+    if (colorList.contains(selectedValue!)) {
+      customColor = false;
+    } else {
+      customColor = true;
+    }
+  }
+
   setValue(value) {
     selectedValue = value;
+    checkColorExistence();
     Input.set(widget.id, selectedValue);
     setState(() {});
   }
@@ -80,6 +94,51 @@ class ExColorPickerState extends State<ExColorPicker>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+  }
+
+  showColor() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Pick a color!'),
+            content: SingleChildScrollView(
+              child: ColorPicker(
+                pickerColor: selectedValue!,
+                onColorChanged: (color) {
+                  setValue(color);
+                },
+              ),
+              // Use Material color picker:
+              //
+              // child: MaterialPicker(
+              //   pickerColor: pickerColor,
+              //   onColorChanged: changeColor,
+              //   showLabel: true, // only on portrait mode
+              // ),
+              //
+              // Use Block color picker:
+              //
+              // child: BlockPicker(
+              //   pickerColor: currentColor,
+              //   onColorChanged: changeColor,
+              // ),
+              //
+              // child: MultipleChoiceBlockPicker(
+              //   pickerColors: currentColors,
+              //   onColorsChanged: changeColors,
+              // ),
+            ),
+            actions: <Widget>[
+              ElevatedButton(
+                child: const Text('Got it'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
   }
 
   @override
@@ -112,40 +171,93 @@ class ExColorPickerState extends State<ExColorPicker>
           if (!widget.hideLabel!) getLabel(),
           Container(
             height: 60,
-            child: ListView.builder(
-              itemCount: colorList.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                var color = colorList[index];
-                bool selected = color == selectedValue ? true : false;
-
-                return InkWell(
-                  onTap: () {
-                    selectedValue = color;
-                    setState(() {});
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(right: 8.0),
-                    child: CircleAvatar(
-                      backgroundColor:
-                          selected ? Colors.grey[300] : Colors.grey[300],
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: CircleAvatar(
-                          backgroundColor: color,
-                          child: !selected
-                              ? Container()
-                              : Icon(
-                                  Icons.check,
-                                  color: Colors.white,
-                                  size: 14.0,
-                                ),
+            child: Row(
+              children: [
+                if (customColor)
+                  InkWell(
+                    onTap: () {
+                      // setValue(color);
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(right: 8.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey[300],
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: CircleAvatar(
+                            backgroundColor: selectedValue,
+                            child: Icon(
+                              Icons.check,
+                              color: Colors.white,
+                              size: 14.0,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                );
-              },
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: colorList.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      var color = colorList[index];
+                      bool selected = color == selectedValue ? true : false;
+
+                      return InkWell(
+                        onTap: () {
+                          setValue(color);
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 8.0),
+                          child: CircleAvatar(
+                            backgroundColor:
+                                selected ? Colors.grey[300] : Colors.grey[300],
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: CircleAvatar(
+                                backgroundColor: color,
+                                child: !selected
+                                    ? Container()
+                                    : Icon(
+                                        Icons.check,
+                                        color: Colors.white,
+                                        size: 14.0,
+                                      ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    showColor();
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(right: 8.0),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.grey[300],
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: CircleAvatar(
+                          backgroundColor:
+                              selectedValue == null || customColor == false
+                                  ? Colors.blueGrey[300]
+                                  : selectedValue,
+                          child: Icon(
+                            Icons.tune,
+                            color: Colors.white,
+                            size: 14.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
