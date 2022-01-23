@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/shared/widget/color_picker/color_picker.dart';
 import 'package:flutterx/shared/widget/rating/rating.dart';
 
 class DeveloperDashboardView extends StatelessWidget {
@@ -234,7 +235,19 @@ class DeveloperDashboardView extends StatelessWidget {
                             label: "Rating",
                             value: 5.0,
                           ),
-                          ComingSoon(label: "Color Picker"),
+                          ExColorPicker(
+                            id: "color",
+                            label: "Color",
+                          ),
+                          ExColorPicker(
+                            id: "color",
+                            label: "Color",
+                            colorsList: [
+                              Colors.blue,
+                              Colors.green,
+                              Colors.orange,
+                            ],
+                          ),
                           ComingSoon(label: "Qty Picker"),
                           ExButton(
                             label: "Save",

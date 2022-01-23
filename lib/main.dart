@@ -16,7 +16,8 @@ void main() async {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: defaultTheme,
-    home: MainNavigationView(),
+    // home: MainNavigationView(),
+    home: DeveloperDashboardView(),
   ));
 
   //Run in Emulator Mode (Windows)
