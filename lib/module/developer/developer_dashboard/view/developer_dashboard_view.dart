@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/shared/util/show_message/show_error.dart';
 import 'package:flutterx/shared/widget/color_picker/color_picker.dart';
 import 'package:flutterx/shared/widget/rating/rating.dart';
 
@@ -25,6 +26,7 @@ class DeveloperDashboardView extends StatelessWidget {
                       width: Get.width,
                       padding: const EdgeInsets.all(10.0),
                       child: Wrap(
+                        alignment: WrapAlignment.center,
                         children: [
                           Container(
                             width: Get.width,
@@ -40,7 +42,7 @@ class DeveloperDashboardView extends StatelessWidget {
                             color: primaryColor,
                             child: Container(
                               height: 90.0,
-                              width: Get.width / 2.6,
+                              width: Get.width / 2.8,
                               child: Center(
                                 child: Text(
                                   "Primary Color",
@@ -55,7 +57,7 @@ class DeveloperDashboardView extends StatelessWidget {
                             color: successColor,
                             child: Container(
                               height: 90.0,
-                              width: Get.width / 2.6,
+                              width: Get.width / 2.8,
                               child: Center(
                                 child: Text(
                                   "Success Color",
@@ -70,7 +72,7 @@ class DeveloperDashboardView extends StatelessWidget {
                             color: dangerColor,
                             child: Container(
                               height: 90.0,
-                              width: Get.width / 2.6,
+                              width: Get.width / 2.8,
                               child: Center(
                                 child: Text(
                                   "Danger Color",
@@ -85,7 +87,7 @@ class DeveloperDashboardView extends StatelessWidget {
                             color: infoColor,
                             child: Container(
                               height: 90.0,
-                              width: Get.width / 2.6,
+                              width: Get.width / 2.8,
                               child: Center(
                                 child: Text(
                                   "Info Color",
@@ -100,7 +102,7 @@ class DeveloperDashboardView extends StatelessWidget {
                             color: warningColor,
                             child: Container(
                               height: 90.0,
-                              width: Get.width / 2.6,
+                              width: Get.width / 2.8,
                               child: Center(
                                 child: Text(
                                   "Warning Color",
@@ -115,7 +117,7 @@ class DeveloperDashboardView extends StatelessWidget {
                             color: disabledColor,
                             child: Container(
                               height: 90.0,
-                              width: Get.width / 2.6,
+                              width: Get.width / 2.8,
                               child: Center(
                                 child: Text(
                                   "Disabled Color",
@@ -253,6 +255,64 @@ class DeveloperDashboardView extends StatelessWidget {
                           ExButton(
                             label: "Save",
                             onPressed: () {},
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Card(
+                    child: Container(
+                      width: Get.width,
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              "Alert",
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          ExButton(
+                            label: "Success Alert",
+                            color: successColor,
+                            onPressed: () {
+                              showSuccess("Success", "Nice One!");
+                            },
+                          ),
+                          ExButton(
+                            label: "Danger Alert",
+                            color: dangerColor,
+                            onPressed: () {
+                              showError("Danger", "Nice One!");
+                            },
+                          ),
+                          ExButton(
+                            label: "Info Alert",
+                            color: infoColor,
+                            onPressed: () {
+                              showInfo("Info", "Nice One!");
+                            },
+                          ),
+                          ExButton(
+                            label: "Warning Alert",
+                            color: warningColor,
+                            onPressed: () {
+                              showWarning("Warning", "Nice One!");
+                            },
+                          ),
+                          ExButton(
+                            label: "Success Neutral",
+                            color: disabledColor,
+                            onPressed: () {
+                              showNeutral("Neutral", "Nice One!");
+                            },
                           ),
                         ],
                       ),
