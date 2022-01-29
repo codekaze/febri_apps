@@ -12,7 +12,7 @@ class LoginView extends StatelessWidget {
     return GetBuilder<LoginController>(
       builder: (_) {
         return Scaffold(
-          backgroundColor: primaryColor,
+          backgroundColor: loginBackgroundColor,
           body: Container(
             padding: EdgeInsets.all(20.0),
             child: Column(
@@ -25,7 +25,7 @@ class LoginView extends StatelessWidget {
                     child: Column(
                       children: [
                         Image.network(
-                          "https://i.ibb.co/b3SDqgp/logo.png",
+                          appLogo,
                           width: 80.0,
                           height: 80.0,
                         ),

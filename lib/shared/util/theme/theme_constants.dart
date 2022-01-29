@@ -12,3 +12,7 @@ var warningColor = Colors.orange[300];
 var disabledColor = Colors.grey[300];
 
 var disabledTextColor = Colors.grey[800];
+
+//--------
+var loginBackgroundColor = Colors.blueGrey[400];
+var appLogo;

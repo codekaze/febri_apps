@@ -1,4 +1,5 @@
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/chat_list/view/chat_list_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import '../controller/cl_main_navigation_controller.dart';
@@ -20,8 +21,8 @@ class ClMainNavigationView extends StatelessWidget {
               index: controller.selectedIndex,
               children: [
                 Container(),
-                Container(),
-                Container(),
+                ChatListView(),
+                FavouriteView(),
                 ProfileView(),
               ],
             ),
