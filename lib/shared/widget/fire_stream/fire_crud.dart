@@ -50,7 +50,36 @@ class FireCrud extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("$title"),
-        actions: actions,
+        actions: [
+          ...actions,
+          InkWell(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 8.0,
+                bottom: 8.0,
+                right: 8.0,
+                left: 8.0,
+              ),
+              child: Icon(Icons.tune),
+            ),
+          ),
+          InkWell(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 8.0,
+                bottom: 8.0,
+                right: 8.0,
+                left: 8.0,
+              ),
+              child: Icon(Icons.search),
+            ),
+          ),
+          SizedBox(
+            width: 4.0,
+          ),
+        ],
       ),
       floatingActionButton: !enableAdd
           ? Container()
