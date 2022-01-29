@@ -8,6 +8,8 @@
         "app/furniture_listing/fl_product_detail",
         "app/pet_adoption/pa_main_navigation",
         "app/pet_adoption/pa_product_detail",
+        "app/job_listing/jo_main_navigation",
+        "app/job_listing/jo_product_detail",
         "user_profile/profile",
         "user_profile/personal_detail",
         "user_profile/privacy_policy",

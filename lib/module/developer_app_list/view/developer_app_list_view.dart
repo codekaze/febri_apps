@@ -3,11 +3,10 @@ import 'package:flutterx/core.dart';
 import 'package:flutterx/data/session/app_session.dart';
 import 'package:flutterx/module/app/car_listing/cl_main_navigation/view/cl_main_navigation_view.dart';
 import 'package:flutterx/module/app/furniture_listing/fl_main_navigation/view/fl_main_navigation_view.dart';
+import 'package:flutterx/module/app/job_listing/jo_main_navigation/view/jo_main_navigation_view.dart';
 import 'package:flutterx/module/app/pet_adoption/pa_main_navigation/view/pa_main_navigation_view.dart';
 import 'package:flutterx/module/app/property_listing/pl_main_navigation/view/pl_main_navigation_view.dart';
 import 'package:flutterx/module/developer_app_list/controller/developer_app_list_controller.dart';
-
-import 'package:get/get.dart';
 
 class DeveloperAppListView extends StatelessWidget {
   @override
@@ -95,10 +94,10 @@ class DeveloperAppListView extends StatelessWidget {
                           },
                         ),
                         AppCard(
-                          appName: "Property Listing\nApp",
+                          appName: "Listing\nApp",
                           color: Colors.blue[400]!,
                           iconUrl: "https://i.ibb.co/vqTp4qY/609803.png",
-                          developer: "-",
+                          developer: "Angga",
                           onTap: () {
                             AppSession.homePage = PlMainNavigationView();
                             Get.to(LoginView());
@@ -108,7 +107,7 @@ class DeveloperAppListView extends StatelessWidget {
                           appName: "Furniture Listing\nApp",
                           color: Colors.orange[300]!,
                           iconUrl: "https://i.ibb.co/3Ng19Vp/2603741.png",
-                          developer: "-",
+                          developer: "Akbar",
                           onTap: () {
                             AppSession.homePage = FlMainNavigationView();
                             Get.to(LoginView());
@@ -121,6 +120,16 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Ica",
                           onTap: () {
                             AppSession.homePage = PaMainNavigationView();
+                            Get.to(LoginView());
+                          },
+                        ),
+                        AppCard(
+                          appName: "Job Listing\nApp",
+                          color: Colors.grey[800]!,
+                          iconUrl: "https://i.ibb.co/ZKvb13X/3850285.png",
+                          developer: "Deny",
+                          onTap: () {
+                            AppSession.homePage = JoMainNavigationView();
                             Get.to(LoginView());
                           },
                         ),
