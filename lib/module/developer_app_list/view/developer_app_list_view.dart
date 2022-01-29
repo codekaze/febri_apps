@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/data/session/app_session.dart';
+import 'package:flutterx/module/app/car_listing/cl_main_navigation/view/cl_main_navigation_view.dart';
+import 'package:flutterx/module/app/furniture_listing/fl_main_navigation/view/fl_main_navigation_view.dart';
+import 'package:flutterx/module/app/pet_adoption/pa_main_navigation/view/pa_main_navigation_view.dart';
+import 'package:flutterx/module/app/property_listing/pl_main_navigation/view/pl_main_navigation_view.dart';
 import 'package:flutterx/module/developer_app_list/controller/developer_app_list_controller.dart';
 
 import 'package:get/get.dart';
@@ -83,26 +88,46 @@ class DeveloperAppListView extends StatelessWidget {
                           appName: "Car Listing\nApp",
                           color: Colors.red[400]!,
                           iconUrl: "https://i.ibb.co/BjYYH2C/550907.png",
+                          developer: "Danu",
+                          onTap: () {
+                            AppSession.homePage = ClMainNavigationView();
+                            Get.to(LoginView());
+                          },
                         ),
                         AppCard(
                           appName: "Property Listing\nApp",
                           color: Colors.blue[400]!,
                           iconUrl: "https://i.ibb.co/vqTp4qY/609803.png",
+                          developer: "-",
+                          onTap: () {
+                            AppSession.homePage = PlMainNavigationView();
+                            Get.to(LoginView());
+                          },
                         ),
                         AppCard(
                           appName: "Furniture Listing\nApp",
                           color: Colors.orange[300]!,
                           iconUrl: "https://i.ibb.co/3Ng19Vp/2603741.png",
+                          developer: "-",
+                          onTap: () {
+                            AppSession.homePage = FlMainNavigationView();
+                            Get.to(LoginView());
+                          },
                         ),
                         AppCard(
-                          appName: "Cat Adoption\nApp",
+                          appName: "Pet Adoption\nApp",
                           color: Colors.green[300]!,
                           iconUrl: "https://i.ibb.co/KKzKbkQ/3372417.png",
+                          developer: "Ica",
+                          onTap: () {
+                            AppSession.homePage = PaMainNavigationView();
+                            Get.to(LoginView());
+                          },
                         ),
                         Container(
                           width: Get.width,
                           child: Text(
-                            "Cashier App",
+                            "POS App",
                             style: TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
@@ -113,21 +138,29 @@ class DeveloperAppListView extends StatelessWidget {
                           appName: "Grocery POS",
                           color: Colors.grey[400]!,
                           iconUrl: "https://i.ibb.co/NKcZNVN/5110278.png",
+                          developer: "-",
+                          onTap: () {},
                         ),
                         AppCard(
                           appName: "Restaurant POS",
                           color: Colors.grey[400]!,
                           iconUrl: "https://i.ibb.co/NKcZNVN/5110278.png",
+                          developer: "-",
+                          onTap: () {},
                         ),
                         AppCard(
                           appName: "Pharmacy POS",
                           color: Colors.grey[400]!,
                           iconUrl: "https://i.ibb.co/NKcZNVN/5110278.png",
+                          developer: "-",
+                          onTap: () {},
                         ),
                         AppCard(
                           appName: "XXX POS",
                           color: Colors.grey[400]!,
                           iconUrl: "https://i.ibb.co/NKcZNVN/5110278.png",
+                          developer: "-",
+                          onTap: () {},
                         ),
                       ],
                     ),
@@ -146,42 +179,56 @@ class AppCard extends StatelessWidget {
   final String appName;
   final Color color;
   final iconUrl;
+  final String developer;
+  final Function onTap;
 
   AppCard({
     required this.appName,
     required this.color,
     required this.iconUrl,
+    required this.developer,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: color,
-      child: Container(
-        height: 140.0,
-        width: Get.width / 2.6,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.network(
-              iconUrl,
-              width: 30.0,
-              height: 30.0,
-            ),
-            SizedBox(
-              height: 6.0,
-            ),
-            Text(
-              "$appName",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14.0,
-                fontWeight: FontWeight.bold,
+    return InkWell(
+      onTap: () => onTap(),
+      child: Card(
+        color: color,
+        child: Container(
+          height: 140.0,
+          width: Get.width / 2.6,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network(
+                iconUrl,
+                width: 30.0,
+                height: 30.0,
               ),
-            ),
-          ],
+              SizedBox(
+                height: 6.0,
+              ),
+              Text(
+                "$appName",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "$developer",
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

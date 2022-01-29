@@ -1,5 +1,6 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterx/data/session/app_session.dart';
 
 class LoginView extends StatelessWidget {
   final controller = Get.put(LoginController());
@@ -42,7 +43,7 @@ class LoginView extends StatelessWidget {
                         ExButton(
                           label: "Login",
                           onPressed: () {
-                            Get.back();
+                            Get.offAll(AppSession.homePage);
                           },
                         ),
                       ],

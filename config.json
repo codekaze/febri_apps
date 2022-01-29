@@ -1,5 +1,13 @@
 {
     "modules": [
+        "app/car_listing/cl_main_navigation",
+        "app/car_listing/cl_product_detail",
+        "app/property_listing/pl_main_navigation",
+        "app/property_listing/pl_product_detail",
+        "app/furniture_listing/fl_main_navigation",
+        "app/furniture_listing/fl_product_detail",
+        "app/pet_adoption/pa_main_navigation",
+        "app/pet_adoption/pa_product_detail",
         "user_profile/profile",
         "user_profile/personal_detail",
         "user_profile/privacy_policy",
