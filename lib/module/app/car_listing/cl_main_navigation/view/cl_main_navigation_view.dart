@@ -26,6 +26,7 @@ class ClMainNavigationView extends StatelessWidget {
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(
+              backgroundColor: Colors.red,
               unselectedItemColor: Colors.blueGrey[500],
               selectedItemColor: Colors.blueGrey[900],
               currentIndex: controller.selectedIndex,
