@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/vendor/vendor_product_list/view/vendor_product_list_view.dart';
 
 class ProfileView extends StatelessWidget {
   @override
@@ -166,7 +165,8 @@ class ProfileView extends StatelessWidget {
                   ExButton(
                     label: "Logout",
                     color: dangerColor,
-                    onPressed: () {
+                    onPressed: () async {
+                      await AuthService().signOut();
                       Get.to(LoginView());
                     },
                   ),

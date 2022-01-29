@@ -1,9 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/module/developer_app_list/view/developer_app_list_view.dart';
-import 'package:flutterx/shared/util/firebase/firebase.dart';
-import 'package:flutterx/shared/util/theme/theme.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:universal_io/io.dart';
 

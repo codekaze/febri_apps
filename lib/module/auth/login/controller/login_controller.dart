@@ -1,7 +1,5 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutterx/data/session/app_session.dart';
-import 'package:flutterx/service/auth_service/auth_service.dart';
 
 class LoginController extends GetxController {
   LoginView? view;

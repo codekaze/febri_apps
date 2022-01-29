@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/shared/util/show_dialog/show_confirm_dialog.dart';
-import 'package:flutterx/shared/util/show_dialog/show_dialog.dart';
-import 'package:flutterx/shared/util/show_message/show_error.dart';
-import 'package:flutterx/shared/widget/color_picker/color_picker.dart';
-import 'package:flutterx/shared/widget/rating/rating.dart';
 
 class DeveloperDashboardView extends StatelessWidget {
   @override

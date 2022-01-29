@@ -4,9 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutterx/shared/util/firebase/firecore.dart';
-import 'package:flutterx/shared/widget/crud/fire_form.dart';
-import 'package:flutterx/shared/widget/crud/fire_item.dart';
-import 'package:flutterx/shared/widget/fire_stream/fire_list_view.dart';
 
 class FireListItem {
   final String? title;

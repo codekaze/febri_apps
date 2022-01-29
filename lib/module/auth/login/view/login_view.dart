@@ -1,7 +1,5 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/data/session/app_session.dart';
-import 'package:flutterx/module/developer_app_list/view/developer_app_list_view.dart';
 
 class LoginView extends StatelessWidget {
   final controller = Get.put(LoginController());

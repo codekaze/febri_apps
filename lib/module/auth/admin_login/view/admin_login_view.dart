@@ -1,19 +1,19 @@
-import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
+import '../controller/admin_login_controller.dart';
 
 import 'package:get/get.dart';
 
-class ChatListView extends StatelessWidget {
+class AdminLoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ChatListController>(
-      init: ChatListController(),
+    return GetBuilder<AdminLoginController>(
+      init: AdminLoginController(),
       builder: (controller) {
         controller.view = this;
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("Chat List"),
+            title: Text("AdminLogin"),
           ),
         );
       },

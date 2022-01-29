@@ -1,6 +1,4 @@
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/app/property_listing/pl_dashboard/view/pl_dashboard_view.dart';
-import 'package:flutterx/module/chat_list/view/chat_list_view.dart';
 import 'package:flutter/material.dart';
 import '../controller/pl_main_navigation_controller.dart';
 

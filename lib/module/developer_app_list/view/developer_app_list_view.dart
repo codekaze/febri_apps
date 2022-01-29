@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/data/session/app_session.dart';
-import 'package:flutterx/module/app/car_listing/cl_main_navigation/view/cl_main_navigation_view.dart';
-import 'package:flutterx/module/app/furniture_listing/fl_main_navigation/view/fl_main_navigation_view.dart';
-import 'package:flutterx/module/app/job_listing/jo_main_navigation/view/jo_main_navigation_view.dart';
-import 'package:flutterx/module/app/pet_adoption/pa_main_navigation/view/pa_main_navigation_view.dart';
-import 'package:flutterx/module/app/property_listing/pl_main_navigation/view/pl_main_navigation_view.dart';
-import 'package:flutterx/module/developer_app_list/controller/developer_app_list_controller.dart';
 
 class DeveloperAppListView extends StatelessWidget {
   @override
