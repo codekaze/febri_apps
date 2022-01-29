@@ -26,8 +26,8 @@ class LoginView extends StatelessWidget {
                       children: [
                         Image.network(
                           "https://i.ibb.co/b3SDqgp/logo.png",
-                          width: 120.0,
-                          height: 120.0,
+                          width: 80.0,
+                          height: 80.0,
                         ),
                         SizedBox(
                           height: 10.0,
@@ -47,6 +47,44 @@ class LoginView extends StatelessWidget {
                             Get.offAll(AppSession.homePage);
                           },
                         ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: Colors.red[100],
+                              child: Image.network(
+                                "https://i.ibb.co/MczfRb3/720255.png",
+                                width: 26.0,
+                                height: 26.0,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            CircleAvatar(
+                              backgroundColor: Colors.blue[100],
+                              child: Image.network(
+                                "https://i.ibb.co/Qk3b5Sb/3670032.png",
+                                width: 26.0,
+                                height: 26.0,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            CircleAvatar(
+                              backgroundColor: Colors.grey[300],
+                              child: Image.network(
+                                "https://i.ibb.co/1rBhN3t/1768630.png",
+                                width: 26.0,
+                                height: 26.0,
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -54,22 +92,27 @@ class LoginView extends StatelessWidget {
                 SizedBox(
                   height: 10.0,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      "Register",
-                      style: TextStyle(
-                        fontSize: 16,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Register",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                    Text(
-                      "Forgot Password",
-                      style: TextStyle(
-                        fontSize: 16,
+                      Spacer(),
+                      Text(
+                        "Forgot Password?",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),

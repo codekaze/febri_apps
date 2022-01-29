@@ -92,11 +92,7 @@ class DeveloperAppListView extends StatelessWidget {
                           onTap: () {
                             AppSession.homePage = ClMainNavigationView();
 
-                            Get.changeTheme(ThemeData(
-                                bottomNavigationBarTheme:
-                                    BottomNavigationBarThemeData(
-                              backgroundColor: dangerColor,
-                            )));
+                            primaryColor = Colors.brown[900];
                             Get.to(LoginView());
                           },
                         ),
