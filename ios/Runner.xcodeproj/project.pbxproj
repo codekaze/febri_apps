@@ -292,9 +292,9 @@
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 <<<<<<< HEAD
-				PRODUCT_BUNDLE_IDENTIFIER = com.denyocr.flutter_core;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codekaze.flutterx;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.denyocr.flutterx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codekaze.flutterx;
 >>>>>>> 829571be0b84a774d772de735aaf083ac5668cd7
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -420,9 +420,9 @@
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 <<<<<<< HEAD
-				PRODUCT_BUNDLE_IDENTIFIER = com.denyocr.flutter_core;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codekaze.flutterx;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.denyocr.flutterx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codekaze.flutterx;
 >>>>>>> 829571be0b84a774d772de735aaf083ac5668cd7
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -443,9 +443,9 @@
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 <<<<<<< HEAD
-				PRODUCT_BUNDLE_IDENTIFIER = com.denyocr.flutter_core;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codekaze.flutterx;
 =======
-				PRODUCT_BUNDLE_IDENTIFIER = com.denyocr.flutterx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codekaze.flutterx;
 >>>>>>> 829571be0b84a774d772de735aaf083ac5668cd7
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
