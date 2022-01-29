@@ -1,9 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-    package="com.denyocr.flutter_core">
-=======
-    package="com.denyocr.flutterx">
->>>>>>> 829571be0b84a774d772de735aaf083ac5668cd7
+    package="com.codekaze.flutterx">
     <!-- Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
