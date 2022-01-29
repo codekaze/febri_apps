@@ -19,31 +19,47 @@ class DeveloperAppListView extends StatelessWidget {
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Card(
-                child: Column(
-                  children: [
-                    Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                    "Welcome back Brother und Sister! 😊",
+                  ),
+                  SizedBox(
+                    height: 16.0,
+                  ),
+                  Card(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: ExButton(
-                            label: "Docs",
-                            color: disabledColor,
-                            icon: Icons.notes_rounded,
-                            onPressed: () {},
-                          ),
-                        ),
-                        Expanded(
-                          child: ExButton(
-                            label: "UI KIT",
-                            color: disabledColor,
-                            icon: Icons.developer_board,
-                            onPressed: () => Get.to(DeveloperDashboardView()),
-                          ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: ExButton(
+                                label: "Docs",
+                                color: disabledColor,
+                                icon: Icons.notes_rounded,
+                                onPressed: () {},
+                              ),
+                            ),
+                            Expanded(
+                              child: ExButton(
+                                label: "UI KIT",
+                                color: disabledColor,
+                                icon: Icons.developer_board,
+                                onPressed: () =>
+                                    Get.to(DeveloperDashboardView()),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
