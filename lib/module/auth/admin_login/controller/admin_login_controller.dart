@@ -1,4 +1,5 @@
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/admin/admin_main_navigation/view/admin_main_navigation_view.dart';
 import 'package:get/get.dart';
 import '../view/admin_login_view.dart';
 
@@ -36,7 +37,7 @@ class AdminLoginController extends GetxController {
 
   handleAuth(auth) {
     if (auth != null) {
-      Get.offAll(AppSession.homePage);
+      Get.offAll(AdminMainNavigationView());
     }
   }
 }

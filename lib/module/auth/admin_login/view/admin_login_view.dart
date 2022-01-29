@@ -69,6 +69,7 @@ class AdminLoginView extends StatelessWidget {
                               ),
                               ExButton(
                                 label: "Login",
+                                color: warningColor,
                                 onPressed: () => controller.emailLogin(),
                               ),
                               SizedBox(
