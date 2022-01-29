@@ -37,7 +37,7 @@ class ProfileView extends StatelessWidget {
                                   BorderRadius.all(Radius.circular(16.0)),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                  "https://i.ibb.co/vwKrSfk/photo-1512353087810-25dfcd100962-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
+                                  controller.photoUrl,
                                 ),
                                 fit: BoxFit.fill,
                               ),
@@ -52,14 +52,17 @@ class ProfileView extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Jason Satham",
+                                    controller.displayName,
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
+                                  SizedBox(
+                                    height: 4.0,
+                                  ),
                                   Text(
-                                    "jason.satham@gmail.com",
+                                    controller.email,
                                     style: TextStyle(
                                       fontSize: 16,
                                     ),

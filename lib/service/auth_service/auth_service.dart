@@ -21,7 +21,9 @@ class AuthService {
 
   googleLogin() async {
     try {
-      if (await GoogleSignIn().isSignedIn()) GoogleSignIn().disconnect();
+      if (!await GoogleSignIn().isSignedIn()) {
+        await GoogleSignIn().disconnect();
+      }
     } on Exception catch (_) {}
 
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
