@@ -4,8 +4,6 @@ import 'package:flutterx/service/product_service/product_service.dart';
 import 'package:flutterx/shared/widget/fire_stream/fire_crud.dart';
 import '../controller/vendor_product_list_controller.dart';
 
-import 'package:get/get.dart';
-
 class VendorProductListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

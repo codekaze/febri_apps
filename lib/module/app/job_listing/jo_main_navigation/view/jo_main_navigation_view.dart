@@ -2,7 +2,6 @@ import 'package:flutterx/module/app/job_listing/jo_dashboard/view/jo_dashboard_v
 import 'package:flutterx/module/chat_list/view/chat_list_view.dart';
 import 'package:flutterx/module/favourite/view/favourite_view.dart';
 import 'package:flutterx/module/user_profile/profile/view/profile_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import '../controller/jo_main_navigation_controller.dart';
 

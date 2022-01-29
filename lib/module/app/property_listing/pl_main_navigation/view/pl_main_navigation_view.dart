@@ -1,12 +1,8 @@
 import 'package:flutterx/core.dart';
 import 'package:flutterx/module/app/property_listing/pl_dashboard/view/pl_dashboard_view.dart';
 import 'package:flutterx/module/chat_list/view/chat_list_view.dart';
-import 'package:flutterx/module/user_profile/profile/view/profile_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import '../controller/pl_main_navigation_controller.dart';
-
-import 'package:get/get.dart';
 
 class PlMainNavigationView extends StatelessWidget {
   @override

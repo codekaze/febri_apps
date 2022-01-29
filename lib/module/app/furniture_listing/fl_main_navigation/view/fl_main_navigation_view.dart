@@ -2,7 +2,6 @@ import 'package:flutterx/module/app/furniture_listing/fl_dashboard/view/fl_dashb
 import 'package:flutterx/module/chat_list/view/chat_list_view.dart';
 import 'package:flutterx/module/favourite/view/favourite_view.dart';
 import 'package:flutterx/module/user_profile/profile/view/profile_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import '../controller/fl_main_navigation_controller.dart';
 
