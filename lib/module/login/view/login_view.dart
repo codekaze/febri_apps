@@ -43,9 +43,7 @@ class LoginView extends StatelessWidget {
                         ),
                         ExButton(
                           label: "Login",
-                          onPressed: () {
-                            Get.offAll(AppSession.homePage);
-                          },
+                          onPressed: () => controller.emailLogin(),
                         ),
                         SizedBox(
                           height: 10.0,
@@ -53,34 +51,43 @@ class LoginView extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.red[100],
-                              child: Image.network(
-                                "https://i.ibb.co/MczfRb3/720255.png",
-                                width: 26.0,
-                                height: 26.0,
+                            InkWell(
+                              onTap: () => controller.googleLogin(),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.red[100],
+                                child: Image.network(
+                                  "https://i.ibb.co/MczfRb3/720255.png",
+                                  width: 26.0,
+                                  height: 26.0,
+                                ),
                               ),
                             ),
                             SizedBox(
                               width: 10.0,
                             ),
-                            CircleAvatar(
-                              backgroundColor: Colors.blue[100],
-                              child: Image.network(
-                                "https://i.ibb.co/Qk3b5Sb/3670032.png",
-                                width: 26.0,
-                                height: 26.0,
+                            InkWell(
+                              onTap: () => controller.facebookLogin(),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.blue[100],
+                                child: Image.network(
+                                  "https://i.ibb.co/Qk3b5Sb/3670032.png",
+                                  width: 26.0,
+                                  height: 26.0,
+                                ),
                               ),
                             ),
                             SizedBox(
                               width: 10.0,
                             ),
-                            CircleAvatar(
-                              backgroundColor: Colors.grey[300],
-                              child: Image.network(
-                                "https://i.ibb.co/1rBhN3t/1768630.png",
-                                width: 26.0,
-                                height: 26.0,
+                            InkWell(
+                              onTap: () => controller.anonymousLogin(),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.grey[300],
+                                child: Image.network(
+                                  "https://i.ibb.co/1rBhN3t/1768630.png",
+                                  width: 26.0,
+                                  height: 26.0,
+                                ),
                               ),
                             ),
                           ],
