@@ -39,7 +39,6 @@ export 'package:flutterx/module/user_profile/term_and_condition/controller/term_
 export 'package:flutterx/module/user_profile/term_and_condition/view/term_and_condition_view.dart';
 export 'package:flutterx/responsive.dart';
 export 'package:flutterx/shared/abstract/input_control/input_control.dart';
-export 'package:flutterx/shared/util/firebase/firebase.dart';
 export 'package:flutterx/shared/util/firebase/firestore.dart';
 export 'package:flutterx/shared/util/focus_helper/focus_helper.dart';
 export 'package:flutterx/shared/util/input/input.dart';

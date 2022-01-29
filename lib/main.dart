@@ -7,16 +7,9 @@ import 'package:universal_io/io.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await firebase.initialize(
-    apiKey: "AIzaSyAjaGYDdHvb0_vsG3JRS6ZVUegaicjn5Uo",
-    projectId: "freeproject-c8687",
-  );
-  await firebase.signInAnonymously();
-
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: defaultTheme,
-    // home: MainNavigationView(),
     home: DeveloperDashboardView(),
   ));
 
