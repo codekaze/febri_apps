@@ -67,7 +67,9 @@ class ExButton extends StatelessWidget {
                   if (icon != null)
                     Icon(
                       icon,
-                      color: Colors.white,
+                      color: color == disabledColor
+                          ? disabledTextColor
+                          : Colors.white,
                       size: 28,
                     ),
                   if (icon != null && label.isNotEmpty)
