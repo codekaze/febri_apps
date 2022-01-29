@@ -92,20 +92,21 @@ class LoginView extends StatelessWidget {
                                   SizedBox(
                                     width: 10.0,
                                   ),
-                                  InkWell(
-                                    onTap: () => controller.facebookLogin(),
-                                    child: CircleAvatar(
-                                      backgroundColor: Colors.blue[100],
-                                      child: Image.network(
-                                        "https://i.ibb.co/Qk3b5Sb/3670032.png",
-                                        width: 26.0,
-                                        height: 26.0,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 10.0,
-                                  ),
+                                  //// ? Coming Soon
+                                  // InkWell(
+                                  //   onTap: () => controller.facebookLogin(),
+                                  //   child: CircleAvatar(
+                                  //     backgroundColor: Colors.blue[100],
+                                  //     child: Image.network(
+                                  //       "https://i.ibb.co/Qk3b5Sb/3670032.png",
+                                  //       width: 26.0,
+                                  //       height: 26.0,
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                  // SizedBox(
+                                  //   width: 10.0,
+                                  // ),
                                   InkWell(
                                     onTap: () => controller.anonymousLogin(),
                                     child: CircleAvatar(
