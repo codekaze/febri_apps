@@ -10,3 +10,5 @@ var successColor = Colors.green[300];
 var infoColor = Colors.blue[300];
 var warningColor = Colors.orange[300];
 var disabledColor = Colors.grey[300];
+
+var disabledTextColor = Colors.grey[800];

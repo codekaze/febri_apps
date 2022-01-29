@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
-
 class ExButton extends StatelessWidget {
   final String label;
   final Function onPressed;
@@ -81,7 +80,9 @@ class ExButton extends StatelessWidget {
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: color == disabledColor
+                            ? disabledTextColor
+                            : Colors.white,
                         fontSize: fontSize,
                       ),
                     ),

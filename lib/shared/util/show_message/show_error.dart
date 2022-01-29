@@ -1,6 +1,8 @@
 import '../../../core.dart';
 import 'package:flutter/material.dart';
 
+var _alertMargin = EdgeInsets.all(12.0);
+
 showSuccess(
   String? title,
   String? message,
@@ -10,6 +12,7 @@ showSuccess(
     "${message ?? ""}",
     backgroundColor: successColor,
     colorText: Colors.white,
+    margin: _alertMargin,
   );
 }
 
@@ -22,6 +25,7 @@ showError(
     "${message ?? ""}",
     backgroundColor: dangerColor,
     colorText: Colors.white,
+    margin: _alertMargin,
   );
 }
 
@@ -34,6 +38,7 @@ showInfo(
     "${message ?? ""}",
     backgroundColor: infoColor,
     colorText: Colors.white,
+    margin: _alertMargin,
   );
 }
 
@@ -46,6 +51,7 @@ showWarning(
     "${message ?? ""}",
     backgroundColor: warningColor,
     colorText: Colors.white,
+    margin: _alertMargin,
   );
 }
 
@@ -57,6 +63,7 @@ showNeutral(
     "${title ?? ""}",
     "${message ?? ""}",
     backgroundColor: disabledColor,
-    colorText: Colors.grey[800],
+    colorText: disabledTextColor,
+    margin: _alertMargin,
   );
 }
