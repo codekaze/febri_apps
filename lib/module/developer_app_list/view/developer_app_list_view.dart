@@ -59,12 +59,131 @@ class DeveloperAppListView extends StatelessWidget {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: 16.0,
+                  ),
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Wrap(
+                      spacing: 4.0,
+                      runSpacing: 10.0,
+                      alignment: WrapAlignment.center,
+                      children: [
+                        Container(
+                          width: Get.width,
+                          child: Text(
+                            "Listing App",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        AppCard(
+                          appName: "Car Listing\nApp",
+                          color: Colors.red[400]!,
+                          iconUrl: "https://i.ibb.co/BjYYH2C/550907.png",
+                        ),
+                        AppCard(
+                          appName: "Property Listing\nApp",
+                          color: Colors.blue[400]!,
+                          iconUrl: "https://i.ibb.co/vqTp4qY/609803.png",
+                        ),
+                        AppCard(
+                          appName: "Furniture Listing\nApp",
+                          color: Colors.orange[300]!,
+                          iconUrl: "https://i.ibb.co/3Ng19Vp/2603741.png",
+                        ),
+                        AppCard(
+                          appName: "Cat Adoption\nApp",
+                          color: Colors.green[300]!,
+                          iconUrl: "https://i.ibb.co/KKzKbkQ/3372417.png",
+                        ),
+                        Container(
+                          width: Get.width,
+                          child: Text(
+                            "Cashier App",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        AppCard(
+                          appName: "Grocery POS",
+                          color: Colors.grey[400]!,
+                          iconUrl: "https://i.ibb.co/NKcZNVN/5110278.png",
+                        ),
+                        AppCard(
+                          appName: "Restaurant POS",
+                          color: Colors.grey[400]!,
+                          iconUrl: "https://i.ibb.co/NKcZNVN/5110278.png",
+                        ),
+                        AppCard(
+                          appName: "Pharmacy POS",
+                          color: Colors.grey[400]!,
+                          iconUrl: "https://i.ibb.co/NKcZNVN/5110278.png",
+                        ),
+                        AppCard(
+                          appName: "XXX POS",
+                          color: Colors.grey[400]!,
+                          iconUrl: "https://i.ibb.co/NKcZNVN/5110278.png",
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
         );
       },
+    );
+  }
+}
+
+class AppCard extends StatelessWidget {
+  final String appName;
+  final Color color;
+  final iconUrl;
+
+  AppCard({
+    required this.appName,
+    required this.color,
+    required this.iconUrl,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: color,
+      child: Container(
+        height: 140.0,
+        width: Get.width / 2.6,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.network(
+              iconUrl,
+              width: 30.0,
+              height: 30.0,
+            ),
+            SizedBox(
+              height: 6.0,
+            ),
+            Text(
+              "$appName",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 14.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
