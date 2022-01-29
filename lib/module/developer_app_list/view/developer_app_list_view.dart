@@ -91,7 +91,6 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Danu",
                           onTap: () {
                             AppSession.homePage = ClMainNavigationView();
-                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),
@@ -102,7 +101,6 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Angga",
                           onTap: () {
                             AppSession.homePage = PlMainNavigationView();
-                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),
@@ -113,7 +111,6 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Akbar",
                           onTap: () {
                             AppSession.homePage = FlMainNavigationView();
-                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),
@@ -124,7 +121,6 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Ica",
                           onTap: () {
                             AppSession.homePage = PaMainNavigationView();
-                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),
@@ -135,7 +131,6 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Deny",
                           onTap: () {
                             AppSession.homePage = JoMainNavigationView();
-                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),

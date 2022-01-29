@@ -151,7 +151,9 @@ class ProfileView extends StatelessWidget {
                   ExButton(
                     label: "Logout",
                     color: dangerColor,
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(LoginView());
+                    },
                   ),
                 ],
               ),
