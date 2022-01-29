@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/vendor/vendor_product_list/view/vendor_product_list_view.dart';
 
 class ProfileView extends StatelessWidget {
   @override
@@ -104,6 +105,20 @@ class ProfileView extends StatelessWidget {
                         ProfileRowItem(
                           label: "Settings",
                           leading: Icon(Icons.settings),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12.0,
+                  ),
+                  Card(
+                    child: Column(
+                      children: [
+                        ProfileRowItem(
+                          label: "Your Product",
+                          leading: Icon(Icons.category),
+                          onTap: () => Get.to(VendorProductListView()),
                         ),
                       ],
                     ),

@@ -20,6 +20,7 @@
         "user_profile/privacy_policy",
         "user_profile/term_and_condition",
         "developer/developer_main_navigation",
-        "developer/developer_dashboard"
+        "developer/developer_dashboard",
+        "vendor/vendor_product_list"
     ]
 }
