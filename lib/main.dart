@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/module/developer_app_list/view/developer_app_list_view.dart';
@@ -8,7 +9,7 @@ import 'package:universal_io/io.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await ExFirebaseCore.wait();
+  await ExFirebaseCore.initialize();
 
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
