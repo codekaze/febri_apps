@@ -14,6 +14,7 @@ class ExTextField extends StatefulWidget {
   final String? value;
   final String hintText;
   final TextFieldType textFieldType;
+  final TextInputType? keyboardType;
   final int? maxLines;
   final bool? enabled;
 
@@ -26,6 +27,7 @@ class ExTextField extends StatefulWidget {
     this.value = "",
     this.hintText = "",
     this.textFieldType = TextFieldType.normal,
+    this.keyboardType,
     this.onChanged,
     this.onSubmitted,
     this.maxLines = 1,
@@ -96,6 +98,7 @@ class _ExTextFieldState extends State<ExTextField>
               maxLines: widget.textFieldType == TextFieldType.password
                   ? 1
                   : widget.maxLines,
+              keyboardType: widget.keyboardType,
               obscureText:
                   widget.textFieldType == TextFieldType.password ? true : false,
               readOnly: widget.enabled! ? false : true,
