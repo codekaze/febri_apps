@@ -7,6 +7,7 @@ import 'package:flutterx/module/app/job_listing/jo_main_navigation/view/jo_main_
 import 'package:flutterx/module/app/pet_adoption/pa_main_navigation/view/pa_main_navigation_view.dart';
 import 'package:flutterx/module/app/property_listing/pl_main_navigation/view/pl_main_navigation_view.dart';
 import 'package:flutterx/module/developer_app_list/controller/developer_app_list_controller.dart';
+import 'package:flutterx/shared/util/theme/theme.dart';
 
 class DeveloperAppListView extends StatelessWidget {
   @override
@@ -90,6 +91,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Danu",
                           onTap: () {
                             AppSession.homePage = ClMainNavigationView();
+                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),
@@ -100,6 +102,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Angga",
                           onTap: () {
                             AppSession.homePage = PlMainNavigationView();
+                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),
@@ -110,6 +113,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Akbar",
                           onTap: () {
                             AppSession.homePage = FlMainNavigationView();
+                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),
@@ -120,6 +124,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Ica",
                           onTap: () {
                             AppSession.homePage = PaMainNavigationView();
+                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),
@@ -130,6 +135,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Deny",
                           onTap: () {
                             AppSession.homePage = JoMainNavigationView();
+                            AppSession.appTheme = defaultTheme;
                             Get.to(LoginView());
                           },
                         ),

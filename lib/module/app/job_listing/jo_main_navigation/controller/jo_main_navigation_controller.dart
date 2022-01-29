@@ -3,6 +3,7 @@ import '../view/jo_main_navigation_view.dart';
 
 class JoMainNavigationController extends GetxController {
   JoMainNavigationView? view;
+  int selectedIndex = 0;
 
   @override
   void onInit() {

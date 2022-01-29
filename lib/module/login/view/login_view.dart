@@ -12,6 +12,7 @@ class LoginView extends StatelessWidget {
     return GetBuilder<LoginController>(
       builder: (_) {
         return Scaffold(
+          backgroundColor: primaryColor,
           body: Container(
             padding: EdgeInsets.all(20.0),
             child: Column(

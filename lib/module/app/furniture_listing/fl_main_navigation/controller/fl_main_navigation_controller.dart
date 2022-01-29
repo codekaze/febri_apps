@@ -3,6 +3,7 @@ import '../view/fl_main_navigation_view.dart';
 
 class FlMainNavigationController extends GetxController {
   FlMainNavigationView? view;
+  int selectedIndex = 0;
 
   @override
   void onInit() {
