@@ -39,12 +39,12 @@ class PaMainNavigationView extends StatelessWidget {
                   label: "Dashboard",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.list),
-                  label: "Progress",
+                  icon: Icon(Icons.chat),
+                  label: "Chat",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.favorite),
-                  label: "Bookmark",
+                  label: "Favorite",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.person),

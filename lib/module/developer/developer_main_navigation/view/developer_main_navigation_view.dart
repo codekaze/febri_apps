@@ -40,7 +40,7 @@ class DeveloperMainNavigationView extends StatelessWidget {
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.favorite),
-                  label: "Bookmark",
+                  label: "Favorite",
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.person),
