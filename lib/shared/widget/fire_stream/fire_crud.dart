@@ -53,7 +53,12 @@ class FireCrud extends StatelessWidget {
         actions: [
           ...actions,
           InkWell(
-            onTap: () {},
+            onTap: () {
+              showInfoDialog(
+                "Test",
+                "TestTest",
+              );
+            },
             child: Padding(
               padding: const EdgeInsets.only(
                 top: 8.0,
