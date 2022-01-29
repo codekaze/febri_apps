@@ -61,11 +61,32 @@ class FireCrud extends StatelessWidget {
                     title: "Add $title Form",
                     onSave: () async {
                       Map<String, dynamic> values = {};
+                      Map<String, dynamic> labels = {};
+
                       for (var i = 0; i < formFields.length; i++) {
                         var id = formFields[i].id;
+                        var label = formFields[i].label;
+
                         if (id == null) continue;
                         values[id] = Input.get(id);
+                        labels[id] = label;
                       }
+
+                      for (var key in values.keys) {
+                        var label = labels[key];
+                        if (values[key] == null) {
+                          showWarning("Error", "$label is Required");
+                          return;
+                        }
+
+                        if (values[key] is String) {
+                          if (values[key] == "") {
+                            showWarning("Error", "$label is Required");
+                            return;
+                          }
+                        }
+                      }
+
                       await service.add(values);
                       Get.back();
                     },
