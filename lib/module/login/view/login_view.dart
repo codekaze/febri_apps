@@ -1,6 +1,7 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/data/session/app_session.dart';
+import 'package:flutterx/module/developer_app_list/view/developer_app_list_view.dart';
 
 class LoginView extends StatelessWidget {
   final controller = Get.put(LoginController());
@@ -19,6 +20,27 @@ class LoginView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                InkWell(
+                  onTap: () {
+                    Get.deleteAll();
+                    Get.offAll(DeveloperAppListView());
+                  },
+                  child: Card(
+                    color: Colors.orange[200],
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Back to Application Selector",
+                        style: TextStyle(
+                          color: Colors.grey[900],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
                 Card(
                   child: Container(
                     padding: EdgeInsets.all(10.0),

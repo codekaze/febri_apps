@@ -91,7 +91,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Danu",
                           onTap: () {
                             AppSession.homePage = ClMainNavigationView();
-                            loginBackgroundColor = Colors.red[900];
+                            loginBackgroundColor = Colors.red[400];
                             appLogo = "https://i.ibb.co/BjYYH2C/550907.png";
                             Get.to(LoginView());
                           },
