@@ -32,6 +32,7 @@ class FavouriteView extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(20.0),
               child: ListView.builder(
+                controller: ScrollController(),
                 itemCount: controller.favouriteItems.length,
                 itemBuilder: (text, index) {
                   var item = controller.favouriteItems[index];

@@ -1,4 +1,5 @@
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/app/car_listing/cl_dashboard/view/cl_dashboard_view.dart';
 import 'package:flutterx/module/chat_list/view/chat_list_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class ClMainNavigationView extends StatelessWidget {
             body: IndexedStack(
               index: controller.selectedIndex,
               children: [
-                Container(),
+                ClDashboardView(),
                 ChatListView(),
                 FavouriteView(),
                 ProfileView(),

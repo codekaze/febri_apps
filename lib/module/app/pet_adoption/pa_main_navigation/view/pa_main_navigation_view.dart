@@ -1,4 +1,5 @@
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/app/pet_adoption/pa_dashboard/view/pa_dashboard_view.dart';
 import 'package:flutterx/module/chat_list/view/chat_list_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class PaMainNavigationView extends StatelessWidget {
             body: IndexedStack(
               index: controller.selectedIndex,
               children: [
-                Container(),
+                PaDashboardView(),
                 ChatListView(),
                 FavouriteView(),
                 ProfileView(),
