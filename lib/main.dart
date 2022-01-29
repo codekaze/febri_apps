@@ -8,7 +8,7 @@ import 'package:universal_io/io.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ExFirebaseCore.initialize();
-  await AppService().initialize();
+  // await AppService().initialize();
 
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
