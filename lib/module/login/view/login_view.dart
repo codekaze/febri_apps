@@ -57,11 +57,13 @@ class LoginView extends StatelessWidget {
                         ExTextField(
                           id: "email",
                           label: "Email",
+                          value: AppSession.demoMode ? "demo@codekaze.com" : "",
                         ),
                         ExTextField(
                           id: "password",
                           label: "Password",
                           textFieldType: TextFieldType.password,
+                          value: AppSession.demoMode ? "123456" : "",
                         ),
                         ExButton(
                           label: "Login",
