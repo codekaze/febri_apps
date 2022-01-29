@@ -1,3 +1,4 @@
+import 'package:flutterx/core.dart';
 import 'package:get/get.dart';
 import '../view/admin_login_view.dart';
 
@@ -17,5 +18,25 @@ class AdminLoginController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  emailLogin() async {
+    var email = Input.get("email");
+    var password = Input.get("password");
+
+    var auth = await AuthService().emailLogin(
+      email: email,
+      password: password,
+    );
+
+    if (auth != null) {}
+
+    handleAuth(auth);
+  }
+
+  handleAuth(auth) {
+    if (auth != null) {
+      Get.offAll(AppSession.homePage);
+    }
   }
 }
