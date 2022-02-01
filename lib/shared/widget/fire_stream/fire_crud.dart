@@ -1,9 +1,9 @@
 import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/shared/util/firebase/firecore.dart';
+import 'package:flutterx/shared/util/show_dialog/show_dialog.dart';
+import 'package:flutterx/shared/util/show_message/show_error.dart';
 
 class FireListItem {
   final String? title;
@@ -52,35 +52,35 @@ class FireCrud extends StatelessWidget {
         title: Text("$title"),
         actions: [
           ...actions,
-          InkWell(
-            onTap: () {
-              showInfoDialog(
-                "Test",
-                "TestTest",
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 8.0,
-                bottom: 8.0,
-                right: 8.0,
-                left: 8.0,
-              ),
-              child: Icon(Icons.tune),
-            ),
-          ),
-          InkWell(
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 8.0,
-                bottom: 8.0,
-                right: 8.0,
-                left: 8.0,
-              ),
-              child: Icon(Icons.search),
-            ),
-          ),
+          // InkWell(
+          //   onTap: () {
+          //     showInfoDialog(
+          //       "Test",
+          //       "TestTest",
+          //     );
+          //   },
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(
+          //       top: 8.0,
+          //       bottom: 8.0,
+          //       right: 8.0,
+          //       left: 8.0,
+          //     ),
+          //     child: Icon(Icons.tune),
+          //   ),
+          // ),
+          // InkWell(
+          //   onTap: () {},
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(
+          //       top: 8.0,
+          //       bottom: 8.0,
+          //       right: 8.0,
+          //       left: 8.0,
+          //     ),
+          //     child: Icon(Icons.search),
+          //   ),
+          // ),
           SizedBox(
             width: 4.0,
           ),
@@ -182,7 +182,7 @@ class FireCrud extends StatelessWidget {
                         }
                       }
 
-                      await service.add(values);
+                      await service.update(selectedItem!["id"], values);
                       Get.back();
                     },
                     children: List<Widget>.from(formFields),
@@ -195,7 +195,7 @@ class FireCrud extends StatelessWidget {
                   var id = editFormFields[i].id;
                   log("id: $id");
                   // log("${Input.inputController[id]}");
-                  Input.inputController["product_name"]!.setValue("OK");
+                  Input.inputController[id]!.setValue(selectedItem![id]);
                 }
               },
               child: FireItem(
