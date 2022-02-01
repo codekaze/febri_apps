@@ -147,40 +147,56 @@ class FireCrud extends StatelessWidget {
             }
 
             return InkWell(
-              onTap: () {
+              onTap: () async {
                 if (!enableEdit) return;
-                Get.snackbar(
-                  "Under Maintenance",
-                  "Edit Feature is Under Maintenance",
-                  backgroundColor: Colors.red[100],
-                  colorText: Colors.red[500],
+
+                Map? selectedItem = await service.getDoc(item["id"]);
+                Get.to(
+                  FireForm(
+                    title: "Edit $title Form",
+                    onSave: () async {
+                      Map<String, dynamic> values = {};
+                      Map<String, dynamic> labels = {};
+
+                      for (var i = 0; i < formFields.length; i++) {
+                        var id = formFields[i].id;
+                        var label = formFields[i].label;
+
+                        if (id == null) continue;
+                        values[id] = Input.get(id);
+                        labels[id] = label;
+                      }
+
+                      for (var key in values.keys) {
+                        var label = labels[key];
+                        if (values[key] == null) {
+                          showWarning("Error", "$label is Required");
+                          return;
+                        }
+
+                        if (values[key] is String) {
+                          if (values[key] == "") {
+                            showWarning("Error", "$label is Required");
+                            return;
+                          }
+                        }
+                      }
+
+                      await service.add(values);
+                      Get.back();
+                    },
+                    children: List<Widget>.from(formFields),
+                  ),
                 );
-                return;
+
+                await Future.delayed(Duration(milliseconds: 500));
                 var editFormFields = List.from(formFields);
                 for (var i = 0; i < editFormFields.length; i++) {
                   var id = editFormFields[i].id;
                   log("id: $id");
                   // log("${Input.inputController[id]}");
-                  Input.inputController[id]?.setValue("value");
+                  Input.inputController["product_name"]!.setValue("OK");
                 }
-
-                Get.to(
-                  FireForm(
-                    // title: "Update $title Form",
-                    title: "(UNDER MAINTENANCE)",
-                    onSave: () async {
-                      Map<String, dynamic> values = {};
-                      for (var i = 0; i < formFields.length; i++) {
-                        var id = formFields[i].id;
-                        if (id == null) continue;
-                        values[id] = Input.get(id);
-                      }
-                      await service.add(values);
-                      Get.back();
-                    },
-                    children: List<Widget>.from(editFormFields),
-                  ),
-                );
               },
               child: FireItem(
                 service: service,

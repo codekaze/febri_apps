@@ -10,6 +10,15 @@ class FireCore {
     return ref.limit(5).orderBy("created_at").snapshots();
   }
 
+  Future<Map?> getDoc(String id) async {
+    var s = await ref.doc(id).get();
+    var d = s.data();
+    if (d == null) return Future.value(null);
+    Map item = (d as Map);
+    d["id"] = id;
+    return (item);
+  }
+
   Future add(Map<String, dynamic> value) async {
     value["created_at"] = Timestamp.now();
     value["updated_at"] = Timestamp.now();

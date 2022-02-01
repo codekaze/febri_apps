@@ -2,6 +2,10 @@ export 'package:flutterx/core.dart';
 export 'package:flutterx/data/session/app_session.dart';
 export 'package:flutterx/data/session/cz_session.dart';
 export 'package:flutterx/main.dart';
+export 'package:flutterx/module/admin/admin_dashboard/controller/admin_dashboard_controller.dart';
+export 'package:flutterx/module/admin/admin_dashboard/view/admin_dashboard_view.dart';
+export 'package:flutterx/module/admin/admin_main_navigation/controller/admin_main_navigation_controller.dart';
+export 'package:flutterx/module/admin/admin_main_navigation/view/admin_main_navigation_view.dart';
 export 'package:flutterx/module/app/car_listing/cl_dashboard/controller/cl_dashboard_controller.dart';
 export 'package:flutterx/module/app/car_listing/cl_dashboard/view/cl_dashboard_view.dart';
 export 'package:flutterx/module/app/car_listing/cl_main_navigation/controller/cl_main_navigation_controller.dart';
@@ -78,6 +82,7 @@ export 'package:flutterx/module/user_profile/term_and_condition/view/term_and_co
 export 'package:flutterx/module/vendor/vendor_product_list/controller/vendor_product_list_controller.dart';
 export 'package:flutterx/module/vendor/vendor_product_list/view/vendor_product_list_view.dart';
 export 'package:flutterx/responsive.dart';
+export 'package:flutterx/service/app_service/app_service.dart';
 export 'package:flutterx/service/auth_service/auth_service.dart';
 export 'package:flutterx/service/product_service/product_service.dart';
 export 'package:flutterx/shared/abstract/input_control/input_control.dart';

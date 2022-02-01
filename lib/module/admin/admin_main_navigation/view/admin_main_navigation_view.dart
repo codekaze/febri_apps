@@ -1,5 +1,4 @@
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/admin/admin_dashboard/view/admin_dashboard_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import '../controller/admin_main_navigation_controller.dart';

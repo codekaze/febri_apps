@@ -1,8 +1,6 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:flutterx/service/app_service/app_service.dart';
 import 'package:universal_io/io.dart';
 
 void main() async {
