@@ -14,73 +14,81 @@ class AdminLoginView extends StatelessWidget {
           body: SafeArea(
             child: Stack(
               children: [
-                Container(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                Align(
+                  alignment: Alignment.center,
+                  child: Wrap(
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Get.deleteAll();
-                          Get.offAll(DeveloperAppListView());
-                        },
-                        child: Card(
-                          color: Colors.orange[200],
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "Back to Application Selector",
-                              style: TextStyle(
-                                color: Colors.grey[900],
+                      Container(
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Get.deleteAll();
+                                Get.offAll(DeveloperAppListView());
+                              },
+                              child: Card(
+                                color: Colors.orange[200],
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Back to Application Selector",
+                                    style: TextStyle(
+                                      color: Colors.grey[900],
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Card(
+                              child: Container(
+                                padding: EdgeInsets.all(10.0),
+                                child: Column(
+                                  children: [
+                                    Image.network(
+                                      appLogo,
+                                      width: 80.0,
+                                      height: 80.0,
+                                    ),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                    ExTextField(
+                                      id: "email",
+                                      label: "Email",
+                                      value: AppSession.demoMode
+                                          ? "admin@codekaze.com"
+                                          : "",
+                                    ),
+                                    ExTextField(
+                                      id: "password",
+                                      label: "Password",
+                                      textFieldType: TextFieldType.password,
+                                      value:
+                                          AppSession.demoMode ? "123456" : "",
+                                    ),
+                                    ExButton(
+                                      label: "Login",
+                                      color: warningColor,
+                                      onPressed: () => controller.emailLogin(),
+                                    ),
+                                    SizedBox(
+                                      height: 10.0,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Card(
-                        child: Container(
-                          padding: EdgeInsets.all(10.0),
-                          child: Column(
-                            children: [
-                              Image.network(
-                                appLogo,
-                                width: 80.0,
-                                height: 80.0,
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              ExTextField(
-                                id: "email",
-                                label: "Email",
-                                value: AppSession.demoMode
-                                    ? "admin@codekaze.com"
-                                    : "",
-                              ),
-                              ExTextField(
-                                id: "password",
-                                label: "Password",
-                                textFieldType: TextFieldType.password,
-                                value: AppSession.demoMode ? "123456" : "",
-                              ),
-                              ExButton(
-                                label: "Login",
-                                color: warningColor,
-                                onPressed: () => controller.emailLogin(),
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10.0,
                       ),
                     ],
                   ),

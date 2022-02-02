@@ -17,76 +17,77 @@ class RegisterView extends StatelessWidget {
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Card(
-                    child: Container(
-                      padding: EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          Image.network(
-                            appLogo,
-                            width: 80.0,
-                            height: 80.0,
-                          ),
-                          SizedBox(
-                            height: 12.0,
-                          ),
-                          Text(
-                            "Register",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+              child: Align(
+                alignment: Alignment.center,
+                child: Wrap(
+                  children: [
+                    Card(
+                      child: Container(
+                        padding: EdgeInsets.all(10.0),
+                        child: Column(
+                          children: [
+                            Image.network(
+                              appLogo,
+                              width: 80.0,
+                              height: 80.0,
                             ),
-                          ),
-                          SizedBox(
-                            height: 12.0,
-                          ),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          ExTextField(
-                            id: "email",
-                            label: "Email",
-                          ),
-                          ExTextField(
-                            id: "password",
-                            label: "Password",
-                            textFieldType: TextFieldType.password,
-                          ),
-                          ExTextField(
-                            id: "confirm_password",
-                            label: "Confirm Password",
-                            textFieldType: TextFieldType.password,
-                          ),
-                          ExButton(
-                            label: "Register",
-                            onPressed: () => controller.register(),
-                          ),
-                          SizedBox(
-                            height: 6.0,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.back();
-                            },
-                            child: Text(
-                              "Cancel",
+                            SizedBox(
+                              height: 12.0,
+                            ),
+                            Text(
+                              "Register",
                               style: TextStyle(
                                 fontSize: 16,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 6.0,
-                          ),
-                        ],
+                            SizedBox(
+                              height: 12.0,
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            ExTextField(
+                              id: "email",
+                              label: "Email",
+                            ),
+                            ExTextField(
+                              id: "password",
+                              label: "Password",
+                              textFieldType: TextFieldType.password,
+                            ),
+                            ExTextField(
+                              id: "confirm_password",
+                              label: "Confirm Password",
+                              textFieldType: TextFieldType.password,
+                            ),
+                            ExButton(
+                              label: "Register",
+                              onPressed: () => controller.register(),
+                            ),
+                            SizedBox(
+                              height: 6.0,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Get.back();
+                              },
+                              child: Text(
+                                "Cancel",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 6.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
