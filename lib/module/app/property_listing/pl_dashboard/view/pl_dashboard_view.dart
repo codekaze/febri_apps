@@ -40,6 +40,40 @@ class PlDashboardView extends StatelessWidget {
                     Image.network(
                       "https://i.ibb.co/tzbcwFh/Screenshot-5.png",
                     ),
+                    // Resourceses
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60",
+                          ),
+                        ),
+                        Icon(
+                          Icons.place,
+                          color: Colors.red,
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Image.network(
+                          "https://cdn-icons.flaticon.com/png/128/2985/premium/2985052.png?token=exp=1643788510~hmac=e8401ba48a7965799eefa0a21a8d9a24",
+                          width: 20.0,
+                          height: 20.0,
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Image.network(
+                          "https://cdn-icons.flaticon.com/png/128/3115/premium/3115517.png?token=exp=1643788545~hmac=f311bc127222b2d44aab7d157f882d92",
+                          width: 20.0,
+                          height: 20.0,
+                        ),
+                      ],
+                    ),
+
+                    //----- buat disini --- //
+
+                    //----- End of Buat Dsini--- //
                     Container(
                       padding: EdgeInsets.all(12),
                       child: Row(
