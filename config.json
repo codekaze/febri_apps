@@ -23,7 +23,7 @@
         "developer/developer_dashboard",
         "vendor/vendor_product_list",
         "auth/admin_login",
-        "admin/admin_main_navigation",
-        "admin/admin_dashboard"
+        "auth/register",
+        "auth/forgot_password"
     ]
 }

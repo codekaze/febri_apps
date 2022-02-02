@@ -1,5 +1,7 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterx/module/auth/forgot_password/view/forgot_password_view.dart';
+import 'package:flutterx/module/auth/register/view/register_view.dart';
 
 class LoginView extends StatelessWidget {
   final controller = Get.put(LoginController());
@@ -131,19 +133,25 @@ class LoginView extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Row(
                           children: [
-                            Text(
-                              "Register",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
+                            InkWell(
+                              onTap: () => Get.to(RegisterView()),
+                              child: Text(
+                                "Register",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                             Spacer(),
-                            Text(
-                              "Forgot Password?",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
+                            InkWell(
+                              onTap: () => Get.to(ForgotPasswordView()),
+                              child: Text(
+                                "Forgot Password?",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ],
