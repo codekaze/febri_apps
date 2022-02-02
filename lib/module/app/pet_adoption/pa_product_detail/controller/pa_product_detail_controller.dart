@@ -3,6 +3,7 @@ import '../view/pa_product_detail_view.dart';
 
 class PaProductDetailController extends GetxController {
   PaProductDetailView? view;
+  bool isFavorite = false;
 
   @override
   void onInit() {
