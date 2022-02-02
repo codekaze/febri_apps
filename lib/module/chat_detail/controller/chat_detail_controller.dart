@@ -1,7 +1,8 @@
-import 'package:flutterx/core.dart';
+import 'package:get/get.dart';
+import '../view/chat_detail_view.dart';
 
-class FavouriteController extends GetxController {
-  FavouriteView? view;
+class ChatDetailController extends GetxController {
+  ChatDetailView? view;
 
   @override
   void onInit() {

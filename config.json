@@ -24,6 +24,7 @@
         "vendor/vendor_product_list",
         "auth/admin_login",
         "auth/register",
-        "auth/forgot_password"
+        "auth/forgot_password",
+        "chat_detail"
     ]
 }
