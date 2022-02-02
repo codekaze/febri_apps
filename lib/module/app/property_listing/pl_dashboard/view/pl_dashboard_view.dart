@@ -33,7 +33,7 @@ class PlDashboardView extends StatelessWidget {
                     2. tambahkan ke Row ke dalam Container
                     3. isi children dari Row, isinya : Column(), CircleAvatar()
                     4. isi children dari Column(), isinya: Text("Hello!") dan Text("James Barley")
-                    5. isi gambar dari CircleAvatar:  backgroundImage: NetworkImage("https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60")
+5. isi gambar dari CircleAvatar:  backgroundImage: NetworkImage("https://i.ibb.co/dGJmMdx/photo-1523898052899-241108586cf8-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg")
                     6. tambahkan spacer diantara Column dan CircleAvatar()
                     7. Sesuaikan fontSize, fontWeight agar sesuai
                     */
@@ -45,7 +45,7 @@ class PlDashboardView extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           backgroundImage: NetworkImage(
-                            "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60",
+                            "https://i.ibb.co/dGJmMdx/photo-1523898052899-241108586cf8-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
                           ),
                         ),
                         Icon(
@@ -56,7 +56,7 @@ class PlDashboardView extends StatelessWidget {
                           width: 10.0,
                         ),
                         Image.network(
-                          "https://cdn-icons.flaticon.com/png/128/2985/premium/2985052.png?token=exp=1643788510~hmac=e8401ba48a7965799eefa0a21a8d9a24",
+                          "https://i.ibb.co/B6CKcsv/2985052.png",
                           width: 20.0,
                           height: 20.0,
                         ),
@@ -64,7 +64,7 @@ class PlDashboardView extends StatelessWidget {
                           width: 10.0,
                         ),
                         Image.network(
-                          "https://cdn-icons.flaticon.com/png/128/3115/premium/3115517.png?token=exp=1643788545~hmac=f311bc127222b2d44aab7d157f882d92",
+                          "https://i.ibb.co/SRbYTpk/2076218.png",
                           width: 20.0,
                           height: 20.0,
                         ),
@@ -98,7 +98,7 @@ class PlDashboardView extends StatelessWidget {
                           CircleAvatar(
                               backgroundColor: Colors.green,
                               backgroundImage: NetworkImage(
-                                  "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60")),
+                                  "https://i.ibb.co/9HLHFMB/photo-1529156349890-84021ffa9107-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg")),
                         ],
                       ),
                     ),
@@ -178,7 +178,7 @@ class PlDashboardView extends StatelessWidget {
                         CircleAvatar(
                           backgroundColor: Colors.green[200],
                           backgroundImage: NetworkImage(
-                            "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                            "https://i.ibb.co/dGJmMdx/photo-1523898052899-241108586cf8-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
                           ),
                         ),
                         SizedBox(
@@ -236,7 +236,7 @@ class PlDashboardView extends StatelessWidget {
                               ),
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YmFnfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"),
+                                    "https://i.ibb.co/dGJmMdx/photo-1523898052899-241108586cf8-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg"),
                                 fit: BoxFit.cover,
                               ),
                             ),
