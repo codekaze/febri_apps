@@ -55,4 +55,19 @@ class AuthService {
   signOut() async {
     await FirebaseAuth.instance.signOut();
   }
+
+  Future<UserCredential?> registerWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var auth = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return auth;
+    } on Exception catch (_) {
+      return null;
+    }
+  }
 }

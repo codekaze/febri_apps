@@ -63,7 +63,7 @@ class RegisterView extends StatelessWidget {
                           ),
                           ExButton(
                             label: "Register",
-                            onPressed: () {},
+                            onPressed: () => controller.register(),
                           ),
                           SizedBox(
                             height: 6.0,
