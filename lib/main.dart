@@ -16,14 +16,12 @@ void main() async {
 
   //Run in Emulator Mode (Windows)
   if (Platform.isWindows) {
-    Future.delayed(Duration(seconds: 1), () {
-      doWhenWindowReady(() {
-        final initialSize = Size(380, 860);
-        appWindow.alignment = Alignment.topRight;
-        appWindow.minSize = initialSize;
-        appWindow.size = initialSize;
-        appWindow.show();
-      });
+    doWhenWindowReady(() {
+      final initialSize = Size(380, 860);
+      appWindow.alignment = Alignment.topRight;
+      appWindow.minSize = initialSize;
+      appWindow.size = initialSize;
+      appWindow.show();
     });
   }
 }

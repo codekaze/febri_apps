@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import '../controller/pl_dashboard_controller.dart';
 
-import 'package:get/get.dart';
+
+
 
 class PlDashboardView extends StatelessWidget {
   @override

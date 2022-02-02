@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 import '../controller/register_controller.dart';
 
-import 'package:get/get.dart';
+
 
 class RegisterView extends StatelessWidget {
   @override

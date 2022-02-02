@@ -1,8 +1,8 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import '../controller/jo_main_navigation_controller.dart';
 
-import 'package:get/get.dart';
+
+
 
 class JoMainNavigationView extends StatelessWidget {
   @override

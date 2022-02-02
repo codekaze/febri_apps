@@ -1,6 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:get/get.dart';
-import '../view/profile_view.dart';
+
+import 'package:flutterx/core.dart';
+
+
 
 class ProfileController extends GetxController {
   ProfileView? view;
@@ -21,16 +22,16 @@ class ProfileController extends GetxController {
   }
 
   String get photoUrl {
-    return FirebaseAuth.instance.currentUser?.photoURL ??
+    return currentUser?.photoURL ??
         "https://i.ibb.co/d2R0T6M/depositphotos-318221368-stock-illustration-missing-picture-page-for-website.jpg";
   }
 
   String get displayName {
-    if (FirebaseAuth.instance.currentUser?.email != null) return "-";
-    return FirebaseAuth.instance.currentUser?.displayName ?? "Guest";
+    if (currentUser?.email != null) return "-";
+    return currentUser?.displayName ?? "Guest";
   }
 
   String get email {
-    return FirebaseAuth.instance.currentUser?.email ?? "-";
+    return currentUser?.email ?? "-";
   }
 }

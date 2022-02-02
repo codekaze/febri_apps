@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
@@ -43,9 +43,9 @@ class PersonalDetailView extends StatelessWidget {
                       id: "email",
                       label: "Email",
                       enabled: false,
-                      value: FirebaseAuth.instance.currentUser!.email == null
+                      value: currentUser!.email == null
                           ? "Anonymous"
-                          : FirebaseAuth.instance.currentUser!.email,
+                          : currentUser!.email,
                     ),
                   ],
                 ),

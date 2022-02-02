@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutterx/shared/util/firebase/firedesktop.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
@@ -7,6 +10,8 @@ class AuthService {
     required String email,
     required String password,
   }) async {
+    if (Platform.isWindows) return await FireDesktop.signIn();
+
     var auth = await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: email,
       password: password,
@@ -15,11 +20,15 @@ class AuthService {
   }
 
   anonymousLogin() async {
+    if (Platform.isWindows) return await FireDesktop.signIn();
+
     var auth = await FirebaseAuth.instance.signInAnonymously();
     return auth;
   }
 
   googleLogin() async {
+    if (Platform.isWindows) return await FireDesktop.signIn();
+
     try {
       if (!await GoogleSignIn().isSignedIn()) {
         await GoogleSignIn().disconnect();
@@ -42,6 +51,8 @@ class AuthService {
   }
 
   facebookLogin() async {
+    if (Platform.isWindows) return await FireDesktop.signIn();
+
     final LoginResult loginResult = await FacebookAuth.instance.login();
 
     final OAuthCredential facebookAuthCredential =
@@ -60,6 +71,8 @@ class AuthService {
     required String email,
     required String password,
   }) async {
+    if (Platform.isWindows) return await FireDesktop.register();
+
     try {
       var auth = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,

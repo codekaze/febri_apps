@@ -1,5 +1,5 @@
 import 'package:flutterx/core.dart';
-import 'package:get/get.dart';
+
 
 class ChatListController extends GetxController {
   ChatListView? view;

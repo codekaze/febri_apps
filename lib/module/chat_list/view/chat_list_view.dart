@@ -1,8 +1,8 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/module/chat_detail/view/chat_detail_view.dart';
 
-import 'package:get/get.dart';
+
+
 
 class ChatListView extends StatelessWidget {
   @override

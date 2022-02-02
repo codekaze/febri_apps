@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import '../controller/vendor_product_list_controller.dart';
+
 
 class VendorProductListView extends StatelessWidget {
   @override

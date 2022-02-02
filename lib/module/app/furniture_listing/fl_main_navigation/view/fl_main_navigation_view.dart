@@ -1,8 +1,8 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import '../controller/fl_main_navigation_controller.dart';
 
-import 'package:get/get.dart';
+
+
 
 class FlMainNavigationView extends StatelessWidget {
   @override
