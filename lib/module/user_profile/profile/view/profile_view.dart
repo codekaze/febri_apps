@@ -23,6 +23,7 @@ class ProfileView extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(20.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Card(
                     child: Container(
@@ -95,14 +96,11 @@ class ProfileView extends StatelessWidget {
                         ProfileRowItem(
                           label: "My Favorites",
                           leading: Icon(Icons.favorite),
+                          onTap: () => Get.to(FavouriteView()),
                         ),
                         ProfileRowItem(
-                          label: "Shipping Address",
-                          leading: Icon(Icons.local_shipping),
-                        ),
-                        ProfileRowItem(
-                          label: "My Card",
-                          leading: Icon(Icons.credit_card),
+                          label: "My Address",
+                          leading: Icon(Icons.map),
                         ),
                         ProfileRowItem(
                           label: "Settings",
@@ -113,6 +111,15 @@ class ProfileView extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 12.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Vendor",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
                   ),
                   Card(
                     child: Column(

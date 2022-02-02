@@ -12,7 +12,7 @@ class PrivacyPolicyView extends StatelessWidget {
         controller.view = this;
 
         const author = "Codekaze";
-        const appName = "Enlive";
+        const appName = "ExampleApp";
 
         return Scaffold(
           appBar: AppBar(
@@ -27,8 +27,7 @@ class PrivacyPolicyView extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Html(
-                  data:
-                      """
+                  data: """
                   <!DOCTYPE html>
               <html>
               <head>

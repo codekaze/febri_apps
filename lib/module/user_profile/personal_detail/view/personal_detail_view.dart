@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
@@ -11,7 +12,7 @@ class PersonalDetailView extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("PersonalDetail"),
+            title: Text("Personal Detail"),
             actions: [
               ExButton(
                 label: "Save",
@@ -19,9 +20,9 @@ class PersonalDetailView extends StatelessWidget {
               ),
             ],
           ),
-          body: Container(
-            padding: EdgeInsets.all(20.0),
-            child: Card(
+          body: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.all(20.0),
               child: Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Column(
@@ -31,8 +32,20 @@ class PersonalDetailView extends StatelessWidget {
                       label: "Photo",
                     ),
                     ExTextField(
-                      id: "display_name",
-                      label: "Display Name",
+                      id: "full_name",
+                      label: "Full Name",
+                    ),
+                    ExTextField(
+                      id: "phone_number",
+                      label: "Phone Number",
+                    ),
+                    ExTextField(
+                      id: "email",
+                      label: "Email",
+                      enabled: false,
+                      value: FirebaseAuth.instance.currentUser!.email == null
+                          ? "Anonymous"
+                          : FirebaseAuth.instance.currentUser!.email,
                     ),
                   ],
                 ),
