@@ -4,3 +4,5 @@ class AppSession {
   static late Widget homePage;
   static late bool demoMode = true;
 }
+
+late String prefix;

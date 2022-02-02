@@ -83,18 +83,20 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Danu",
                           onTap: () {
                             AppSession.homePage = ClMainNavigationView();
+                            prefix = "cr_";
                             loginBackgroundColor = Colors.red[400];
                             appLogo = "https://i.ibb.co/BjYYH2C/550907.png";
                             Get.to(LoginView());
                           },
                         ),
                         AppCard(
-                          appName: "Listing\nApp",
+                          appName: "Property Listing\nApp",
                           color: Colors.blue[400]!,
                           iconUrl: "https://i.ibb.co/vqTp4qY/609803.png",
                           developer: "Angga",
                           onTap: () {
                             AppSession.homePage = PlMainNavigationView();
+                            prefix = "pr_";
                             loginBackgroundColor = Colors.blue[400];
                             appLogo = "https://i.ibb.co/vqTp4qY/609803.png";
                             Get.to(LoginView());
@@ -107,6 +109,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Akbar",
                           onTap: () {
                             AppSession.homePage = FlMainNavigationView();
+                            prefix = "fl_";
                             loginBackgroundColor = Colors.orange[300];
                             appLogo = "https://i.ibb.co/3Ng19Vp/2603741.png";
                             Get.to(LoginView());
@@ -119,6 +122,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Ica",
                           onTap: () {
                             AppSession.homePage = PaMainNavigationView();
+                            prefix = "pa_";
                             loginBackgroundColor = Colors.green[300];
                             appLogo = "https://i.ibb.co/KKzKbkQ/3372417.png";
                             Get.to(LoginView());
@@ -131,6 +135,7 @@ class DeveloperAppListView extends StatelessWidget {
                           developer: "Deny",
                           onTap: () {
                             AppSession.homePage = JoMainNavigationView();
+                            prefix = "jl_";
                             loginBackgroundColor = Colors.grey[800];
                             appLogo = "https://i.ibb.co/ZKvb13X/3850285.png";
                             Get.to(LoginView());
