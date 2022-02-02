@@ -37,6 +37,9 @@ class PlDashboardView extends StatelessWidget {
                     6. tambahkan spacer diantara Column dan CircleAvatar()
                     7. Sesuaikan fontSize, fontWeight agar sesuai
                     */
+                    Image.network(
+                      "https://i.ibb.co/tzbcwFh/Screenshot-5.png",
+                    ),
                     Container(
                       padding: EdgeInsets.all(12),
                       child: Row(
