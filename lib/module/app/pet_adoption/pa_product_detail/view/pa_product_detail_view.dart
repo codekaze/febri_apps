@@ -32,7 +32,7 @@ class PaProductDetailView extends StatelessWidget {
                           alignment: Alignment.center,
                           child: Hero(
                             tag: 'pet${item['id']}',
-                            child: Image.asset(item['imagePath']),
+                            child: Image.network(item['imagePath']),
                           ),
                         ),
                       ),
