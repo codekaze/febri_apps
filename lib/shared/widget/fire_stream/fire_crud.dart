@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/shared/util/firebase/firecore.dart';
 
 class FireListItem {
   final String? title;
