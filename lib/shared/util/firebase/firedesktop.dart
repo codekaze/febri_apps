@@ -1,5 +1,3 @@
-
-
 class FireDesktop {
   static Map<String, dynamic> values = {};
   static initialize() {
@@ -7,6 +5,10 @@ class FireDesktop {
   }
 
   static signIn() async {
+    return {};
+  }
+
+  static signOut() async {
     return {};
   }
 

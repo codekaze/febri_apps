@@ -20,6 +20,7 @@ class ProfileView extends StatelessWidget {
             ],
           ),
           body: SingleChildScrollView(
+            controller: ScrollController(),
             child: Container(
               padding: EdgeInsets.all(20.0),
               child: Column(

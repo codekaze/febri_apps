@@ -1,3 +1,4 @@
+import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,8 @@ class AppSession {
 late String prefix;
 
 GlobalUser? get currentUser {
+  if (Platform.isWindows) return FireDesktop.getCurrentUser();
+
   return GlobalUser(
     uid: FirebaseAuth.instance.currentUser!.uid,
     displayName: FirebaseAuth.instance.currentUser!.displayName,

@@ -64,6 +64,7 @@ class AuthService {
   }
 
   signOut() async {
+    if (Platform.isWindows) return await FireDesktop.signOut();
     await FirebaseAuth.instance.signOut();
   }
 
