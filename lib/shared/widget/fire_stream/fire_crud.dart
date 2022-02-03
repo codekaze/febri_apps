@@ -3,8 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-
-
+import 'package:flutterx/shared/util/firebase/firecore_new.dart';
 
 class FireListItem {
   final String? title;
@@ -20,7 +19,7 @@ class FireCrud extends StatelessWidget {
   final String title;
   final List<dynamic> formFields;
   final List<Widget> actions;
-  final FireCore service;
+  final FireCoreNew service;
   final FireListItem listItem;
 
   final bool enableAdd;

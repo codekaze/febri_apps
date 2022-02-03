@@ -1,3 +1,4 @@
+import 'package:fireverse/fireglobal.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
@@ -5,7 +6,13 @@ import 'package:universal_io/io.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await ExFirebaseCore.initialize();
+  await Fire.initialize(
+    apiKey: "AIzaSyAjaGYDdHvb0_vsG3JRS6ZVUegaicjn5Uo",
+    projectId: "freeproject-c8687",
+    appId: "1:803703594987:web:1eab5d874a2b50260783ae",
+    messagingSenderId: "803703594987",
+  );
+
   // await AppService().initialize();
 
   runApp(GetMaterialApp(

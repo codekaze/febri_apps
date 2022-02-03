@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fireverse/fireglobal.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
@@ -8,7 +11,7 @@ class AuthService {
     required String email,
     required String password,
   }) async {
-    var auth = await FirebaseAuth.instance.signInWithEmailAndPassword(
+    var auth = await Fire.signIn(
       email: email,
       password: password,
     );
@@ -16,11 +19,11 @@ class AuthService {
   }
 
   anonymousLogin() async {
-    var auth = await FirebaseAuth.instance.signInAnonymously();
-    return auth;
+    return await Fire.signInAnonymously();
   }
 
   googleLogin() async {
+    if (Platform.isWindows) return;
     try {
       if (!await GoogleSignIn().isSignedIn()) {
         await GoogleSignIn().disconnect();
@@ -43,6 +46,7 @@ class AuthService {
   }
 
   facebookLogin() async {
+    if (Platform.isWindows) return;
     final LoginResult loginResult = await FacebookAuth.instance.login();
 
     final OAuthCredential facebookAuthCredential =
@@ -54,21 +58,16 @@ class AuthService {
   }
 
   signOut() async {
-    await FirebaseAuth.instance.signOut();
+    await Fire.signOut();
   }
 
   Future<UserCredential?> registerWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
-    try {
-      var auth = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      return auth;
-    } on Exception catch (_) {
-      return null;
-    }
+    await Fire.register(
+      email: email,
+      password: password,
+    );
   }
 }

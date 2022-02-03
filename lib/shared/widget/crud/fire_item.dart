@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutterx/shared/util/firebase/firecore.dart';
+import 'package:flutterx/shared/util/firebase/firecore_new.dart';
 
 class FireItem extends StatelessWidget {
   final Widget child;
-  final FireCore service;
+  final FireCoreNew service;
   final String id;
   final bool enableSlide;
 
