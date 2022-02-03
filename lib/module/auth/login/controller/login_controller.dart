@@ -49,14 +49,6 @@ class LoginController extends GetxController {
     handleAuth(auth);
   }
 
-  facebookLogin() async {
-    if (Platform.isWindows) return showNotAvailable();
-
-    var auth = await AuthService().facebookLogin();
-
-    handleAuth(auth);
-  }
-
   anonymousLogin() async {
     var auth = await AuthService().anonymousLogin();
 

@@ -24,6 +24,7 @@ class AuthService {
 
   googleLogin() async {
     if (Platform.isWindows) return;
+
     try {
       if (!await GoogleSignIn().isSignedIn()) {
         await GoogleSignIn().disconnect();
@@ -31,7 +32,6 @@ class AuthService {
     } on Exception catch (_) {}
 
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
 
@@ -41,19 +41,6 @@ class AuthService {
     );
 
     var auth = await FirebaseAuth.instance.signInWithCredential(credential);
-
-    return auth;
-  }
-
-  facebookLogin() async {
-    if (Platform.isWindows) return;
-    final LoginResult loginResult = await FacebookAuth.instance.login();
-
-    final OAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(loginResult.accessToken!.token);
-
-    var auth = await FirebaseAuth.instance
-        .signInWithCredential(facebookAuthCredential);
     return auth;
   }
 

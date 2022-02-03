@@ -9,10 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   
   google_sign_in: ^5.2.3
-  flutter_facebook_auth: ^4.0.1
   get: ^4.5.1
 
   clipboard: ^0.1.3

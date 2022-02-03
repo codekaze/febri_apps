@@ -86,7 +86,6 @@ export 'package:flutterx/service/app_service/app_service.dart';
 export 'package:flutterx/service/auth_service/auth_service.dart';
 export 'package:flutterx/service/product_service/product_service.dart';
 export 'package:flutterx/shared/abstract/input_control/input_control.dart';
-export 'package:flutterx/shared/util/firebase/firebase.dart';
 export 'package:flutterx/shared/util/firebase/firecore.dart';
 export 'package:flutterx/shared/util/focus_helper/focus_helper.dart';
 export 'package:flutterx/shared/util/input/input.dart';

@@ -1,16 +1,15 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:fireverse/fireverse.dart';
 
 class AppService {
   initialize() async {
     try {
-      FirebaseAuth.instance.createUserWithEmailAndPassword(
+      Fire.register(
         email: "demo@codekaze.com",
         password: "123456",
       );
 
-      FirebaseAuth.instance.createUserWithEmailAndPassword(
+      Fire.register(
         email: "admin@codekaze.com",
         password: "123456",
       );
