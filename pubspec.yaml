@@ -34,8 +34,6 @@ dependencies:
   screenshot: ^1.2.3
   universal_html: ^2.0.8
   fireverse:
-    path:
-      ./../fireverse
 
   # UI KIT Packages
   titled_navigation_bar: ^4.1.0
