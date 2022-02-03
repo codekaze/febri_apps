@@ -1,4 +1,4 @@
-
+import 'package:fireverse/fireglobal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
@@ -43,9 +43,9 @@ class PersonalDetailView extends StatelessWidget {
                       id: "email",
                       label: "Email",
                       enabled: false,
-                      value: currentUser!.email == null
+                      value: Fire.currentUser!.email == null
                           ? "Anonymous"
-                          : currentUser!.email,
+                          : Fire.currentUser!.email,
                     ),
                   ],
                 ),

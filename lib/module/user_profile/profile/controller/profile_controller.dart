@@ -1,7 +1,5 @@
-
+import 'package:fireverse/fireglobal.dart';
 import 'package:flutterx/core.dart';
-
-
 
 class ProfileController extends GetxController {
   ProfileView? view;
@@ -22,16 +20,16 @@ class ProfileController extends GetxController {
   }
 
   String get photoUrl {
-    return currentUser?.photoURL ??
+    return Fire.currentUser?.photoURL ??
         "https://i.ibb.co/d2R0T6M/depositphotos-318221368-stock-illustration-missing-picture-page-for-website.jpg";
   }
 
   String get displayName {
-    if (currentUser?.email != null) return "-";
-    return currentUser?.displayName ?? "Guest";
+    if (Fire.currentUser?.email != null) return "-";
+    return Fire.currentUser?.displayName ?? "Guest";
   }
 
   String get email {
-    return currentUser?.email ?? "-";
+    return Fire.currentUser?.email ?? "-";
   }
 }

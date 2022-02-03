@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutterx/data/session/app_session.dart';
+import 'package:fireverse/fireglobal.dart';
+
 
 class ExFirebaseCore {
   static initialize() async {
@@ -21,5 +22,7 @@ class ExFirebaseCore {
 }
 
 DocumentReference get userCollection {
-  return FirebaseFirestore.instance.collection("users").doc(currentUser!.uid);
+  return FirebaseFirestore.instance
+      .collection("users")
+      .doc(Fire.currentUser!.uid);
 }
