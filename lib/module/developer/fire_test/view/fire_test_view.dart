@@ -30,8 +30,10 @@ class FireTestView extends StatelessWidget {
                     log("Login Success?");
                     log("User: ${Fire.currentUser!.uid}");
 
+                    var collectionName = "xxx_product_xxx";
+
                     await Fire.add(
-                      collectionName: "product",
+                      collectionName: collectionName,
                       value: {
                         "product_name": "Product XA",
                       },
@@ -39,28 +41,34 @@ class FireTestView extends StatelessWidget {
                     log("Add Success!");
 
                     var getRes = await Fire.get(
-                      collectionName: "product",
+                      collectionName: collectionName,
                     );
                     log("Fire.get success!");
                     log(getRes.toString());
 
                     var getWhereRes = await Fire.get(
-                      collectionName: "product",
+                      collectionName: collectionName,
                       where: [
                         FireWhereField(
                           field: "product_name",
-                          isEqualTo: "Product XA",
+                          isEqualTo: "EXAMPLESEARCHCAHCAH",
                         ),
                       ],
                     );
+
+                    if (getWhereRes.length > 0) {
+                      print("Get Where Failed!");
+                      return;
+                    }
+
                     log("Fire.get > where > success!");
-                    log(getWhereRes.toString());
-                    log(getWhereRes.length.toString());
-                    log("id: ${getWhereRes[0].id}");
+                    log(getRes.toString());
+                    log(getRes.length.toString());
+                    log("id: ${getRes[0].id}");
 
                     await Fire.update(
-                      collectionName: "product",
-                      docId: getWhereRes[0].id,
+                      collectionName: collectionName,
+                      docId: getRes[0].id,
                       value: {
                         "product_name": "NXT Product",
                       },
@@ -68,20 +76,20 @@ class FireTestView extends StatelessWidget {
                     log("Update Success?");
 
                     getRes = await Fire.get(
-                      collectionName: "product",
+                      collectionName: collectionName,
                     );
 
                     log(getRes.toString());
 
                     await Fire.delete(
-                      collectionName: "product",
-                      docId: getWhereRes[0].id,
+                      collectionName: collectionName,
+                      docId: getRes[0].id,
                     );
 
                     log("Delete Success?");
 
                     getRes = await Fire.get(
-                      collectionName: "product",
+                      collectionName: collectionName,
                     );
 
                     log(getRes.toString());
