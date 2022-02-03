@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fireverse/fireglobal.dart';
 
 class FireCoreNew {
   CollectionReference ref = FirebaseFirestore.instance.collection("courses");

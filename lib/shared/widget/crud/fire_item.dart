@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:flutterx/shared/util/firebase/firecore.dart';
 import 'package:flutterx/shared/util/firebase/firecore_new.dart';
 
 class FireItem extends StatelessWidget {
