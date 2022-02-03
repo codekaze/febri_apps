@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutterx/core.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -30,18 +32,26 @@ class LoginController extends GetxController {
       password: password,
     );
 
-    if (auth != null) {}
-
     handleAuth(auth);
   }
 
-  googleLogin() async {
-    var auth = await AuthService().googleLogin();
+  showNotAvailable() {
+    showWarning(
+      "Feature not available",
+      "This feature is not available in the desktop version",
+    );
+  }
 
+  googleLogin() async {
+    if (Platform.isWindows) return showNotAvailable();
+
+    var auth = await AuthService().googleLogin();
     handleAuth(auth);
   }
 
   facebookLogin() async {
+    if (Platform.isWindows) return showNotAvailable();
+
     var auth = await AuthService().facebookLogin();
 
     handleAuth(auth);
@@ -56,6 +66,8 @@ class LoginController extends GetxController {
   handleAuth(auth) {
     if (auth != null) {
       Get.offAll(AppSession.homePage);
+    } else {
+      showError("Login failed", "invalid username or password");
     }
   }
 }
