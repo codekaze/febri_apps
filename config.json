@@ -25,6 +25,7 @@
         "auth/admin_login",
         "auth/register",
         "auth/forgot_password",
-        "chat_detail"
+        "chat_detail",
+        "developer/fire_test"
     ]
 }

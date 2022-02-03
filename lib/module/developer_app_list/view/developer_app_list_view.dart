@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/developer/fire_test/view/fire_test_view.dart';
 
 class DeveloperAppListView extends StatelessWidget {
   @override
@@ -28,33 +29,35 @@ class DeveloperAppListView extends StatelessWidget {
                   SizedBox(
                     height: 16.0,
                   ),
-                  Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: ExButton(
-                                label: "Docs",
-                                color: disabledColor,
-                                icon: Icons.notes_rounded,
-                                onPressed: () {},
-                              ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ExButton(
+                              label: "Docs",
+                              color: infoColor,
+                              onPressed: () {},
                             ),
-                            Expanded(
-                              child: ExButton(
-                                label: "UI KIT",
-                                color: disabledColor,
-                                icon: Icons.developer_board,
-                                onPressed: () =>
-                                    Get.to(DeveloperDashboardView()),
-                              ),
+                          ),
+                          Expanded(
+                            child: ExButton(
+                              label: "UI KIT",
+                              color: successColor,
+                              onPressed: () => Get.to(DeveloperDashboardView()),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                          Expanded(
+                            child: ExButton(
+                              label: "Fire",
+                              color: warningColor,
+                              onPressed: () => Get.to(FireTestView()),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 16.0,
