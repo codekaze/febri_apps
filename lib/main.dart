@@ -24,7 +24,7 @@ void main() async {
   //Run in Emulator Mode (Windows)
   if (Platform.isWindows) {
     doWhenWindowReady(() {
-      final initialSize = Size(380, 860);
+      final initialSize = Size(360, 800);
       appWindow.alignment = Alignment.topRight;
       appWindow.minSize = initialSize;
       appWindow.size = initialSize;
