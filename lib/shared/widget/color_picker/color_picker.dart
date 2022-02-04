@@ -11,6 +11,7 @@ class ExColorPicker extends StatefulWidget {
   final Color? value;
   final List<Color>? colorsList;
   final dynamic onChanged;
+  final bool enableCustomColor;
 
   final double? labelFontSize;
   final double? valueFontSize;
@@ -31,6 +32,7 @@ class ExColorPicker extends StatefulWidget {
     this.disableTranslate = false,
     this.visibleIf,
     this.hideLabel = false,
+    this.enableCustomColor = true,
   });
 
   @override
@@ -232,31 +234,32 @@ class ExColorPickerState extends State<ExColorPicker>
                     },
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    showColor();
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(right: 8.0),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey[300],
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: CircleAvatar(
-                          backgroundColor:
-                              selectedValue == null || customColor == false
-                                  ? Colors.blueGrey[300]
-                                  : selectedValue,
-                          child: Icon(
-                            Icons.tune,
-                            color: Colors.white,
-                            size: 14.0,
+                if (widget.enableCustomColor)
+                  InkWell(
+                    onTap: () {
+                      showColor();
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(right: 8.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey[300],
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: CircleAvatar(
+                            backgroundColor:
+                                selectedValue == null || customColor == false
+                                    ? Colors.blueGrey[300]
+                                    : selectedValue,
+                            child: Icon(
+                              Icons.tune,
+                              color: Colors.white,
+                              size: 14.0,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
               ],
             ),
           ),
