@@ -1,7 +1,5 @@
 import 'package:flutterx/core.dart';
 
-
-
 class AdminLoginController extends GetxController {
   AdminLoginView? view;
 
