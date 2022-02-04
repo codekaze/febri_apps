@@ -9,14 +9,7 @@ class PlDashboardView extends StatelessWidget {
       init: PlDashboardController(),
       builder: (controller) {
         controller.view = this;
-        /*
-        TODO: Angga
-        - Card
-        - Icon
-        - Icon + CircleAvatar
-        - Searchbar
-        - Form UI #1
-        */
+
         return Scaffold(
           body: SafeArea(
             child: SingleChildScrollView(
