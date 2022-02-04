@@ -1,9 +1,9 @@
 import 'package:fireverse/fireverse.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import '../controller/jo_dashboard_controller.dart';
 
-import 'package:get/get.dart';
+
+
 
 class JoDashboardView extends StatelessWidget {
   @override

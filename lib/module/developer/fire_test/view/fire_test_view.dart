@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 import '../controller/fire_test_controller.dart';
 
-import 'package:get/get.dart';
+
 
 class FireTestView extends StatelessWidget {
   @override
