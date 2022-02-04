@@ -22,12 +22,27 @@ class FlProductDetailView extends StatelessWidget {
             title: Text("FlProductDetail"),
           ),
           body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(item["photo_url"]),
               ExColorPicker(
                 id: "color",
                 label: "Color",
                 enableCustomColor: false,
+              ),
+              Container(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "${item["product_name"]}",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
