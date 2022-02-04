@@ -4,6 +4,15 @@ import '../controller/fl_product_detail_controller.dart';
 
 import 'package:get/get.dart';
 
+/*
+TODO: Akbar
+1. image slider-nya
+sementara koleksi gambarnya cari aja di unsplash.com 
+2. teks deskripsi, ikutin teks dari templatenya
+atau deskripsinya pake lorem ipsum aja:
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+
+*/
 class FlProductDetailView extends StatelessWidget {
   final dynamic item;
   FlProductDetailView({
