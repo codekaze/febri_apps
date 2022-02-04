@@ -3,6 +3,5 @@ import 'package:flutterx/core.dart';
 
 class ProductService extends FireCore {
   @override
-  CollectionReference ref =
-      FirebaseFirestore.instance.collection(prefix + "product");
+  var ref = FirebaseFirestore.instance.collection(prefix + "product");
 }
