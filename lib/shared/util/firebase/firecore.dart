@@ -1,13 +1,18 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fireverse/fireglobal.dart';
+import 'package:fireverse/fireverse.dart';
+import '../../../data/session/app_session.dart';
 
 class FireCore {
-  CollectionReference ref = FirebaseFirestore.instance.collection("courses");
-  Stream<QuerySnapshot<Object?>> stream() {
-    return ref.snapshots();
-  }
-
-  Stream<QuerySnapshot<Object?>> newestStream() {
-    return ref.limit(5).orderBy("created_at").snapshots();
+  var ref = Fire.getCollectionRef(collectionName: prefix + "example");
+  dynamic stream() {
+    if (Platform.isWindows) {
+      return ref.stream;
+    } else {
+      return ref.snapshots();
+    }
   }
 
   Future<Map?> getDoc(String id) async {

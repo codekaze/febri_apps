@@ -4,7 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 class FireListView extends StatelessWidget {
-  final Stream<QuerySnapshot> stream;
+  final dynamic stream;
 
   final Function? onEmptyDocs;
   final String? title;
@@ -13,7 +13,7 @@ class FireListView extends StatelessWidget {
   final Function(
     Map item,
     int index,
-    QuerySnapshot querySnapshot,
+    dynamic querySnapshot,
   )? onItemBuild;
 
   final Function(
@@ -32,62 +32,92 @@ class FireListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      stream: stream,
-      builder: (context, stream) {
-        // if (showLoading!) {
-        if (stream.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: SpinKitRing(
-              color: Get.theme.primaryColor,
-            ),
-          );
-          // }
-        }
+    if (stream is Stream<QuerySnapshot>) {
+      return StreamBuilder<QuerySnapshot>(
+        stream: stream,
+        builder: (context, stream) {
+          // if (showLoading!) {
+          if (stream.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: SpinKitRing(
+                color: Get.theme.primaryColor,
+              ),
+            );
+            // }
+          }
 
-        QuerySnapshot? querySnapshot = stream.data;
+          QuerySnapshot? querySnapshot = stream.data;
 
-        if (querySnapshot!.docs.isEmpty) {
-          if (onEmptyDocs != null) return onEmptyDocs!();
-          return Container();
-        }
+          if (querySnapshot!.docs.isEmpty) {
+            if (onEmptyDocs != null) return onEmptyDocs!();
+            return Container();
+          }
 
-        if (onSnapshots != null) {
-          return onSnapshots!(querySnapshot);
-        }
+          if (onSnapshots != null) {
+            return onSnapshots!(querySnapshot);
+          }
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (title != null)
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  title!,
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (title != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    title!,
+                  ),
+                ),
+              if (title != null) const SizedBox(height: 10),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: querySnapshot.docs.length,
+                  shrinkWrap: shrinkWrap,
+                  physics: shrinkWrap == false
+                      ? null
+                      : NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    var item = (querySnapshot.docs[index].data() as Map);
+                    var docId = querySnapshot.docs[index].id;
+                    item["id"] = docId;
+
+                    if (onItemBuild != null) {
+                      return onItemBuild!(item, index, querySnapshot);
+                    }
+                    return Container();
+                  },
                 ),
               ),
-            if (title != null) const SizedBox(height: 10),
-            Expanded(
-              child: ListView.builder(
-                itemCount: querySnapshot.docs.length,
-                shrinkWrap: shrinkWrap,
-                physics:
-                    shrinkWrap == false ? null : NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  var item = (querySnapshot.docs[index].data() as Map);
-                  var docId = querySnapshot.docs[index].id;
-                  item["id"] = docId;
+            ],
+          );
+        },
+      );
+    } else {
+      return StreamBuilder(
+        stream: stream,
+        builder: (context, stream) {
+          if (stream.data == null) return Container();
+          List items = (stream.data as List);
+          if (items.length == 0) return Container();
 
-                  if (onItemBuild != null) {
-                    return onItemBuild!(item, index, querySnapshot);
-                  }
-                  return Container();
-                },
-              ),
-            ),
-          ],
-        );
-      },
-    );
+          return ListView.builder(
+            itemCount: items.length,
+            shrinkWrap: shrinkWrap,
+            physics:
+                shrinkWrap == false ? null : NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              var item = items[index];
+              var docId = items[index].id;
+              item["id"] = docId;
+
+              if (onItemBuild != null) {
+                return onItemBuild!(item, index, null);
+              }
+
+              return Container();
+            },
+          );
+        },
+      );
+    }
   }
 }

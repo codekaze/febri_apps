@@ -333,10 +333,10 @@ packages:
   fireverse:
     dependency: "direct main"
     description:
-      name: fireverse
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4"
+      path: "../fireverse"
+      relative: true
+    source: path
+    version: "0.0.5"
   fixnum:
     dependency: transitive
     description:
