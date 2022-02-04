@@ -4,6 +4,11 @@ import '../controller/fl_product_detail_controller.dart';
 import 'package:get/get.dart';
 
 class FlProductDetailView extends StatelessWidget {
+  final dynamic item;
+  FlProductDetailView({
+    required this.item,
+  });
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<FlProductDetailController>(
