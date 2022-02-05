@@ -1,7 +1,6 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 
-
 class ClMainNavigationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,19 +32,24 @@ class ClMainNavigationView extends StatelessWidget {
               },
               items: [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
+                  icon: ImageIcon(
+                    NetworkImage("https://i.ibb.co/VCsfCth/3884324.png"),
+                  ),
                   label: "Dashboard",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.chat),
+                  icon: ImageIcon(
+                      NetworkImage("https://i.ibb.co/yVV4Ttf/566565.png")),
                   label: "Chat",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite),
+                  icon: ImageIcon(
+                      NetworkImage("https://i.ibb.co/Bzzpg0R/125327.png")),
                   label: "Favorite",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
+                  icon: ImageIcon(
+                      NetworkImage("https://i.ibb.co/JRJ1mzD/1077063.png")),
                   label: "Me",
                 ),
               ],
