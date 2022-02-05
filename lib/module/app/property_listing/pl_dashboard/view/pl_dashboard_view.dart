@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-
-
-
+import 'package:flutterx/data/session/property/property_api.dart';
 
 class PlDashboardView extends StatelessWidget {
   @override
@@ -11,69 +9,15 @@ class PlDashboardView extends StatelessWidget {
       init: PlDashboardController(),
       builder: (controller) {
         controller.view = this;
-        /*
-        TODO: Angga
-        - Card
-        - Icon
-        - Icon + CircleAvatar
-        - Searchbar
-        - Form UI #1
-        */
+
         return Scaffold(
           body: SafeArea(
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    /*
-                    TODO: Angga
-                    Instruction Text
-                    1. Buat Container, kasih warnanya Colors.red[100]
-                    2. tambahkan ke Row ke dalam Container
-                    3. isi children dari Row, isinya : Column(), CircleAvatar()
-                    4. isi children dari Column(), isinya: Text("Hello!") dan Text("James Barley")
-5. isi gambar dari CircleAvatar:  backgroundImage: NetworkImage("https://i.ibb.co/dGJmMdx/photo-1523898052899-241108586cf8-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg")
-                    6. tambahkan spacer diantara Column dan CircleAvatar()
-                    7. Sesuaikan fontSize, fontWeight agar sesuai
-                    */
-                    Image.network(
-                      "https://i.ibb.co/tzbcwFh/Screenshot-5.png",
-                    ),
-                    // Resourceses
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            "https://i.ibb.co/dGJmMdx/photo-1523898052899-241108586cf8-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
-                          ),
-                        ),
-                        Icon(
-                          Icons.place,
-                          color: Colors.red,
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Image.network(
-                          "https://i.ibb.co/B6CKcsv/2985052.png",
-                          width: 20.0,
-                          height: 20.0,
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Image.network(
-                          "https://i.ibb.co/SRbYTpk/2076218.png",
-                          width: 20.0,
-                          height: 20.0,
-                        ),
-                      ],
-                    ),
-
-                    //----- buat disini --- //
-
-                    //----- End of Buat Dsini--- //
                     Container(
                       padding: EdgeInsets.all(12),
                       child: Row(
@@ -102,94 +46,6 @@ class PlDashboardView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(20.0),
-                      width: Get.width,
-                      decoration: BoxDecoration(
-                        color: Colors.green[100],
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 4,
-                            blurRadius: 5,
-                            offset: Offset(0, 7), // changes position of shadow
-                          ),
-                        ],
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(
-                            16.0,
-                          ),
-                        ),
-                      ),
-                      child: Text("Container with Radius"),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Card(
-                      color: Colors.yellow[100],
-                      child: Container(
-                        width: Get.width,
-                        padding: EdgeInsets.all(10.0),
-                        height: 100.0,
-                        child: Text("Hello Angga"),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Card(
-                      color: Colors.yellow[100],
-                      child: Container(
-                        padding: EdgeInsets.all(10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Icon(Icons.person),
-                                Text(
-                                  "Nama",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            Text(
-                              "Muhammad Angga",
-                              style: TextStyle(
-                                color: Colors.green[200],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.green[200],
-                          backgroundImage: NetworkImage(
-                            "https://i.ibb.co/dGJmMdx/photo-1523898052899-241108586cf8-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        CircleAvatar(
-                          backgroundColor: Colors.red[200],
-                          child: Icon(Icons.add),
-                        ),
-                      ],
-                    ),
                     SizedBox(
                       height: 10.0,
                     ),
@@ -217,85 +73,173 @@ class PlDashboardView extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 20.0,
+                      height: 12.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "All Property",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 6.0,
                     ),
                     Container(
-                      height: 150,
+                      height: 260,
                       width: Get.width,
                       child: ListView.builder(
-                        itemCount: 5,
+                        itemCount: PropertyApi.products.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return Container(
-                            width: Get.width / 1.4,
-                            margin: EdgeInsets.only(right: 10.0),
-                            decoration: BoxDecoration(
-                              color: Color(0xff423e5b),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16.0),
-                              ),
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    "https://i.ibb.co/dGJmMdx/photo-1523898052899-241108586cf8-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg"),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            padding: const EdgeInsets.only(
-                              left: 16.0,
-                              right: 16.0,
-                              top: 8.0,
-                              bottom: 8.0,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "50% off",
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 20),
-                                ),
-                                Text(
-                                  "On everything today",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
+                          var item = PropertyApi.products[index];
+
+                          return Card(
+                            child: Container(
+                              width: 200.0,
+                              padding: EdgeInsets.all(16.0),
+                              child: Column(
+                                children: [
+                                  //Image
+                                  Expanded(
+                                    child: Container(
+                                      width: Get.width,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20.0)),
+                                        image: DecorationImage(
+                                          image: NetworkImage(
+                                            item["photo_url"],
+                                          ),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  "With code: FASHION2021",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
+                                  SizedBox(
+                                    height: 6.0,
                                   ),
-                                ),
-                                Spacer(),
-                                ExButton(
-                                  label: "Get Now",
-                                  fontSize: 10.0,
-                                  width: 100,
-                                  height: 34,
-                                  color: Colors.black,
-                                  onPressed: () {},
-                                ),
-                              ],
+                                  //Sub Text 1
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "${item["product_name"]}",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Spacer(),
+                                        Text(
+                                          "\$${item["price"]}",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.purple,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 6.0,
+                                  ),
+                                  //Sub Text 2
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.home,
+                                              size: 14.0,
+                                              color: Colors.orange,
+                                            ),
+                                            SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              "${item["land_size"]}sqft",
+                                              style: TextStyle(
+                                                color: Colors.orange,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Spacer(),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.home,
+                                              size: 14.0,
+                                              color: Colors.orange,
+                                            ),
+                                            SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              "${item["room_count"]}",
+                                              style: TextStyle(
+                                                color: Colors.orange,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Spacer(),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.home,
+                                              size: 14.0,
+                                              color: Colors.orange,
+                                            ),
+                                            SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              "${item["bath_room_count"]}",
+                                              style: TextStyle(
+                                                color: Colors.orange,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                         },
                       ),
                     ),
                     SizedBox(
-                      height: 16.0,
+                      height: 4.0,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "Featured Property",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                     Container(
                       width: Get.width,
                       child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: 5,
+                        itemCount: PropertyApi.products.length,
                         itemBuilder: (context, index) {
+                          var item = PropertyApi.products[index];
+
                           return Card(
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Color(0xff423e5b),
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(16.0),
                                 ),
@@ -306,13 +250,150 @@ class PlDashboardView extends StatelessWidget {
                                 top: 8.0,
                                 bottom: 8.0,
                               ),
-                              child: Center(
-                                child: Text(
-                                  "Category ",
-                                  style: TextStyle(
-                                    color: Colors.white,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 100.0,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20.0)),
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                          item["photo_url"],
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ),
-                                ),
+
+                                  //TODO: ANGGA (isi Gambar)
+
+                                  Expanded(
+                                    child: Container(
+                                      padding: EdgeInsets.all(10.0),
+
+                                      height: 100.0,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                "${item["product_name"]}",
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Spacer(),
+                                              Text(
+                                                "\$${item["price"]}",
+                                                style: TextStyle(
+                                                    color: Colors.purple,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 4.0,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.map,
+                                                size: 16,
+                                              ),
+                                              SizedBox(
+                                                width: 4.0,
+                                              ),
+                                              Expanded(
+                                                child: Text(
+                                                  "${item["address"]}",
+                                                  style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Colors.grey[400],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 4.0,
+                                          ),
+                                          Container(
+                                            child: Row(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.home,
+                                                      size: 14.0,
+                                                      color: Colors.orange,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 4.0,
+                                                    ),
+                                                    Text(
+                                                      "${item["land_size"]}sqft",
+                                                      style: TextStyle(
+                                                        color: Colors.orange,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Spacer(),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.home,
+                                                      size: 14.0,
+                                                      color: Colors.orange,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 4.0,
+                                                    ),
+                                                    Text(
+                                                      "${item["room_count"]}",
+                                                      style: TextStyle(
+                                                        color: Colors.orange,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Spacer(),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.home,
+                                                      size: 14.0,
+                                                      color: Colors.orange,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 4.0,
+                                                    ),
+                                                    Text(
+                                                      "${item["bath_room_count"]}",
+                                                      style: TextStyle(
+                                                        color: Colors.orange,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      //TODO: ANGGA (isi Teks sesuai Design)
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           );
