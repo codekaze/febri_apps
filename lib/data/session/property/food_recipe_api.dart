@@ -1,9 +1,9 @@
 class FoodRecipeApi {
   static List products = [
     {
-      "product_name": "Chest",
+      "product_name": "Fried Rice",
       "photo_url":
-          "https://i.ibb.co/VDfHPPt/photo-1616464916265-68fc457bdc70-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
+          "https://i.ibb.co/V9XzGXq/photo-1603133872878-684f208fb84b-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
       "price": 13500,
       "room_count": 6,
       "bath_room_count": 2,
@@ -11,9 +11,9 @@ class FoodRecipeApi {
       "address": "2BW Street,NY,New York",
     },
     {
-      "product_name": "Red Seat",
+      "product_name": "Salad",
       "photo_url":
-          "https://i.ibb.co/QnszBkg/photo-1612372603963-403340a8942b-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
+          "https://i.ibb.co/CHCNGvQ/photo-1540420773420-3366772f4999-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
       "price": 14500,
       "room_count": 8,
       "bath_room_count": 2,
@@ -21,9 +21,9 @@ class FoodRecipeApi {
       "address": "3BW Street,NY,New York",
     },
     {
-      "product_name": "Blue Desk",
+      "product_name": "Clever Burger",
       "photo_url":
-          "https://i.ibb.co/cNFPNQ4/photo-1486946255434-2466348c2166-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
+          "https://i.ibb.co/1fJqCgt/photo-1530554764233-e79e16c91d08-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
       "price": 17500,
       "room_count": 12,
       "bath_room_count": 2,
@@ -31,9 +31,9 @@ class FoodRecipeApi {
       "address": "4BW Street,NY,New York",
     },
     {
-      "product_name": "Yellow Wardrobe",
+      "product_name": "Yellow Burger",
       "photo_url":
-          "https://i.ibb.co/TWQrdDt/photo-1636537478510-d3d720f46e2b-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
+          "https://i.ibb.co/Ky9jppG/photo-1568901346375-23c9450c58cd-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
       "price": 18500,
       "room_count": 10,
       "bath_room_count": 2,
