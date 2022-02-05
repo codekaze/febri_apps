@@ -1,9 +1,10 @@
 import 'package:fireverse/fireglobal.dart';
+import 'package:flutterx/core.dart';
 
 class UserService {
   initializeUser() async {
     var userRef = Fire.getDocRef(
-      collectionName: "users",
+      collectionName: prefix + "users",
       docId: Fire.currentUser!.uid,
     );
 
