@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,17 +17,27 @@ class FireCore {
   }
 
   Future<Map?> getDoc(String id) async {
-    var s = await ref.doc(id).get();
-    var d = s.data();
-    if (d == null) return Future.value(null);
-    Map item = (d as Map);
-    d["id"] = id;
-    return (item);
+    if (Platform.isWindows) {
+      var s = await ref.doc(id).get();
+      var d = s.map;
+      if (d == null) return Future.value(null);
+      Map item = s.map;
+      d["id"] = id;
+      return (item);
+    } else {
+      var s = await ref.doc(id).get();
+      var d = s.data();
+      if (d == null) return Future.value(null);
+      Map item = (d as Map);
+      d["id"] = id;
+      return (item);
+    }
   }
 
   Future add(Map<String, dynamic> value) async {
-    value["created_at"] = Timestamp.now();
-    value["updated_at"] = Timestamp.now();
+    value["created_at"] = Fire.timestamp();
+    value["updated_at"] = Fire.timestamp();
+    log(ref.toString());
     return await ref.add(value);
   }
 

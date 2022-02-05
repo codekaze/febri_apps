@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fireverse/fireverse.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
@@ -96,7 +99,7 @@ class FireListView extends StatelessWidget {
         stream: stream,
         builder: (context, stream) {
           if (stream.data == null) return Container();
-          List items = (stream.data as List);
+          List items = List.from(stream.data as List);
           if (items.length == 0) return Container();
 
           return ListView.builder(
@@ -105,7 +108,7 @@ class FireListView extends StatelessWidget {
             physics:
                 shrinkWrap == false ? null : NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              var item = items[index];
+              Map<String, dynamic> item = items[index].map;
               var docId = items[index].id;
               item["id"] = docId;
 
