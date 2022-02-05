@@ -34,6 +34,22 @@ class FireCore {
     }
   }
 
+  Future deleteAll() async {
+    if (Platform.isWindows) {
+      var snapshots = await ref.get();
+      log("${snapshots.length}");
+      for (var i = 0; i < snapshots.length; i++) {
+        await ref.doc(snapshots[i].id).delete();
+      }
+    } else {
+      var snapshots = await ref.get();
+      for (var i = 0; i < snapshots.docs.length; i++) {
+        var doc = snapshots.docs[i];
+        await ref.doc(doc.id).delete();
+      }
+    }
+  }
+
   Future add(Map<String, dynamic> value) async {
     value["created_at"] = Fire.timestamp();
     value["updated_at"] = Fire.timestamp();
@@ -48,13 +64,5 @@ class FireCore {
 
   Future delete(String docId) async {
     return await ref.doc(docId).delete();
-  }
-
-  Future deleteAll() async {
-    var snapshots = await ref.get();
-    for (var i = 0; i < snapshots.docs.length; i++) {
-      var doc = snapshots.docs[i];
-      await ref.doc(doc.id).delete();
-    }
   }
 }
