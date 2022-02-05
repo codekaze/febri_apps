@@ -22,7 +22,7 @@ class FireCore {
       var d = s.map;
       if (d == null) return Future.value(null);
       Map item = s.map;
-      d["id"] = id;
+      item["id"] = id;
       return (item);
     } else {
       var s = await ref.doc(id).get();
@@ -42,7 +42,7 @@ class FireCore {
   }
 
   Future update(String docId, Map<String, dynamic> value) async {
-    value["updated_at"] = Timestamp.now();
+    value["updated_at"] = Fire.timestamp();
     return await ref.doc(docId).update(value);
   }
 
