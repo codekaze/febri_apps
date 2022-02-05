@@ -154,7 +154,7 @@ class DeveloperAppListView extends StatelessWidget {
                             AppSession.homePage = FrMainNavigationView();
                             prefix = "fr_";
                             loginBackgroundColor = Colors.orange[500];
-                            appLogo = "https://i.ibb.co/ZKvb13X/3850285.png";
+                            appLogo = "https://i.ibb.co/VTZPcbF/2276931.png";
                             Get.to(LoginView());
                           },
                         ),
