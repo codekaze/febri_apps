@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/app/food_recipes/fr_main_navigation/view/fr_main_navigation_view.dart';
 import 'package:flutterx/module/developer/fire_test/view/fire_test_view.dart';
 
 class DeveloperAppListView extends StatelessWidget {
@@ -140,6 +141,19 @@ class DeveloperAppListView extends StatelessWidget {
                             AppSession.homePage = JoMainNavigationView();
                             prefix = "jl_";
                             loginBackgroundColor = Colors.grey[800];
+                            appLogo = "https://i.ibb.co/ZKvb13X/3850285.png";
+                            Get.to(LoginView());
+                          },
+                        ),
+                        AppCard(
+                          appName: "Food Recipes\nApp",
+                          color: Colors.orange[500]!,
+                          iconUrl: "https://i.ibb.co/VTZPcbF/2276931.png",
+                          developer: "Deny",
+                          onTap: () {
+                            AppSession.homePage = FrMainNavigationView();
+                            prefix = "fr_";
+                            loginBackgroundColor = Colors.orange[500];
                             appLogo = "https://i.ibb.co/ZKvb13X/3850285.png";
                             Get.to(LoginView());
                           },
