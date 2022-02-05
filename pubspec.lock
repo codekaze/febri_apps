@@ -333,9 +333,9 @@ packages:
   fireverse:
     dependency: "direct main"
     description:
-      path: "../fireverse"
-      relative: true
-    source: path
+      name: fireverse
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.0.6"
   fixnum:
     dependency: transitive
