@@ -1,1 +1,4 @@
-class AppConfigBase {}
+class AppConfigBase {
+  var productFields = [];
+  var userProfileFields = [];
+}
