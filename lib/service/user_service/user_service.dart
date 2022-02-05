@@ -7,7 +7,7 @@ class UserService {
       docId: Fire.currentUser!.uid,
     );
 
-    userRef.add({
+    userRef.set({
       "id": Fire.currentUser!.uid,
       "name": Fire.currentUser!.displayName,
       "email": Fire.currentUser!.email,
