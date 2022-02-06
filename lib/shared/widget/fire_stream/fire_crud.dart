@@ -6,12 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
 class FireListItem {
+  final String? photoUrl;
   final String? title;
   final String? subtitle;
 
   FireListItem({
     this.title,
     this.subtitle,
+    this.photoUrl,
   });
 }
 
@@ -145,6 +147,7 @@ class FireCrud extends StatelessWidget {
           stream: customRef ?? service.stream(),
           shrinkWrap: false,
           onItemBuild: (item, index, snapshot) {
+            var photoUrl = getValueFromItem(listItem.photoUrl, item);
             var itemTitle = getValueFromItem(listItem.title, item);
             var itemSubtitle = getValueFromItem(listItem.subtitle, item);
 
@@ -218,6 +221,11 @@ class FireCrud extends StatelessWidget {
                         },
                       )
                     : ListTile(
+                        leading: listItem.photoUrl == null
+                            ? null
+                            : CircleAvatar(
+                                backgroundImage: NetworkImage("$photoUrl"),
+                              ),
                         title:
                             listItem.title == null ? null : Text("$itemTitle"),
                         subtitle: listItem.subtitle == null

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
-
 class VendorProductListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,13 +12,22 @@ class VendorProductListView extends StatelessWidget {
         return FireCrud(
           title: "Product List",
           formFields: [
+            ExImagePicker(
+              id: "photo_url",
+              label: "Photo",
+            ),
             ExTextField(
               id: "product_name",
               label: "Product Name",
             ),
+            ExTextField(
+              id: "price",
+              label: "Price",
+            ),
           ],
           service: ProductService(),
           listItem: FireListItem(
+            photoUrl: "photo_url",
             title: "product_name",
           ),
         );
