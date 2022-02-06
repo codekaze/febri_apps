@@ -270,29 +270,37 @@ class FireCrud extends StatelessWidget {
                                     },
                                   )
                                 : Card(
-                                    child: ListTile(
-                                      leading: listItem.photoUrl == null
-                                          ? null
-                                          : Container(
-                                              height: 50.0,
-                                              width: 50.0,
-                                              decoration: BoxDecoration(
-                                                color: Colors.grey[200],
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(16.0)),
-                                                image: DecorationImage(
-                                                  image:
-                                                      NetworkImage("$photoUrl"),
-                                                  fit: BoxFit.cover,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 8.0,
+                                        bottom: 8.0,
+                                      ),
+                                      child: ListTile(
+                                        leading: listItem.photoUrl == null
+                                            ? null
+                                            : Container(
+                                                height: 50.0,
+                                                width: 50.0,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.grey[200],
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(
+                                                              16.0)),
+                                                  image: DecorationImage(
+                                                    image: NetworkImage(
+                                                        "$photoUrl"),
+                                                    fit: BoxFit.cover,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                      title: listItem.title == null
-                                          ? null
-                                          : Text("$itemTitle"),
-                                      subtitle: listItem.subtitle == null
-                                          ? null
-                                          : Text("$itemSubtitle"),
+                                        title: listItem.title == null
+                                            ? null
+                                            : Text("$itemTitle"),
+                                        subtitle: listItem.subtitle == null
+                                            ? null
+                                            : Text("$itemSubtitle"),
+                                      ),
                                     ),
                                   ),
                           ),
