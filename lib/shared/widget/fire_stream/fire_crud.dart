@@ -236,12 +236,6 @@ class FireCrud extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.photo,
-                                      size: 16.0,
-                                    ),
-                                  ),
                                 ),
                           title: listItem.title == null
                               ? null

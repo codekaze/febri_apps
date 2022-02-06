@@ -12,10 +12,10 @@ class VendorProductListView extends StatelessWidget {
         return FireCrud(
           title: "Product List",
           formFields: [
-            // ExImagePicker(
-            //   id: "photo_url",
-            //   label: "Photo",
-            // ),
+            ExImagePicker(
+              id: "photo_url",
+              label: "Photo",
+            ),
             ExTextField(
               id: "product_name",
               label: "Product Name",
