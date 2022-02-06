@@ -220,17 +220,36 @@ class FireCrud extends StatelessWidget {
                           return itemBuilder!(item);
                         },
                       )
-                    : ListTile(
-                        leading: listItem.photoUrl == null
-                            ? null
-                            : CircleAvatar(
-                                backgroundImage: NetworkImage("$photoUrl"),
-                              ),
-                        title:
-                            listItem.title == null ? null : Text("$itemTitle"),
-                        subtitle: listItem.subtitle == null
-                            ? null
-                            : Text("$itemSubtitle"),
+                    : Card(
+                        child: ListTile(
+                          leading: listItem.photoUrl == null
+                              ? null
+                              : Container(
+                                  height: 50.0,
+                                  width: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[200],
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(16.0)),
+                                    image: DecorationImage(
+                                      image: NetworkImage("$photoUrl"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.photo,
+                                      size: 16.0,
+                                    ),
+                                  ),
+                                ),
+                          title: listItem.title == null
+                              ? null
+                              : Text("$itemTitle"),
+                          subtitle: listItem.subtitle == null
+                              ? null
+                              : Text("$itemSubtitle"),
+                        ),
                       ),
               ),
             );
