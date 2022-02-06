@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/shared/widget/fire_stream/fire_crud_controller.dart';
 
 class FireListItem {
   final String? photoUrl;
@@ -49,152 +50,64 @@ class FireCrud extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("$title"),
-        actions: [
-          if (kDebugMode) ...[
-            ExButton(
-              label: "Delete All",
-              color: Colors.orange,
-              onPressed: () async {
-                service.deleteAll();
-              },
-            ),
-          ],
-          ...actions,
-          // InkWell(
-          //   onTap: () {
-          //     showInfoDialog(
-          //       "Test",
-          //       "TestTest",
-          //     );
-          //   },
-          //   child: Padding(
-          //     padding: const EdgeInsets.only(
-          //       top: 8.0,
-          //       bottom: 8.0,
-          //       right: 8.0,
-          //       left: 8.0,
-          //     ),
-          //     child: Icon(Icons.tune),
-          //   ),
-          // ),
-          // InkWell(
-          //   onTap: () {},
-          //   child: Padding(
-          //     padding: const EdgeInsets.only(
-          //       top: 8.0,
-          //       bottom: 8.0,
-          //       right: 8.0,
-          //       left: 8.0,
-          //     ),
-          //     child: Icon(Icons.search),
-          //   ),
-          // ),
-          SizedBox(
-            width: 4.0,
-          ),
-        ],
-      ),
-      floatingActionButton: !enableAdd
-          ? Container()
-          : FloatingActionButton(
-              onPressed: () {
-                Get.to(
-                  FireForm(
-                    title: "Add $title Form",
-                    onSave: () async {
-                      Map<String, dynamic> values = {};
-                      Map<String, dynamic> labels = {};
-
-                      for (var i = 0; i < formFields.length; i++) {
-                        var id = formFields[i].id;
-                        var label = formFields[i].label;
-
-                        if (id == null) continue;
-                        values[id] = Input.get(id);
-                        labels[id] = label;
-                      }
-
-                      for (var key in values.keys) {
-                        var label = labels[key];
-                        if (values[key] == null) {
-                          showWarning("Error", "$label is Required");
-                          return;
-                        }
-
-                        if (values[key] is String) {
-                          if (values[key] == "") {
-                            showWarning("Error", "$label is Required");
-                            return;
-                          }
-                        }
-                      }
-
-                      await service.add(values);
-                      Get.back();
+    return GetBuilder<FireCrudController>(
+        init: FireCrudController(),
+        builder: (controller) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("$title"),
+              actions: [
+                if (kDebugMode) ...[
+                  ExButton(
+                    label: "Delete All",
+                    color: Colors.orange,
+                    onPressed: () async {
+                      service.deleteAll();
                     },
-                    children: List<Widget>.from(formFields),
                   ),
-                );
-              },
-              child: Icon(Icons.add),
-            ),
-      body: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(6.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(12.0)),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Search",
-                  prefixIcon: Icon(
-                    Icons.search,
-                    size: 24,
-                    color: Colors.grey,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.tune_outlined,
-                    size: 24,
-                    color: Colors.grey,
-                  ),
+                ],
+                ...actions,
+                // InkWell(
+                //   onTap: () {
+                //     showInfoDialog(
+                //       "Test",
+                //       "TestTest",
+                //     );
+                //   },
+                //   child: Padding(
+                //     padding: const EdgeInsets.only(
+                //       top: 8.0,
+                //       bottom: 8.0,
+                //       right: 8.0,
+                //       left: 8.0,
+                //     ),
+                //     child: Icon(Icons.tune),
+                //   ),
+                // ),
+                // InkWell(
+                //   onTap: () {},
+                //   child: Padding(
+                //     padding: const EdgeInsets.only(
+                //       top: 8.0,
+                //       bottom: 8.0,
+                //       right: 8.0,
+                //       left: 8.0,
+                //     ),
+                //     child: Icon(Icons.search),
+                //   ),
+                // ),
+                SizedBox(
+                  width: 4.0,
                 ),
-              ),
+              ],
             ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Expanded(
-              child: FireListView(
-                stream: customRef ?? service.stream(),
-                shrinkWrap: false,
-                onItemBuild: (item, index, snapshot) {
-                  var photoUrl = getValueFromItem(listItem.photoUrl, item);
-                  var itemTitle = getValueFromItem(listItem.title, item);
-                  var itemSubtitle = getValueFromItem(listItem.subtitle, item);
-
-                  if (listItem.title != null) {
-                    if (listItem.title!.contains(".")) {
-                      var arr = listItem.title!.split(".");
-                      itemTitle = item[arr[0]][arr[1]];
-                    }
-                  }
-
-                  return InkWell(
-                    onTap: () async {
-                      if (!enableEdit) return;
-
-                      Map? selectedItem = await service.getDoc(item["id"]);
+            floatingActionButton: !enableAdd
+                ? Container()
+                : FloatingActionButton(
+                    onPressed: () {
                       Get.to(
                         FireForm(
-                          title: "Edit $title Form",
+                          title: "Add $title Form",
                           onSave: () async {
                             Map<String, dynamic> values = {};
                             Map<String, dynamic> labels = {};
@@ -223,66 +136,175 @@ class FireCrud extends StatelessWidget {
                               }
                             }
 
-                            await service.update(selectedItem!["id"], values);
+                            await service.add(values);
                             Get.back();
                           },
                           children: List<Widget>.from(formFields),
                         ),
                       );
-
-                      await Future.delayed(Duration(milliseconds: 500));
-                      var editFormFields = List.from(formFields);
-                      for (var i = 0; i < editFormFields.length; i++) {
-                        var id = editFormFields[i].id;
-                        log("id: $id");
-                        // log("${Input.inputController[id]}");
-                        Input.inputController[id]!.setValue(selectedItem![id]);
-                      }
                     },
-                    child: FireItem(
-                      service: service,
-                      id: item["id"],
-                      enableSlide: enableDelete,
-                      child: itemBuilder != null
-                          ? Builder(
-                              builder: (context) {
-                                return itemBuilder!(item);
-                              },
-                            )
-                          : Card(
-                              child: ListTile(
-                                leading: listItem.photoUrl == null
-                                    ? null
-                                    : Container(
-                                        height: 50.0,
-                                        width: 50.0,
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey[200],
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(16.0)),
-                                          image: DecorationImage(
-                                            image: NetworkImage("$photoUrl"),
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                title: listItem.title == null
-                                    ? null
-                                    : Text("$itemTitle"),
-                                subtitle: listItem.subtitle == null
-                                    ? null
-                                    : Text("$itemSubtitle"),
-                              ),
-                            ),
+                    child: Icon(Icons.add),
+                  ),
+            body: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(6.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(12.0)),
                     ),
-                  );
-                },
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Search",
+                        prefixIcon: Icon(
+                          Icons.search,
+                          size: 24,
+                          color: Colors.grey,
+                        ),
+                        suffixIcon: Icon(
+                          Icons.tune_outlined,
+                          size: 24,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      onSubmitted: (search) {
+                        controller.search = search;
+                        controller.update();
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Expanded(
+                    child: FireListView(
+                      stream: customRef ?? service.stream(),
+                      shrinkWrap: false,
+                      onItemBuild: (item, index, snapshot) {
+                        var photoUrl =
+                            getValueFromItem(listItem.photoUrl, item);
+                        var itemTitle = getValueFromItem(listItem.title, item);
+                        var itemSubtitle =
+                            getValueFromItem(listItem.subtitle, item);
+
+                        if (listItem.title != null) {
+                          if (listItem.title!.contains(".")) {
+                            var arr = listItem.title!.split(".");
+                            itemTitle = item[arr[0]][arr[1]];
+                          }
+                        }
+
+                        if (controller.search.isNotEmpty) {
+                          if (!itemTitle.toString().contains(controller.search))
+                            return Container();
+                        }
+
+                        return InkWell(
+                          onTap: () async {
+                            if (!enableEdit) return;
+
+                            Map? selectedItem =
+                                await service.getDoc(item["id"]);
+                            Get.to(
+                              FireForm(
+                                title: "Edit $title Form",
+                                onSave: () async {
+                                  Map<String, dynamic> values = {};
+                                  Map<String, dynamic> labels = {};
+
+                                  for (var i = 0; i < formFields.length; i++) {
+                                    var id = formFields[i].id;
+                                    var label = formFields[i].label;
+
+                                    if (id == null) continue;
+                                    values[id] = Input.get(id);
+                                    labels[id] = label;
+                                  }
+
+                                  for (var key in values.keys) {
+                                    var label = labels[key];
+                                    if (values[key] == null) {
+                                      showWarning(
+                                          "Error", "$label is Required");
+                                      return;
+                                    }
+
+                                    if (values[key] is String) {
+                                      if (values[key] == "") {
+                                        showWarning(
+                                            "Error", "$label is Required");
+                                        return;
+                                      }
+                                    }
+                                  }
+
+                                  await service.update(
+                                      selectedItem!["id"], values);
+                                  Get.back();
+                                },
+                                children: List<Widget>.from(formFields),
+                              ),
+                            );
+
+                            await Future.delayed(Duration(milliseconds: 500));
+                            var editFormFields = List.from(formFields);
+                            for (var i = 0; i < editFormFields.length; i++) {
+                              var id = editFormFields[i].id;
+                              log("id: $id");
+                              // log("${Input.inputController[id]}");
+                              Input.inputController[id]!
+                                  .setValue(selectedItem![id]);
+                            }
+                          },
+                          child: FireItem(
+                            service: service,
+                            id: item["id"],
+                            enableSlide: enableDelete,
+                            child: itemBuilder != null
+                                ? Builder(
+                                    builder: (context) {
+                                      return itemBuilder!(item);
+                                    },
+                                  )
+                                : Card(
+                                    child: ListTile(
+                                      leading: listItem.photoUrl == null
+                                          ? null
+                                          : Container(
+                                              height: 50.0,
+                                              width: 50.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.grey[200],
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(16.0)),
+                                                image: DecorationImage(
+                                                  image:
+                                                      NetworkImage("$photoUrl"),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                      title: listItem.title == null
+                                          ? null
+                                          : Text("$itemTitle"),
+                                      subtitle: listItem.subtitle == null
+                                          ? null
+                                          : Text("$itemSubtitle"),
+                                    ),
+                                  ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
+          );
+        });
   }
 }
 
