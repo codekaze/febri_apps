@@ -1,8 +1,8 @@
+import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/data/session/property/food_recipe_api.dart';
-import '../controller/fr_dashboard_controller.dart';
 
-import 'package:get/get.dart';
+
+
 
 class FrDashboardView extends StatelessWidget {
   @override
@@ -14,7 +14,7 @@ class FrDashboardView extends StatelessWidget {
 
         return Scaffold(
           body: SafeArea(
-            child: SingleChildScrollView(
+            child: SafeScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/app/food_recipes/fr_dashboard/view/fr_dashboard_view.dart';
-import '../controller/fr_main_navigation_controller.dart';
 
-import 'package:get/get.dart';
+
+
 
 class FrMainNavigationView extends StatelessWidget {
   @override

@@ -339,7 +339,7 @@ class LocationPickerMapState extends State<LocationPickerMap> {
               top: 50,
               bottom: 0,
               child: SafeArea(
-                child: SingleChildScrollView(
+                child: SafeScrollView(
                   child: Container(
                     child: SafeArea(
                       child: Column(

@@ -43,7 +43,7 @@ class DashboardView extends StatelessWidget {
           ),
           drawer: DashboardDrawer(),
           body: SafeArea(
-            child: SingleChildScrollView(
+            child: SafeScrollView(
               child: Container(
                 padding: EdgeInsets.all(16.0),
                 child: Column(

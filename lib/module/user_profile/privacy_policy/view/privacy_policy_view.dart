@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../controller/privacy_policy_controller.dart';
+import 'package:flutterx/core.dart';
+
 import 'package:flutter_html/flutter_html.dart';
-import 'package:get/get.dart';
+
 
 class PrivacyPolicyView extends StatelessWidget {
   @override
@@ -18,7 +19,7 @@ class PrivacyPolicyView extends StatelessWidget {
           appBar: AppBar(
             title: Text("Privacy Policy"),
           ),
-          body: SingleChildScrollView(
+          body: SafeScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 12),

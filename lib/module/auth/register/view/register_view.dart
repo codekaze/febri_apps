@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import '../controller/register_controller.dart';
+
 
 
 

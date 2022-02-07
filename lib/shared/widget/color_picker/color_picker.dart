@@ -104,7 +104,7 @@ class ExColorPickerState extends State<ExColorPicker>
         builder: (context) {
           return AlertDialog(
             title: const Text('Pick a color!'),
-            content: SingleChildScrollView(
+            content: SafeScrollView(
               child: ColorPicker(
                 pickerColor: selectedValue!,
                 onColorChanged: (color) {

@@ -1,6 +1,6 @@
 import 'package:flutterx/core.dart';
 
-import '../view/register_view.dart';
+
 
 class RegisterController extends GetxController {
   RegisterView? view;

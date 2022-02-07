@@ -20,7 +20,7 @@ class PersonalDetailView extends StatelessWidget {
               ),
             ],
           ),
-          body: SingleChildScrollView(
+          body: SafeScrollView(
             child: Container(
               padding: EdgeInsets.all(20.0),
               child: Padding(

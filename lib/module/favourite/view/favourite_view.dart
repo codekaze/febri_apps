@@ -1,6 +1,5 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/data/session/property/car_api.dart';
 
 class FavouriteView extends StatelessWidget {
   final controller = Get.put(FavouriteController());

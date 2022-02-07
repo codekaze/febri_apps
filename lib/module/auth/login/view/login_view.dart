@@ -1,7 +1,5 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/module/auth/forgot_password/view/forgot_password_view.dart';
-import 'package:flutterx/module/auth/register/view/register_view.dart';
 
 class LoginView extends StatelessWidget {
   final controller = Get.put(LoginController());

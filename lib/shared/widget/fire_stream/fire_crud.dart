@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/shared/widget/fire_stream/fire_crud_controller.dart';
 
 class FireListItem {
   final String? photoUrl;

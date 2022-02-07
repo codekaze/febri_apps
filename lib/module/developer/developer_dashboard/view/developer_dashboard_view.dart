@@ -13,7 +13,7 @@ class DeveloperDashboardView extends StatelessWidget {
           appBar: AppBar(
             title: Text("DeveloperDashboard"),
           ),
-          body: SingleChildScrollView(
+          body: SafeScrollView(
             child: Container(
               padding: const EdgeInsets.all(20.0),
               child: Column(

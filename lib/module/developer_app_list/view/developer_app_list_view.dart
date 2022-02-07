@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/app/food_recipes/fr_main_navigation/view/fr_main_navigation_view.dart';
-import 'package:flutterx/module/developer/fire_test/view/fire_test_view.dart';
 
 class DeveloperAppListView extends StatelessWidget {
   @override
@@ -15,7 +13,7 @@ class DeveloperAppListView extends StatelessWidget {
           appBar: AppBar(
             title: Text("Developer Dashboard"),
           ),
-          body: SingleChildScrollView(
+          body: SafeScrollView(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(

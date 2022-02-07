@@ -1,6 +1,6 @@
-import 'package:fireverse/fireglobal.dart';
-import 'package:flutterx/data/session/app_session.dart';
-import 'package:flutterx/shared/util/firebase/firecore.dart';
+
+import 'package:flutterx/core.dart';
+
 
 class ProductCategoryService implements FireCore {
   final String collectionName = prefix + "product_category";
