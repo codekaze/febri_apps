@@ -228,7 +228,7 @@ class PaDashboardView extends StatelessWidget {
                                                   child: Hero(
                                                       tag:
                                                           'pet${catMapList[index]['id']}',
-                                                      child: Image.network(
+                                                      child: ExImage(
                                                           catMapList[index]
                                                               ['imagePath'])),
                                                 )),

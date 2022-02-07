@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
-
-
-
 /*
 TODO: Akbar
 1. image slider-nya
@@ -33,7 +30,7 @@ class FlProductDetailView extends StatelessWidget {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.network(item["photo_url"]),
+              ExImage(item["photo_url"]),
               ExColorPicker(
                 id: "color",
                 label: "Color",

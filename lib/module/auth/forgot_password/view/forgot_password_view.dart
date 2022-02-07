@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
-
-
-
 class ForgotPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,7 +23,7 @@ class ForgotPasswordView extends StatelessWidget {
                         padding: EdgeInsets.all(10.0),
                         child: Column(
                           children: [
-                            Image.network(
+                            ExImage(
                               appLogo,
                               width: 80.0,
                               height: 80.0,

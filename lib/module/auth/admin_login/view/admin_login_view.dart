@@ -50,7 +50,7 @@ class AdminLoginView extends StatelessWidget {
                                 padding: EdgeInsets.all(10.0),
                                 child: Column(
                                   children: [
-                                    Image.network(
+                                    ExImage(
                                       appLogo,
                                       width: 80.0,
                                       height: 80.0,

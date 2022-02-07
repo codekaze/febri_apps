@@ -1,15 +1,17 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 
-class ExNetworkImage extends StatelessWidget {
+class ExImage extends StatelessWidget {
   final String src;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
+  final BoxFit? fit;
 
-  ExNetworkImage({
-    required this.src,
-    this.width = 100,
-    this.height = 100,
+  ExImage(
+    this.src, {
+    this.width,
+    this.height,
+    this.fit,
   });
 
   @override
@@ -18,10 +20,26 @@ class ExNetworkImage extends StatelessWidget {
       src,
       height: width,
       width: height,
-      fit: BoxFit.cover,
+      fit: fit,
       loadingBuilder: (context, child, loadingProgress) =>
           ImageLoading.getDefaultLoadingBuilder(
-              context, child, loadingProgress),
+        context,
+        child,
+        loadingProgress,
+      ),
+      errorBuilder: (context, child, loadingProgress) {
+        return Container(
+          color: Colors.grey[400],
+          child: Center(
+            child: Text(
+              "Error",
+              style: TextStyle(
+                fontSize: 8.0,
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

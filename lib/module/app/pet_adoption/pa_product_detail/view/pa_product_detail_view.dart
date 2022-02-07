@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
-
-
-
 class PaProductDetailView extends StatelessWidget {
   final Map item;
   PaProductDetailView({
@@ -32,7 +29,7 @@ class PaProductDetailView extends StatelessWidget {
                           alignment: Alignment.center,
                           child: Hero(
                             tag: 'pet${item['id']}',
-                            child: Image.network(item['imagePath']),
+                            child: ExImage(item['imagePath']),
                           ),
                         ),
                       ),

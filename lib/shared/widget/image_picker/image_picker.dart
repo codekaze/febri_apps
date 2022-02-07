@@ -195,15 +195,11 @@ class _ExImagePickerState extends State<ExImagePicker>
                 Container(
                   height: 120.0,
                   width: 160.0,
-                  child: Image.network(
+                  child: ExImage(
                     imageUrl!,
                     height: 100,
                     width: Get.width / 3,
                     fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      return CustomImageBuilder.getImageLoadingBuilder(
-                          context, child, loadingProgress);
-                    },
                   ),
                 ),
               if (imageUrl == null)

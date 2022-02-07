@@ -1,8 +1,6 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 
-
-
 class OrderSuccessView extends StatelessWidget {
   final controller = Get.put(OrderSuccessController());
 
@@ -19,7 +17,7 @@ class OrderSuccessView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(
+                ExImage(
                   'https://i.ibb.co/tqsbh9W/4529164.jpg',
                   width: Get.width / 1.8,
                 ),

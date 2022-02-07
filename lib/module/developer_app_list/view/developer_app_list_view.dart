@@ -235,7 +235,7 @@ class AppCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
+              ExImage(
                 iconUrl,
                 width: 30.0,
                 height: 30.0,
