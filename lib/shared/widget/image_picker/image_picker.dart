@@ -142,7 +142,8 @@ class _ExImagePickerState extends State<ExImagePicker>
           });
 
           var res = await GetConnect().post(
-            'https://api.imgbb.com/1/upload?expiration=600&key=b55ef3fd02b80ab180f284e479acd7c4',
+            // 'https://api.imgbb.com/1/upload?expiration=600&key=b55ef3fd02b80ab180f284e479acd7c4',
+            'https://api.imgbb.com/1/upload?key=b55ef3fd02b80ab180f284e479acd7c4',
             form,
           );
 

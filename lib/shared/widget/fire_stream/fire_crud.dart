@@ -277,22 +277,28 @@ class FireCrud extends StatelessWidget {
                                       child: ListTile(
                                         leading: listItem.photoUrl == null
                                             ? null
-                                            : Container(
+                                            : ExImage(
+                                                "$photoUrl",
                                                 height: 50.0,
                                                 width: 50.0,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.grey[200],
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(
-                                                              16.0)),
-                                                  image: DecorationImage(
-                                                    image: NetworkImage(
-                                                        "$photoUrl"),
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
                                               ),
+                                        // : Container(
+                                        //     height: 50.0,
+                                        //     width: 50.0,
+                                        //     decoration: BoxDecoration(
+                                        //       color: Colors.grey[200],
+                                        //       borderRadius:
+                                        //           BorderRadius.all(
+                                        //               Radius.circular(
+                                        //                   16.0)),
+                                        //       image: DecorationImage(
+                                        //         image: NetworkImage(
+                                        //           "$photoUrl",
+                                        //         ),
+                                        //         fit: BoxFit.cover,
+                                        //       ),
+                                        //     ),
+                                        //   ),
                                         title: listItem.title == null
                                             ? null
                                             : Text("$itemTitle"),
