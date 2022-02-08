@@ -52,25 +52,28 @@ class ChatDetailView extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            leading: Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: CircleAvatar(
-                radius: 15,
-                backgroundColor:
-                    Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-                        .withOpacity(1.0),
-                child: Text(
-                  'R',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+            title: Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor:
+                      Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
+                          .withOpacity(1.0),
+                  child: Text(
+                    'R',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
                 ),
-              ),
-            ),
-            title: Text(
-              "Risa Levin",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
+                SizedBox(
+                  width: 6.0,
+                ),
+                Text(
+                  "Risa Levin",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
             ),
           ),
           body: Column(
