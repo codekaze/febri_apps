@@ -49,7 +49,7 @@ class ChatListView extends StatelessWidget {
           body: SafeArea(
             child: Container(
               padding: EdgeInsets.all(20.0),
-              child: SingleChildScrollView(
+              child: SafeScrollView(
                 child: Column(
                   children: [
                     Container(
