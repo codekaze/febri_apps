@@ -112,60 +112,68 @@ class ChatListView extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemCount: profile.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              padding: EdgeInsets.all(5),
-                              child: Column(
-                                children: [
-                                  Stack(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 40,
-                                        backgroundColor: profile[index][
-                                            "profile_picture_background_color"],
-                                        child: Center(
-                                          child: Text(
-                                            '${profile[index]["name"][0]}',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 25,
+                            var item = profile[index];
+                            return InkWell(
+                              onTap: () {
+                                Get.to(
+                                  ChatDetailView(item: item),
+                                );
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                child: Column(
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        CircleAvatar(
+                                          radius: 40,
+                                          backgroundColor: profile[index][
+                                              "profile_picture_background_color"],
+                                          child: Center(
+                                            child: Text(
+                                              '${profile[index]["name"][0]}',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 25,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      Positioned(
-                                        left: 60,
-                                        top: 60,
-                                        child: Stack(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 10,
-                                              backgroundColor: Colors.white,
-                                            ),
-                                            Positioned(
-                                              left: 2,
-                                              top: 2,
-                                              child: CircleAvatar(
-                                                radius: 8,
-                                                backgroundColor:
-                                                    Colors.green[400],
+                                        Positioned(
+                                          left: 60,
+                                          top: 60,
+                                          child: Stack(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 10,
+                                                backgroundColor: Colors.white,
                                               ),
-                                            ),
-                                          ],
+                                              Positioned(
+                                                left: 2,
+                                                top: 2,
+                                                child: CircleAvatar(
+                                                  radius: 8,
+                                                  backgroundColor:
+                                                      Colors.green[400],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    profile[index]["name"],
-                                    maxLines: 1,
-                                    style: TextStyle(
-                                      fontSize: 14,
+                                      ],
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      profile[index]["name"],
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           }),
@@ -190,109 +198,119 @@ class ChatListView extends StatelessWidget {
                           shrinkWrap: true,
                           itemCount: profile.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              padding: EdgeInsets.all(5),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Stack(
-                                        children: [
-                                          CircleAvatar(
-                                            radius: 35,
-                                            backgroundColor: profile[index][
-                                                "profile_picture_background_color"],
-                                            child: Center(
-                                              child: Text(
-                                                '${profile[index]["name"][0]}',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 25,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 45,
-                                            top: 50,
-                                            child: Stack(
-                                              children: [
-                                                CircleAvatar(
-                                                  radius: 10,
-                                                  backgroundColor: Colors.white,
-                                                ),
-                                                Positioned(
-                                                  left: 2,
-                                                  top: 2,
-                                                  child: CircleAvatar(
-                                                    radius: 8,
-                                                    backgroundColor:
-                                                        Colors.green[400],
+                            var item = profile[index];
+                            return InkWell(
+                              onTap: () {
+                                Get.to(
+                                  ChatDetailView(item: item),
+                                );
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Stack(
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 35,
+                                              backgroundColor: profile[index][
+                                                  "profile_picture_background_color"],
+                                              child: Center(
+                                                child: Text(
+                                                  '${profile[index]["name"][0]}',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 25,
                                                   ),
                                                 ),
-                                              ],
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child: Container(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                profile[index]["name"],
-                                                style: TextStyle(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
+                                            Positioned(
+                                              left: 45,
+                                              top: 50,
+                                              child: Stack(
                                                 children: [
-                                                  Flexible(
-                                                    flex: 4,
-                                                    child: Text(
-                                                      faker.lorem.sentence(),
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      style: TextStyle(
-                                                        fontSize: 14,
-                                                        color: Colors.grey,
-                                                      ),
-                                                    ),
+                                                  CircleAvatar(
+                                                    radius: 10,
+                                                    backgroundColor:
+                                                        Colors.white,
                                                   ),
-                                                  Flexible(
-                                                    flex: 1,
-                                                    child: Text(
-                                                      'Feb 21',
-                                                      style: TextStyle(
-                                                        fontSize: 12,
-                                                        color: Colors.grey[700],
-                                                      ),
+                                                  Positioned(
+                                                    left: 2,
+                                                    top: 2,
+                                                    child: CircleAvatar(
+                                                      radius: 8,
+                                                      backgroundColor:
+                                                          Colors.green[400],
                                                     ),
                                                   ),
                                                 ],
                                               ),
-                                            ],
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Expanded(
+                                          child: Container(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  profile[index]["name"],
+                                                  style: TextStyle(
+                                                    fontSize: 15,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Flexible(
+                                                      flex: 4,
+                                                      child: Text(
+                                                        faker.lorem.sentence(),
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: Colors.grey,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Flexible(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        'Feb 21',
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color:
+                                                              Colors.grey[700],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Divider(
-                                    thickness: 0.5,
-                                  ),
-                                ],
+                                      ],
+                                    ),
+                                    Divider(
+                                      thickness: 0.5,
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           }),

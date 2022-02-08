@@ -10,7 +10,7 @@ Map<String, TextEditingController> textFieldController = {};
 
 class ExTextField extends StatefulWidget {
   final String id;
-  final String label;
+  final String? label;
   final String? value;
   final String hintText;
   final TextFieldType textFieldType;
@@ -23,7 +23,7 @@ class ExTextField extends StatefulWidget {
 
   ExTextField({
     required this.id,
-    required this.label,
+    this.label,
     this.value = "",
     this.hintText = "",
     this.textFieldType = TextFieldType.normal,
@@ -72,18 +72,20 @@ class _ExTextFieldState extends State<ExTextField>
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(
-              left: 4.0,
-              right: 4.0,
-              top: 4.0,
-              bottom: 4.0,
+          if (widget.label != null) ...[
+            Padding(
+              padding: EdgeInsets.only(
+                left: 4.0,
+                right: 4.0,
+                top: 4.0,
+                bottom: 4.0,
+              ),
+              child: Text(widget.label!),
             ),
-            child: Text(widget.label),
-          ),
-          SizedBox(
-            height: 4.0,
-          ),
+            SizedBox(
+              height: 4.0,
+            ),
+          ],
           Container(
             padding: EdgeInsets.all(10.0),
             decoration: BoxDecoration(
