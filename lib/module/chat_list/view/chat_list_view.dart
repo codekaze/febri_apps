@@ -196,6 +196,7 @@ class ChatListView extends StatelessWidget {
                       height: 450,
                       child: ListView.builder(
                           shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
                           itemCount: profile.length,
                           itemBuilder: (context, index) {
                             var item = profile[index];
@@ -314,6 +315,9 @@ class ChatListView extends StatelessWidget {
                               ),
                             );
                           }),
+                    ),
+                    SizedBox(
+                      height: 30,
                     ),
                   ],
                 ),
