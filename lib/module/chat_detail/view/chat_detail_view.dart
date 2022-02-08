@@ -25,7 +25,34 @@ class ChatDetailView extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
+                  padding: EdgeInsets.all(16.0),
                   color: Colors.yellow[100],
+                  child: ListView.builder(
+                    itemCount: controller.messages.length,
+                    itemBuilder: (context, index) {
+                      var message = controller.messages[index];
+                      bool isMe = message["from"]["id"] == "1002";
+
+                      return Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(10.0),
+                            margin: EdgeInsets.only(bottom: 10.0),
+                            constraints: BoxConstraints(
+                              maxWidth: Get.width / 1.6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: isMe ? Colors.blue[200] : Colors.pink[200],
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12.0),
+                              ),
+                            ),
+                            child: Text("${message['message']}"),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ),
               SizedBox(
