@@ -36,6 +36,14 @@ class ChatDetailView extends StatelessWidget {
                 color: Colors.white,
                 child: Row(
                   children: [
+                    InkWell(
+                      onTap: () {
+                        Input.inputController["message"]!.resetValue();
+                      },
+                      child: Icon(
+                        Icons.attach_file,
+                      ),
+                    ),
                     Expanded(
                       child: ExTextField(
                         id: "message",
@@ -43,12 +51,13 @@ class ChatDetailView extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                        onTap: () {
-                          Input.inputController["message"]!.resetValue();
-                        },
-                        child: Icon(
-                          Icons.send,
-                        )),
+                      onTap: () {
+                        Input.inputController["message"]!.resetValue();
+                      },
+                      child: Icon(
+                        Icons.send,
+                      ),
+                    ),
                   ],
                 ),
               ),
