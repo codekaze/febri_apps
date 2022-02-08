@@ -65,17 +65,36 @@ class ChatDetailView extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
+                        Get.bottomSheet(
+                          Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Container(
+                              height: 200.0,
+                              decoration: BoxDecoration(
+                                color: Colors.blue[100],
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.0)),
+                              ),
+                            ),
+                          ),
+                        );
                         Input.inputController["message"]!.resetValue();
                       },
                       child: Icon(
                         Icons.attach_file,
                       ),
                     ),
+                    SizedBox(
+                      width: 6.0,
+                    ),
                     Expanded(
                       child: ExTextField(
                         id: "message",
                         hintText: "Send a message",
                       ),
+                    ),
+                    SizedBox(
+                      width: 6.0,
                     ),
                     InkWell(
                       onTap: () {
