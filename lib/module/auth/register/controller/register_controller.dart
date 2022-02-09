@@ -1,7 +1,5 @@
 import 'package:flutterx/core.dart';
 
-
-
 class RegisterController extends GetxController {
   RegisterView? view;
 
@@ -21,9 +19,15 @@ class RegisterController extends GetxController {
   }
 
   register() async {
+    var name = Input.get("name");
     var email = Input.get("email");
     var password = Input.get("password");
     var confirmPassword = Input.get("confirm_password");
+
+    if (name.toString().isEmpty) {
+      showError("Required Fields", "Full name is required");
+      return;
+    }
 
     if (!email.toString().isEmail) {
       showError("Invalid Format", "Invalid email format");
@@ -46,7 +50,9 @@ class RegisterController extends GetxController {
       password: password,
     );
 
-    if (auth != null) {
+    if (auth) {
+      await UserService().initializeUser();
+
       showSuccess("Success", "Registration is success!");
       Get.deleteAll();
       Get.offAll(AppSession.homePage);

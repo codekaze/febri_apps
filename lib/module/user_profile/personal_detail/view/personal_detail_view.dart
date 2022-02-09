@@ -32,8 +32,8 @@ class PersonalDetailView extends StatelessWidget {
                       label: "Photo",
                     ),
                     ExTextField(
-                      id: "full_name",
-                      label: "Full Name",
+                      id: "name",
+                      label: "Name",
                     ),
                     ExTextField(
                       id: "phone_number",

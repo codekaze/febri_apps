@@ -1,7 +1,10 @@
+import 'package:fireverse/fireverse.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 import 'dart:math' as math;
+
+import 'package:flutterx/service/message_service/message_service.dart';
 
 class ChatListView extends StatelessWidget {
   List<Map> profile = [
@@ -192,129 +195,256 @@ class ChatListView extends StatelessWidget {
                         ),
                       ],
                     ),
+                    ExButton(
+                      label: "OK - ${prefix}users",
+                      onPressed: () async {
+                        var snapshot = await Fire.get(
+                          collectionName: "cr_users",
+                        );
+                        print(snapshot.length);
+                      },
+                    ),
                     Container(
                       height: 500,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: profile.length,
-                          itemBuilder: (context, index) {
-                            var item = profile[index];
-                            return InkWell(
-                              onTap: () {
-                                Get.to(
-                                  ChatDetailView(item: item),
-                                );
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(5),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Stack(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 35,
-                                              backgroundColor: profile[index][
-                                                  "profile_picture_background_color"],
-                                              child: Center(
-                                                child: Text(
-                                                  '${profile[index]["name"][0]}',
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 25,
-                                                  ),
+                      color: Colors.green[50],
+                      child: FireListView(
+                        stream: MessageService().getMessageList(),
+                        onItemBuild: (item, index, snapshot) {
+                          return InkWell(
+                            onTap: () {
+                              Get.to(
+                                ChatDetailView(item: item),
+                              );
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(5),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Stack(
+                                        children: [
+                                          CircleAvatar(
+                                            radius: 35,
+                                            backgroundColor: profile[index][
+                                                "profile_picture_background_color"],
+                                            child: Center(
+                                              child: Text(
+                                                '${item["name"][0]}',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 25,
                                                 ),
                                               ),
                                             ),
-                                            Positioned(
-                                              left: 45,
-                                              top: 50,
-                                              child: Stack(
-                                                children: [
-                                                  CircleAvatar(
-                                                    radius: 10,
-                                                    backgroundColor:
-                                                        Colors.white,
-                                                  ),
-                                                  Positioned(
-                                                    left: 2,
-                                                    top: 2,
-                                                    child: CircleAvatar(
-                                                      radius: 8,
-                                                      backgroundColor:
-                                                          Colors.green[400],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Expanded(
-                                          child: Container(
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                          ),
+                                          Positioned(
+                                            left: 45,
+                                            top: 50,
+                                            child: Stack(
                                               children: [
-                                                Text(
-                                                  profile[index]["name"],
-                                                  style: TextStyle(
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.bold,
+                                                CircleAvatar(
+                                                  radius: 10,
+                                                  backgroundColor: Colors.white,
+                                                ),
+                                                Positioned(
+                                                  left: 2,
+                                                  top: 2,
+                                                  child: CircleAvatar(
+                                                    radius: 8,
+                                                    backgroundColor:
+                                                        Colors.green[400],
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  height: 5,
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Flexible(
-                                                      flex: 4,
-                                                      child: Text(
-                                                        faker.lorem.sentence(),
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: TextStyle(
-                                                          fontSize: 14,
-                                                          color: Colors.grey,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Flexible(
-                                                      flex: 1,
-                                                      child: Text(
-                                                        'Feb 21',
-                                                        style: TextStyle(
-                                                          fontSize: 12,
-                                                          color:
-                                                              Colors.grey[700],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
                                                 ),
                                               ],
                                             ),
                                           ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        child: Container(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "${item["name"]}",
+                                                style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Flexible(
+                                                    flex: 4,
+                                                    child: Text(
+                                                      faker.lorem.sentence(),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        color: Colors.grey,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    flex: 1,
+                                                    child: Text(
+                                                      'Feb 21',
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        color: Colors.grey[700],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ],
-                                    ),
-                                    Divider(
-                                      thickness: 0.5,
-                                    ),
-                                  ],
-                                ),
+                                      ),
+                                    ],
+                                  ),
+                                  Divider(
+                                    thickness: 0.5,
+                                  ),
+                                ],
                               ),
-                            );
-                          }),
+                            ),
+                          );
+                        },
+                      ),
+                      // child: ListView.builder(
+                      //     shrinkWrap: true,
+                      //     physics: NeverScrollableScrollPhysics(),
+                      //     itemCount: profile.length,
+                      //     itemBuilder: (context, index) {
+                      //       var item = profile[index];
+                      //       return InkWell(
+                      //         onTap: () {
+                      //           Get.to(
+                      //             ChatDetailView(item: item),
+                      //           );
+                      //         },
+                      //         child: Container(
+                      //           padding: EdgeInsets.all(5),
+                      //           child: Column(
+                      //             children: [
+                      //               Row(
+                      //                 children: [
+                      //                   Stack(
+                      //                     children: [
+                      //                       CircleAvatar(
+                      //                         radius: 35,
+                      //                         backgroundColor: profile[index][
+                      //                             "profile_picture_background_color"],
+                      //                         child: Center(
+                      //                           child: Text(
+                      //                             '${profile[index]["name"][0]}',
+                      //                             style: TextStyle(
+                      //                               color: Colors.white,
+                      //                               fontSize: 25,
+                      //                             ),
+                      //                           ),
+                      //                         ),
+                      //                       ),
+                      //                       Positioned(
+                      //                         left: 45,
+                      //                         top: 50,
+                      //                         child: Stack(
+                      //                           children: [
+                      //                             CircleAvatar(
+                      //                               radius: 10,
+                      //                               backgroundColor:
+                      //                                   Colors.white,
+                      //                             ),
+                      //                             Positioned(
+                      //                               left: 2,
+                      //                               top: 2,
+                      //                               child: CircleAvatar(
+                      //                                 radius: 8,
+                      //                                 backgroundColor:
+                      //                                     Colors.green[400],
+                      //                               ),
+                      //                             ),
+                      //                           ],
+                      //                         ),
+                      //                       ),
+                      //                     ],
+                      //                   ),
+                      //                   SizedBox(
+                      //                     width: 10,
+                      //                   ),
+                      //                   Expanded(
+                      //                     child: Container(
+                      //                       child: Column(
+                      //                         crossAxisAlignment:
+                      //                             CrossAxisAlignment.start,
+                      //                         children: [
+                      //                           Text(
+                      //                             profile[index]["name"],
+                      //                             style: TextStyle(
+                      //                               fontSize: 15,
+                      //                               fontWeight: FontWeight.bold,
+                      //                             ),
+                      //                           ),
+                      //                           SizedBox(
+                      //                             height: 5,
+                      //                           ),
+                      //                           Row(
+                      //                             mainAxisAlignment:
+                      //                                 MainAxisAlignment
+                      //                                     .spaceBetween,
+                      //                             children: [
+                      //                               Flexible(
+                      //                                 flex: 4,
+                      //                                 child: Text(
+                      //                                   faker.lorem.sentence(),
+                      //                                   overflow: TextOverflow
+                      //                                       .ellipsis,
+                      //                                   style: TextStyle(
+                      //                                     fontSize: 14,
+                      //                                     color: Colors.grey,
+                      //                                   ),
+                      //                                 ),
+                      //                               ),
+                      //                               Flexible(
+                      //                                 flex: 1,
+                      //                                 child: Text(
+                      //                                   'Feb 21',
+                      //                                   style: TextStyle(
+                      //                                     fontSize: 12,
+                      //                                     color:
+                      //                                         Colors.grey[700],
+                      //                                   ),
+                      //                                 ),
+                      //                               ),
+                      //                             ],
+                      //                           ),
+                      //                         ],
+                      //                       ),
+                      //                     ),
+                      //                   ),
+                      //                 ],
+                      //               ),
+                      //               Divider(
+                      //                 thickness: 0.5,
+                      //               ),
+                      //             ],
+                      //           ),
+                      //         ),
+                      //       );
+                      //     }),
                     ),
                   ],
                 ),

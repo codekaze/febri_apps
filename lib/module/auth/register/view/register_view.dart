@@ -45,6 +45,10 @@ class RegisterView extends StatelessWidget {
                               height: 10.0,
                             ),
                             ExTextField(
+                              id: "name",
+                              label: "Full Name",
+                            ),
+                            ExTextField(
                               id: "email",
                               label: "Email",
                             ),

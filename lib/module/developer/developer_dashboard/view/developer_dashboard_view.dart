@@ -148,8 +148,8 @@ class DeveloperDashboardView extends StatelessWidget {
                             ),
                           ),
                           ExTextField(
-                            id: "display_name",
-                            label: "Display Name",
+                            id: "full_name",
+                            label: "Full Name",
                           ),
                           ExCombo(
                             id: "gender",

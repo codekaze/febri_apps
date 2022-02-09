@@ -1,3 +1,13 @@
+import 'package:fireverse/fireglobal.dart';
+import 'package:flutterx/core.dart';
+
 class MessageService {
-  getMessageList() {}
+  Stream getMessageList() {
+    return Fire.snapshot(
+      collectionName: prefix + "users",
+    );
+  }
+
+  sendMessage() {}
+  updateMessageStatus() {}
 }

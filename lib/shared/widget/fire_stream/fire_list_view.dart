@@ -1,4 +1,4 @@
-
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -35,71 +35,15 @@ class FireListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (stream is Stream<QuerySnapshot>) {
-      return StreamBuilder<QuerySnapshot>(
-        stream: stream,
-        builder: (context, stream) {
-          // if (showLoading!) {
-          if (stream.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: SpinKitRing(
-                color: Get.theme.primaryColor,
-              ),
-            );
-            // }
-          }
-
-          QuerySnapshot? querySnapshot = stream.data;
-
-          if (querySnapshot!.docs.isEmpty) {
-            if (onEmptyDocs != null) return onEmptyDocs!();
-            return Container();
-          }
-
-          if (onSnapshots != null) {
-            return onSnapshots!(querySnapshot);
-          }
-
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (title != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    title!,
-                  ),
-                ),
-              if (title != null) const SizedBox(height: 10),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: querySnapshot.docs.length,
-                  shrinkWrap: shrinkWrap,
-                  physics: shrinkWrap == false
-                      ? null
-                      : NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    var item = (querySnapshot.docs[index].data() as Map);
-                    var docId = querySnapshot.docs[index].id;
-                    item["id"] = docId;
-
-                    if (onItemBuild != null) {
-                      return onItemBuild!(item, index, querySnapshot);
-                    }
-                    return Container();
-                  },
-                ),
-              ),
-            ],
-          );
-        },
-      );
-    } else {
+    if (Platform.isWindows) {
       return StreamBuilder(
         stream: stream,
         builder: (context, stream) {
           if (stream.data == null) return Container();
           List items = List.from(stream.data as List);
+
+          print("STREAM BULDER LENGTH: ${items.length}");
+
           if (items.length == 0) return Container();
 
           return ListView.builder(
@@ -122,5 +66,64 @@ class FireListView extends StatelessWidget {
         },
       );
     }
+
+    // IF ANDROID, IOS or WEB
+    return StreamBuilder<QuerySnapshot>(
+      stream: stream,
+      builder: (context, stream) {
+        // if (showLoading!) {
+        if (stream.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: SpinKitRing(
+              color: Get.theme.primaryColor,
+            ),
+          );
+          // }
+        }
+
+        QuerySnapshot? querySnapshot = stream.data;
+
+        if (querySnapshot!.docs.isEmpty) {
+          if (onEmptyDocs != null) return onEmptyDocs!();
+          return Container();
+        }
+
+        if (onSnapshots != null) {
+          return onSnapshots!(querySnapshot);
+        }
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (title != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  title!,
+                ),
+              ),
+            if (title != null) const SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
+                itemCount: querySnapshot.docs.length,
+                shrinkWrap: shrinkWrap,
+                physics:
+                    shrinkWrap == false ? null : NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  var item = (querySnapshot.docs[index].data() as Map);
+                  var docId = querySnapshot.docs[index].id;
+                  item["id"] = docId;
+
+                  if (onItemBuild != null) {
+                    return onItemBuild!(item, index, querySnapshot);
+                  }
+                  return Container();
+                },
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
