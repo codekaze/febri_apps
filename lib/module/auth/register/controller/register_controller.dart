@@ -51,7 +51,9 @@ class RegisterController extends GetxController {
     );
 
     if (auth) {
-      await UserService().initializeUser();
+      await UserService().initializeUser(
+        name: name,
+      );
 
       showSuccess("Success", "Registration is success!");
       Get.deleteAll();
