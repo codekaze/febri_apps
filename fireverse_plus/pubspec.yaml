@@ -1,0 +1,26 @@
+name: fireverse
+description: Multi platform firebase plugin.
+version: 0.0.8
+homepage: https://github.com/codekaze/fireverse
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  http: ^0.13.1
+  grpc: ^3.0.0
+  protobuf: ^2.0.0
+  fixnum: ^1.0.0
+
+  # Firebase Packages
+  firebase_core: ^1.12.0
+  cloud_firestore: ^3.1.7
+  firebase_auth: ^3.3.6
+  firebase_messaging: ^11.2.6
+
+  # Social Sign In
+  google_sign_in: ^5.2.3
+
+dev_dependencies:
+  test: ^1.16.8
+  pedantic: ^1.10.0
