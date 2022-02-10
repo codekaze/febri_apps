@@ -471,18 +471,20 @@ class Fire {
     }
   }
 
-  static add({
+  static Future<String?> add({
     required String collectionName,
     required Map<String, dynamic> value,
   }) async {
     if (Platform.isWindows) {
-      return await FireDartFirestore.instance
+      var res = await FireDartFirestore.instance
           .collection(collectionName)
           .add(value);
+      return res.id;
     } else {
-      return await fs.FirebaseFirestore.instance
+      var res = await fs.FirebaseFirestore.instance
           .collection(collectionName)
           .add(value);
+      return res.id;
     }
   }
 

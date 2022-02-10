@@ -4,9 +4,6 @@ import 'package:fireverse/fireglobal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
-
-
-
 class FireTestView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -93,6 +90,24 @@ class FireTestView extends StatelessWidget {
                     );
 
                     log(getRes.toString());
+                  },
+                ),
+                ExButton(
+                  label: "Run Subcollection Test",
+                  color: infoColor,
+                  onPressed: () async {
+                    await Fire.signInAnonymously();
+                    log("Login Success?");
+                    log("User: ${Fire.currentUser!.uid}");
+                    var collectionName = "xxx_product_xxx";
+
+                    var id = await Fire.add(
+                      collectionName: "$collectionName",
+                      value: {
+                        "product_name": "Product XA",
+                      },
+                    );
+                    print("Add Success! ${id}");
                   },
                 ),
               ],
