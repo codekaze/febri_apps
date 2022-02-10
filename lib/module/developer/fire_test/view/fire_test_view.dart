@@ -116,6 +116,12 @@ class FireTestView extends StatelessWidget {
                     );
 
                     log(getRes.toString());
+
+                    var getNull = await Fire.get(
+                      collectionName: "$collectionName/nullone-is",
+                    );
+
+                    log(getNull.toString());
                   },
                 ),
               ],

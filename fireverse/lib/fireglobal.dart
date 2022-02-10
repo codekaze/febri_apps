@@ -445,19 +445,29 @@ class Fire {
     FireOrder? orderBy,
   }) async {
     if (Platform.isWindows) {
-      var ref = getRefFromWhereAndOrder(
-        collectionName: collectionName,
-        where: where,
-        orderBy: orderBy,
-      );
-      return await ref.get();
+      try {
+        var ref = getRefFromWhereAndOrder(
+          collectionName: collectionName,
+          where: where,
+          orderBy: orderBy,
+        );
+        return await ref.get();
+      } on Exception catch (_) {
+        print(_);
+        return null;
+      }
     } else {
-      var ref = getRefFromWhereAndOrder(
-        collectionName: collectionName,
-        where: where,
-        orderBy: orderBy,
-      );
-      return await ref.get();
+      try {
+        var ref = getRefFromWhereAndOrder(
+          collectionName: collectionName,
+          where: where,
+          orderBy: orderBy,
+        );
+        return await ref.get();
+      } on Exception catch (_) {
+        print(_);
+        return null;
+      }
     }
   }
 
