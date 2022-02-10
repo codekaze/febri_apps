@@ -135,3 +135,10 @@ await Fire.get(
 );
 ```
 
+#### Firestore Get Document
+```
+var getRes = await Fire.get(
+  collectionName: "product/tD1Znfqjwvf8HwciFhY0v1NS87F3",
+);
+```
+
