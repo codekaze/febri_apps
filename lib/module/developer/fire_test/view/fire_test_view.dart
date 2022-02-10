@@ -104,10 +104,18 @@ class FireTestView extends StatelessWidget {
                     var id = await Fire.add(
                       collectionName: "$collectionName",
                       value: {
-                        "product_name": "Product XA",
+                        "product_name": "Product XAs",
                       },
                     );
                     print("Add Success! ${id}");
+
+                    //------------------------------
+
+                    var getRes = await Fire.get(
+                      collectionName: "$collectionName/$id",
+                    );
+
+                    log(getRes.toString());
                   },
                 ),
               ],

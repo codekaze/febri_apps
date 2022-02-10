@@ -357,7 +357,7 @@ packages:
       path: fireverse
       relative: true
     source: path
-    version: "0.0.7"
+    version: "0.0.8"
   fixnum:
     dependency: transitive
     description:

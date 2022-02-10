@@ -290,51 +290,72 @@ class Fire {
   }) {
     var refs = [];
     if (Platform.isWindows) {
-      var ref = FireDartFirestore.instance.collection(collectionName);
+      var ref;
+      var type = FireCollectionType.collection;
+
+      //---- Add Sub Collection Features --//
+      if (collectionName.contains("/")) {
+        var paths = collectionName.split("/");
+
+        if (paths.length == 2) {
+          ref = FireDartFirestore.instance.collection(paths[0]).doc(paths[1]);
+          type = FireCollectionType.document;
+        } else {
+          ref = FireDartFirestore.instance.collection(paths[0]);
+          type = FireCollectionType.collection;
+        }
+
+        //---
+      } else {
+        ref = FireDartFirestore.instance.collection(collectionName);
+      }
+      //---- End --//
       refs.add(ref);
 
-      if (where != null) {
-        for (var i = 0; i < where.length; i++) {
-          if (where[i].isEqualTo != null) {
-            var newref = ref.where(
-              where[i].field,
-              isEqualTo: where[i].isEqualTo,
-            );
-            refs.add(newref);
-          } else if (where[i].isGreaterThan != null) {
-            var newref = ref.where(
-              where[i].field,
-              isGreaterThan: where[i].isGreaterThan,
-            );
-            refs.add(newref);
-          } else if (where[i].isGreaterThanOrEqualTo != null) {
-            var newref = ref.where(
-              where[i].field,
-              isGreaterThanOrEqualTo: where[i].isGreaterThanOrEqualTo,
-            );
-            refs.add(newref);
-          } else if (where[i].isLessThan != null) {
-            var newref = ref.where(
-              where[i].field,
-              isLessThan: where[i].isLessThan,
-            );
-            refs.add(newref);
-          } else if (where[i].isLessThanOrEqualTo != null) {
-            var newref = ref.where(
-              where[i].field,
-              isLessThanOrEqualTo: where[i].isLessThanOrEqualTo,
-            );
-            refs.add(newref);
+      if (type == FireCollectionType.collection) {
+        if (where != null) {
+          for (var i = 0; i < where.length; i++) {
+            if (where[i].isEqualTo != null) {
+              var newref = ref.where(
+                where[i].field,
+                isEqualTo: where[i].isEqualTo,
+              );
+              refs.add(newref);
+            } else if (where[i].isGreaterThan != null) {
+              var newref = ref.where(
+                where[i].field,
+                isGreaterThan: where[i].isGreaterThan,
+              );
+              refs.add(newref);
+            } else if (where[i].isGreaterThanOrEqualTo != null) {
+              var newref = ref.where(
+                where[i].field,
+                isGreaterThanOrEqualTo: where[i].isGreaterThanOrEqualTo,
+              );
+              refs.add(newref);
+            } else if (where[i].isLessThan != null) {
+              var newref = ref.where(
+                where[i].field,
+                isLessThan: where[i].isLessThan,
+              );
+              refs.add(newref);
+            } else if (where[i].isLessThanOrEqualTo != null) {
+              var newref = ref.where(
+                where[i].field,
+                isLessThanOrEqualTo: where[i].isLessThanOrEqualTo,
+              );
+              refs.add(newref);
+            }
           }
         }
-      }
 
-      if (orderBy != null) {
-        var newref = ref.orderBy(
-          orderBy.field,
-          descending: orderBy.descending,
-        );
-        refs.add(newref);
+        if (orderBy != null) {
+          var newref = ref.orderBy(
+            orderBy.field,
+            descending: orderBy.descending,
+          );
+          refs.add(newref);
+        }
       }
 
       var finalRef = refs.last;
@@ -388,6 +409,9 @@ class Fire {
       }
 
       var finalRef = refs.last;
+
+      print(finalRef);
+      print("---");
       return finalRef;
     }
   }
@@ -410,6 +434,7 @@ class Fire {
         where: where,
         orderBy: orderBy,
       );
+
       return ref.snapshot();
     }
   }
@@ -547,4 +572,9 @@ class GlobalUser {
     this.phoneNumber,
     this.email,
   });
+}
+
+enum FireCollectionType {
+  collection,
+  document,
 }
