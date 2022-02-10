@@ -510,6 +510,7 @@ class Fire {
     required String collectionName,
     required Map<String, dynamic> value,
   }) async {
+    //TODO: implement getRefWhere
     if (Platform.isWindows) {
       var res = await FireDartFirestore.instance
           .collection(collectionName)
@@ -528,6 +529,7 @@ class Fire {
     required String docId,
     required Map<String, dynamic> value,
   }) async {
+    //TODO: implement getRefWhere
     if (Platform.isWindows) {
       return await FireDartFirestore.instance
           .collection(collectionName)
@@ -545,6 +547,7 @@ class Fire {
     required String collectionName,
     required String docId,
   }) async {
+    //TODO: implement getRefWhere
     if (Platform.isWindows) {
       return await FireDartFirestore.instance
           .collection(collectionName)
