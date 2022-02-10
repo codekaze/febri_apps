@@ -1,7 +1,7 @@
 class FurnitureApi {
   static List products = [
     {
-      "product_name": "Chest",
+      "product_name": "Chests",
       "photo_url":
           "https://i.ibb.co/VDfHPPt/photo-1616464916265-68fc457bdc70-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg",
       "price": 13500,
