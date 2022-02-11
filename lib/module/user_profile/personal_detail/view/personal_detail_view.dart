@@ -17,7 +17,14 @@ class PersonalDetailView extends StatelessWidget {
             actions: [
               ExButton(
                 label: "Save",
-                onPressed: () {},
+                onPressed: () async {
+                  UserService().updateUser(
+                    name: Input.get("name"),
+                    phoneNumber: Input.get("phone_number"),
+                    photoUrl: Input.get("photo_url"),
+                  );
+                  showSuccess("Success", "Your data is updated!");
+                },
               ),
             ],
           ),
@@ -31,20 +38,20 @@ class PersonalDetailView extends StatelessWidget {
                     padding: EdgeInsets.all(10.0),
                     child: Column(
                       children: [
-                        Text(": ${data!["id"]}"),
-                        Divider(),
-                        Text(": ${data}"),
                         ExImagePicker(
                           id: "photo_url",
                           label: "Photo",
+                          value: data!["photo_url"],
                         ),
                         ExTextField(
                           id: "name",
                           label: "Name",
+                          value: data["name"],
                         ),
                         ExTextField(
                           id: "phone_number",
                           label: "Phone Number",
+                          value: data["phone_number"],
                         ),
                         ExTextField(
                           id: "email",
