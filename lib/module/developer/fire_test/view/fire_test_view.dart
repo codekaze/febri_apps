@@ -3,9 +3,6 @@ import 'dart:developer';
 import 'package:fireverse/fireglobal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import '../controller/fire_test_controller.dart';
-
-import 'package:get/get.dart';
 
 class FireTestView extends StatelessWidget {
   @override
@@ -67,8 +64,7 @@ class FireTestView extends StatelessWidget {
                     log("id: ${getRes[0].id}");
 
                     await Fire.update(
-                      collectionName: collectionName,
-                      docId: getRes[0].id,
+                      collectionName: "collectionName/${getRes[0].id}",
                       value: {
                         "product_name": "NXT Product",
                       },
@@ -82,8 +78,7 @@ class FireTestView extends StatelessWidget {
                     log(getRes.toString());
 
                     await Fire.delete(
-                      collectionName: collectionName,
-                      docId: getRes[0].id,
+                      collectionName: "collectionName/${getRes[0].id}",
                     );
 
                     log("Delete Success?");
@@ -93,6 +88,46 @@ class FireTestView extends StatelessWidget {
                     );
 
                     log(getRes.toString());
+
+                    log("###################");
+                    log("Test Success!");
+                    log("###################");
+                  },
+                ),
+                ExButton(
+                  label: "Run Subcollection Test",
+                  color: infoColor,
+                  onPressed: () async {
+                    await Fire.signInAnonymously();
+                    log("Login Success?");
+                    log("User: ${Fire.currentUser!.uid}");
+                    var collectionName = "xxx_product_xxx";
+
+                    var id = await Fire.add(
+                      collectionName: "$collectionName",
+                      value: {
+                        "product_name": "Product XAs",
+                      },
+                    );
+                    print("Add Success! ${id}");
+
+                    //------------------------------
+
+                    var getRes = await Fire.get(
+                      collectionName: "$collectionName/$id",
+                    );
+
+                    log(getRes.toString());
+
+                    var getNull = await Fire.get(
+                      collectionName: "$collectionName/nullone-is",
+                    );
+
+                    log(getNull.toString());
+
+                    log("###################");
+                    log("Test Success!");
+                    log("###################");
                   },
                 ),
               ],

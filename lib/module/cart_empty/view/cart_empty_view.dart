@@ -15,7 +15,7 @@ class CartEmptyView extends StatelessWidget {
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
+              ExImage(
                 'https://i.ibb.co/681s7hp/3298067.jpg',
                 width: Get.width / 1.8,
               ),

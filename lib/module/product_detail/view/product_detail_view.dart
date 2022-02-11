@@ -72,7 +72,7 @@ class ProductDetailView extends StatelessWidget {
               ],
             ),
           ),
-          body: SingleChildScrollView(
+          body: SafeScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

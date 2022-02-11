@@ -1,7 +1,6 @@
+import 'package:fireverse/fireverse.dart';
 import 'package:flutter/material.dart';
-import '../controller/jo_dashboard_controller.dart';
-
-import 'package:get/get.dart';
+import 'package:flutterx/core.dart';
 
 class JoDashboardView extends StatelessWidget {
   @override
@@ -11,9 +10,15 @@ class JoDashboardView extends StatelessWidget {
       builder: (controller) {
         controller.view = this;
 
+        var ref = FireDartFirestore.instance.collection(prefix + "product");
+        var shrinkWrap = false;
+
         return Scaffold(
           appBar: AppBar(
             title: Text("JoDashboard"),
+          ),
+          body: Column(
+            children: [],
           ),
         );
       },

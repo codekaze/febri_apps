@@ -45,11 +45,11 @@ class AuthService {
     await Fire.signOut();
   }
 
-  Future<UserCredential?> registerWithEmailAndPassword({
+  Future<bool> registerWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
-    await Fire.register(
+    return await Fire.register(
       email: email,
       password: password,
     );

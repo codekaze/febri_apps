@@ -2,9 +2,6 @@ import 'package:flutterx/core.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class AdminMainNavigationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,11 +41,14 @@ class AdminMainNavigationView extends StatelessWidget {
                 },
                 items: [
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
+                    icon: ImageIcon(
+                      NetworkImage("https://i.ibb.co/VCsfCth/3884324.png"),
+                    ),
                     label: "Dashboard",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
+                    icon: ImageIcon(
+                        NetworkImage("https://i.ibb.co/JRJ1mzD/1077063.png")),
                     label: "Me",
                   ),
                 ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/data/session/property/property_api.dart';
 
 class PlDashboardView extends StatelessWidget {
   @override
@@ -12,7 +11,7 @@ class PlDashboardView extends StatelessWidget {
 
         return Scaffold(
           body: SafeArea(
-            child: SingleChildScrollView(
+            child: SafeScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(

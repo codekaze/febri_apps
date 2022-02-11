@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import '../controller/register_controller.dart';
-
-
 
 class RegisterView extends StatelessWidget {
   @override
@@ -26,7 +23,7 @@ class RegisterView extends StatelessWidget {
                         padding: EdgeInsets.all(10.0),
                         child: Column(
                           children: [
-                            Image.network(
+                            ExImage(
                               appLogo,
                               width: 80.0,
                               height: 80.0,
@@ -46,6 +43,10 @@ class RegisterView extends StatelessWidget {
                             ),
                             SizedBox(
                               height: 10.0,
+                            ),
+                            ExTextField(
+                              id: "name",
+                              label: "Full Name",
                             ),
                             ExTextField(
                               id: "email",

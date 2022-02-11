@@ -13,7 +13,7 @@ class DeveloperDashboardView extends StatelessWidget {
           appBar: AppBar(
             title: Text("DeveloperDashboard"),
           ),
-          body: SingleChildScrollView(
+          body: SafeScrollView(
             child: Container(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -148,8 +148,8 @@ class DeveloperDashboardView extends StatelessWidget {
                             ),
                           ),
                           ExTextField(
-                            id: "display_name",
-                            label: "Display Name",
+                            id: "full_name",
+                            label: "Full Name",
                           ),
                           ExCombo(
                             id: "gender",

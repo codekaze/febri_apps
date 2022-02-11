@@ -51,11 +51,11 @@ class LoginController extends GetxController {
 
   anonymousLogin() async {
     var auth = await AuthService().anonymousLogin();
-
     handleAuth(auth);
   }
 
-  handleAuth(auth) {
+  handleAuth(auth) async {
+    await UserService().initializeUser();
     if (auth != null) {
       Get.offAll(AppSession.homePage);
     } else {

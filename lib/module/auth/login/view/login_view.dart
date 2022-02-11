@@ -1,7 +1,5 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/module/auth/forgot_password/view/forgot_password_view.dart';
-import 'package:flutterx/module/auth/register/view/register_view.dart';
 
 class LoginView extends StatelessWidget {
   final controller = Get.put(LoginController());
@@ -53,7 +51,7 @@ class LoginView extends StatelessWidget {
                                 padding: EdgeInsets.all(10.0),
                                 child: Column(
                                   children: [
-                                    Image.network(
+                                    ExImage(
                                       appLogo,
                                       width: 80.0,
                                       height: 80.0,
@@ -90,7 +88,7 @@ class LoginView extends StatelessWidget {
                                           onTap: () => controller.googleLogin(),
                                           child: CircleAvatar(
                                             backgroundColor: Colors.red[100],
-                                            child: Image.network(
+                                            child: ExImage(
                                               "https://i.ibb.co/MczfRb3/720255.png",
                                               width: 26.0,
                                               height: 26.0,
@@ -105,7 +103,7 @@ class LoginView extends StatelessWidget {
                                         //   onTap: () => controller.facebookLogin(),
                                         //   child: CircleAvatar(
                                         //     backgroundColor: Colors.blue[100],
-                                        //     child: Image.network(
+                                        //     child: ExImage(
                                         //       "https://i.ibb.co/Qk3b5Sb/3670032.png",
                                         //       width: 26.0,
                                         //       height: 26.0,
@@ -120,7 +118,7 @@ class LoginView extends StatelessWidget {
                                               controller.anonymousLogin(),
                                           child: CircleAvatar(
                                             backgroundColor: Colors.grey[300],
-                                            child: Image.network(
+                                            child: ExImage(
                                               "https://i.ibb.co/1rBhN3t/1768630.png",
                                               width: 26.0,
                                               height: 26.0,

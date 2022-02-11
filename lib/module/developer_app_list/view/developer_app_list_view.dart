@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/developer/fire_test/view/fire_test_view.dart';
 
 class DeveloperAppListView extends StatelessWidget {
   @override
@@ -14,7 +13,7 @@ class DeveloperAppListView extends StatelessWidget {
           appBar: AppBar(
             title: Text("Developer Dashboard"),
           ),
-          body: SingleChildScrollView(
+          body: SafeScrollView(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -144,6 +143,19 @@ class DeveloperAppListView extends StatelessWidget {
                             Get.to(LoginView());
                           },
                         ),
+                        AppCard(
+                          appName: "Food Recipes\nApp",
+                          color: Colors.orange[500]!,
+                          iconUrl: "https://i.ibb.co/VTZPcbF/2276931.png",
+                          developer: "Deny",
+                          onTap: () {
+                            AppSession.homePage = FrMainNavigationView();
+                            prefix = "fr_";
+                            loginBackgroundColor = Colors.orange[500];
+                            appLogo = "https://i.ibb.co/VTZPcbF/2276931.png";
+                            Get.to(LoginView());
+                          },
+                        ),
                         Container(
                           width: Get.width,
                           child: Text(
@@ -223,7 +235,7 @@ class AppCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
+              ExImage(
                 iconUrl,
                 width: 30.0,
                 height: 30.0,

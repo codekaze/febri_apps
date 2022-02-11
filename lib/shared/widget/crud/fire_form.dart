@@ -24,7 +24,7 @@ class FireForm extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: SafeScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(

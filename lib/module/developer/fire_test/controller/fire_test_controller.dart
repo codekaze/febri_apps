@@ -1,5 +1,5 @@
-import 'package:flutterx/module/developer/fire_test/view/fire_test_view.dart';
-import 'package:get/get.dart';
+import 'package:flutterx/core.dart';
+
 
 class FireTestController extends GetxController {
   FireTestView? view;

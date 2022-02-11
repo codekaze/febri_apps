@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import '../controller/term_and_condition_controller.dart';
+import 'package:flutterx/core.dart';
 
-import 'package:get/get.dart';
+
+
 
 class TermAndConditionView extends StatelessWidget {
   @override
@@ -19,7 +20,7 @@ class TermAndConditionView extends StatelessWidget {
           appBar: AppBar(
             title: Text("Term & Conditions"),
           ),
-          body: SingleChildScrollView(
+          body: SafeScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 12),
@@ -28,8 +29,7 @@ class TermAndConditionView extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Html(
-                  data:
-                      """
+                  data: """
                 <!DOCTYPE html>
             <html>
             <head>

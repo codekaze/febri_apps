@@ -1,8 +1,8 @@
+import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/data/session/property/car_api.dart';
-import '../controller/cl_dashboard_controller.dart';
 
-import 'package:get/get.dart';
+
+
 
 class ClDashboardView extends StatelessWidget {
   @override
@@ -14,7 +14,7 @@ class ClDashboardView extends StatelessWidget {
 
         return Scaffold(
           body: SafeArea(
-            child: SingleChildScrollView(
+            child: SafeScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(

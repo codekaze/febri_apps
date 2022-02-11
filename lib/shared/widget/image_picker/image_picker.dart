@@ -142,7 +142,8 @@ class _ExImagePickerState extends State<ExImagePicker>
           });
 
           var res = await GetConnect().post(
-            'https://api.imgbb.com/1/upload?expiration=600&key=b55ef3fd02b80ab180f284e479acd7c4',
+            // 'https://api.imgbb.com/1/upload?expiration=600&key=b55ef3fd02b80ab180f284e479acd7c4',
+            'https://api.imgbb.com/1/upload?key=b55ef3fd02b80ab180f284e479acd7c4',
             form,
           );
 
@@ -195,15 +196,11 @@ class _ExImagePickerState extends State<ExImagePicker>
                 Container(
                   height: 120.0,
                   width: 160.0,
-                  child: Image.network(
+                  child: ExImage(
                     imageUrl!,
                     height: 100,
                     width: Get.width / 3,
                     fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      return CustomImageBuilder.getImageLoadingBuilder(
-                          context, child, loadingProgress);
-                    },
                   ),
                 ),
               if (imageUrl == null)

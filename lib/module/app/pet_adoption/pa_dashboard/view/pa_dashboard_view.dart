@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/app/pet_adoption/pa_dashboard/widget/pa_dashboard_drawer.dart';
-
-
-
 
 class PaDashboardView extends StatelessWidget {
   @override
@@ -28,7 +24,7 @@ class PaDashboardView extends StatelessWidget {
                     controller.xOffset, controller.yOffset, 0)
                   ..scale(controller.scaleFactor),
                 duration: Duration(milliseconds: 250),
-                child: SingleChildScrollView(
+                child: SafeScrollView(
                   child: SafeArea(
                     child: Column(
                       children: [
@@ -232,7 +228,7 @@ class PaDashboardView extends StatelessWidget {
                                                   child: Hero(
                                                       tag:
                                                           'pet${catMapList[index]['id']}',
-                                                      child: Image.network(
+                                                      child: ExImage(
                                                           catMapList[index]
                                                               ['imagePath'])),
                                                 )),

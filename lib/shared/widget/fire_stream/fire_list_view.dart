@@ -1,10 +1,13 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 class FireListView extends StatelessWidget {
-  final Stream<QuerySnapshot> stream;
+  final dynamic stream;
 
   final Function? onEmptyDocs;
   final String? title;
@@ -13,7 +16,7 @@ class FireListView extends StatelessWidget {
   final Function(
     Map item,
     int index,
-    QuerySnapshot querySnapshot,
+    dynamic querySnapshot,
   )? onItemBuild;
 
   final Function(
@@ -32,6 +35,39 @@ class FireListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (Platform.isWindows) {
+      return StreamBuilder(
+        stream: stream,
+        builder: (context, stream) {
+          if (stream.data == null) return Container();
+          List items = List.from(stream.data as List);
+
+          print("STREAM BULDER LENGTH: ${items.length}");
+
+          if (items.length == 0) return Container();
+
+          return ListView.builder(
+            itemCount: items.length,
+            shrinkWrap: shrinkWrap,
+            physics:
+                shrinkWrap == false ? null : NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index) {
+              Map<String, dynamic> item = items[index].map;
+              var docId = items[index].id;
+              item["id"] = docId;
+
+              if (onItemBuild != null) {
+                return onItemBuild!(item, index, null);
+              }
+
+              return Container();
+            },
+          );
+        },
+      );
+    }
+
+    // IF ANDROID, IOS or WEB
     return StreamBuilder<QuerySnapshot>(
       stream: stream,
       builder: (context, stream) {

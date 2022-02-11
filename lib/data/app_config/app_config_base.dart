@@ -1,0 +1,3 @@
+class AppConfigBase {
+  var productFields = [];
+}
