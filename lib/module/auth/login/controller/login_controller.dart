@@ -51,7 +51,6 @@ class LoginController extends GetxController {
 
   anonymousLogin() async {
     var auth = await AuthService().anonymousLogin();
-
     handleAuth(auth);
   }
 

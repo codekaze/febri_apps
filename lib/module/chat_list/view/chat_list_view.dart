@@ -228,15 +228,22 @@ class ChatListView extends StatelessWidget {
                                             radius: 35,
                                             backgroundColor: profile[index][
                                                 "profile_picture_background_color"],
-                                            child: Center(
-                                              child: Text(
-                                                '${item["name"][0]}',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 25,
-                                                ),
-                                              ),
-                                            ),
+                                            backgroundImage:
+                                                item["photo_url"] == null
+                                                    ? null
+                                                    : NetworkImage(
+                                                        item["photo_url"]),
+                                            child: item["photo_url"] != null
+                                                ? null
+                                                : Center(
+                                                    child: Text(
+                                                      '${item["name"][0]}',
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 25,
+                                                      ),
+                                                    ),
+                                                  ),
                                           ),
                                           Positioned(
                                             left: 45,
