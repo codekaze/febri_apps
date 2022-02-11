@@ -2,14 +2,16 @@ import 'package:fireverse/fireglobal.dart';
 import 'package:flutterx/core.dart';
 
 class UserService {
+  dynamic get ref {
+    return Fire.getRef(
+      collectionName: "${prefix}users/${Fire.currentUser!.uid}",
+    );
+  }
+
   initializeUser({
     String? name,
   }) async {
-    var userRef = Fire.getRef(
-      collectionName: "${prefix}users/${Fire.currentUser!.uid}",
-    );
-
-    userRef.set({
+    ref.set({
       "id": Fire.currentUser!.uid,
       "name": name ?? (Fire.currentUser!.displayName ?? "John Doe"),
       "email": Fire.currentUser!.email,
