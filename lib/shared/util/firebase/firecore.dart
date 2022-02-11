@@ -9,7 +9,7 @@ class FireCore {
 
 extension FireCoreAbstractExt on FireCore {
   dynamic get ref {
-    return Fire.getCollectionRef(collectionName: collectionName);
+    return Fire.getRef(collectionName: collectionName);
   }
 
   dynamic stream() {

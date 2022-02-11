@@ -24,8 +24,7 @@ void main() async {
   );
 
   await Fire.update(
-    collectionName: "product",
-    docId: "B7NUBHGZJd7xNlxoYtsa",
+    collectionName: "product/B7NUBHGZJd7xNlxoYtsa",
     value: {
       "product_name": "GTX Mouse",
       "price": 12500,
@@ -33,8 +32,7 @@ void main() async {
   );
 
   await Fire.delete(
-    collectionName: "product",
-    docId: "B7NUBHGZJd7xNlxoYtsa",
+    collectionName: "product/B7NUBHGZJd7xNlxoYtsa",
   );
 
   await Fire.snapshot(

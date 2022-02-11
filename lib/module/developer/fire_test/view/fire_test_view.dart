@@ -64,8 +64,7 @@ class FireTestView extends StatelessWidget {
                     log("id: ${getRes[0].id}");
 
                     await Fire.update(
-                      collectionName: collectionName,
-                      docId: getRes[0].id,
+                      collectionName: "collectionName/${getRes[0].id}",
                       value: {
                         "product_name": "NXT Product",
                       },
@@ -79,8 +78,7 @@ class FireTestView extends StatelessWidget {
                     log(getRes.toString());
 
                     await Fire.delete(
-                      collectionName: collectionName,
-                      docId: getRes[0].id,
+                      collectionName: "collectionName/${getRes[0].id}",
                     );
 
                     log("Delete Success?");
@@ -90,6 +88,10 @@ class FireTestView extends StatelessWidget {
                     );
 
                     log(getRes.toString());
+
+                    log("###################");
+                    log("Test Success!");
+                    log("###################");
                   },
                 ),
                 ExButton(
@@ -122,6 +124,10 @@ class FireTestView extends StatelessWidget {
                     );
 
                     log(getNull.toString());
+
+                    log("###################");
+                    log("Test Success!");
+                    log("###################");
                   },
                 ),
               ],

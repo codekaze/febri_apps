@@ -5,9 +5,8 @@ class UserService {
   initializeUser({
     String? name,
   }) async {
-    var userRef = Fire.getDocRef(
-      collectionName: prefix + "users",
-      docId: Fire.currentUser!.uid,
+    var userRef = Fire.getRef(
+      collectionName: "${prefix}users/${Fire.currentUser!.uid}",
     );
 
     userRef.set({

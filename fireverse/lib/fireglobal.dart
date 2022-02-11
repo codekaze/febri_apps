@@ -283,11 +283,14 @@ class Fire {
 
   static GlobalUser? currentUser;
 
-  static getRefFromWhereAndOrder({
+  static getRef({
     required String collectionName,
     List<FireWhereField>? where,
     FireOrder? orderBy,
   }) {
+    log("####################");
+    log("PATH: $collectionName");
+    log("####################");
     var refs = [];
     if (Platform.isWindows) {
       var ref;
@@ -421,21 +424,20 @@ class Fire {
     List<FireWhereField>? where,
     FireOrder? orderBy,
   }) {
-    if (Platform.isWindows) {
-      var ref = getRefFromWhereAndOrder(
-        collectionName: collectionName,
-        where: where,
-        orderBy: orderBy,
-      );
-      return ref.stream;
-    } else {
-      var ref = getRefFromWhereAndOrder(
-        collectionName: collectionName,
-        where: where,
-        orderBy: orderBy,
-      );
+    var ref = getRef(
+      collectionName: collectionName,
+      where: where,
+      orderBy: orderBy,
+    );
 
-      return ref.snapshot();
+    try {
+      if (Platform.isWindows) {
+        return ref.stream;
+      } else {
+        return ref.snapshot();
+      }
+    } on Exception catch (_) {
+      print(_);
     }
   }
 
@@ -444,65 +446,19 @@ class Fire {
     List<FireWhereField>? where,
     FireOrder? orderBy,
   }) async {
-    if (Platform.isWindows) {
-      try {
-        var ref = getRefFromWhereAndOrder(
-          collectionName: collectionName,
-          where: where,
-          orderBy: orderBy,
-        );
+    var ref = getRef(
+      collectionName: collectionName,
+      where: where,
+      orderBy: orderBy,
+    );
+    try {
+      if (Platform.isWindows) {
         return await ref.get();
-      } on Exception catch (_) {
-        print(_);
-        return null;
-      }
-    } else {
-      try {
-        var ref = getRefFromWhereAndOrder(
-          collectionName: collectionName,
-          where: where,
-          orderBy: orderBy,
-        );
+      } else {
         return await ref.get();
-      } on Exception catch (_) {
-        print(_);
-        return null;
       }
-    }
-  }
-
-  //TODO: return a reference model please, with .get, .add, .delete features
-  static getDocRef({
-    required String collectionName,
-    required String docId,
-  }) {
-    if (Platform.isWindows) {
-      var ref = getRefFromWhereAndOrder(
-        collectionName: collectionName,
-      ).doc(docId);
-      return ref;
-    } else {
-      var ref = getRefFromWhereAndOrder(
-        collectionName: collectionName,
-      ).doc(docId);
-      return ref;
-    }
-  }
-
-  //TODO: return a reference model please, with .get, .add, .delete features
-  static getCollectionRef({
-    required String collectionName,
-  }) {
-    if (Platform.isWindows) {
-      var ref = getRefFromWhereAndOrder(
-        collectionName: collectionName,
-      );
-      return ref;
-    } else {
-      var ref = getRefFromWhereAndOrder(
-        collectionName: collectionName,
-      );
-      return ref;
+    } on Exception catch (_) {
+      print(_);
     }
   }
 
@@ -510,54 +466,77 @@ class Fire {
     required String collectionName,
     required Map<String, dynamic> value,
   }) async {
-    //TODO: implement getRefWhere
-    if (Platform.isWindows) {
-      var res = await FireDartFirestore.instance
-          .collection(collectionName)
-          .add(value);
-      return res.id;
-    } else {
-      var res = await fs.FirebaseFirestore.instance
-          .collection(collectionName)
-          .add(value);
-      return res.id;
+    var ref = getRef(
+      collectionName: collectionName,
+    );
+
+    try {
+      if (Platform.isWindows) {
+        var res = await ref.add(value);
+        return res.id;
+      } else {
+        var res = await ref.add(value);
+        return res.id;
+      }
+    } on Exception catch (_) {
+      print(_);
+      return null;
     }
   }
 
   static update({
     required String collectionName,
-    required String docId,
     required Map<String, dynamic> value,
   }) async {
-    //TODO: implement getRefWhere
-    if (Platform.isWindows) {
-      return await FireDartFirestore.instance
-          .collection(collectionName)
-          .doc(docId)
-          .update(value);
-    } else {
-      return await fs.FirebaseFirestore.instance
-          .collection(collectionName)
-          .doc(docId)
-          .update(value);
+    var ref = getRef(
+      collectionName: collectionName,
+    );
+
+    try {
+      if (Platform.isWindows) {
+        return await ref.update(value);
+      } else {
+        return await ref.update(value);
+      }
+    } on Exception catch (_) {
+      print(_);
+    }
+  }
+
+  static set({
+    required String collectionName,
+    required Map<String, dynamic> value,
+  }) async {
+    var ref = getRef(
+      collectionName: collectionName,
+    );
+
+    try {
+      if (Platform.isWindows) {
+        return await ref.set(value);
+      } else {
+        return await ref.set(value);
+      }
+    } on Exception catch (_) {
+      print(_);
     }
   }
 
   static delete({
     required String collectionName,
-    required String docId,
   }) async {
-    //TODO: implement getRefWhere
-    if (Platform.isWindows) {
-      return await FireDartFirestore.instance
-          .collection(collectionName)
-          .doc(docId)
-          .delete();
-    } else {
-      return await fs.FirebaseFirestore.instance
-          .collection(collectionName)
-          .doc(docId)
-          .delete();
+    var ref = getRef(
+      collectionName: collectionName,
+    );
+
+    try {
+      if (Platform.isWindows) {
+        return await ref.delete();
+      } else {
+        return await ref.delete();
+      }
+    } on Exception catch (_) {
+      print(_);
     }
   }
 
@@ -565,8 +544,8 @@ class Fire {
     if (Platform.isWindows) {
       return DateTime.now();
     } else {
-      // return fs.Timestamp.now();
       return DateTime.now();
+      // return fs.Timestamp.now();
     }
   }
 }
