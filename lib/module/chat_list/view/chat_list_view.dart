@@ -179,15 +179,6 @@ class ChatListView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    ExButton(
-                      label: "OK - ${prefix}users",
-                      onPressed: () async {
-                        var snapshot = await Fire.get(
-                          collectionName: "cr_users",
-                        );
-                        print(snapshot.length);
-                      },
-                    ),
                     Container(
                       height: 500,
                       color: Colors.green[50],

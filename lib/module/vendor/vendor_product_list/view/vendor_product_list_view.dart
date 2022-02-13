@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterx/config/default_config.dart';
 import 'package:flutterx/core.dart';
 
 class VendorProductListView extends StatelessWidget {
@@ -11,20 +12,7 @@ class VendorProductListView extends StatelessWidget {
 
         return FireCrud(
           title: "Product List",
-          formFields: [
-            ExImagePicker(
-              id: "photo_url",
-              label: "Photo",
-            ),
-            ExTextField(
-              id: "product_name",
-              label: "Product Name",
-            ),
-            ExTextField(
-              id: "price",
-              label: "Price",
-            ),
-          ],
+          formFields: MyDefaultConfig().productFields,
           service: ProductService(),
           listItem: FireListItem(
             photoUrl: "photo_url",

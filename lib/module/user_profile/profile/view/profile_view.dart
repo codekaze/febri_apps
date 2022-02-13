@@ -91,19 +91,6 @@ class ProfileView extends StatelessWidget {
                           },
                         ),
                         ProfileRowItem(
-                          label: "My Order",
-                          leading: Icon(Icons.shopping_bag),
-                        ),
-                        ProfileRowItem(
-                          label: "My Favorites",
-                          leading: Icon(Icons.favorite),
-                          onTap: () => Get.to(FavouriteView()),
-                        ),
-                        ProfileRowItem(
-                          label: "My Address",
-                          leading: Icon(Icons.map),
-                        ),
-                        ProfileRowItem(
                           label: "Settings",
                           leading: Icon(Icons.settings),
                         ),
