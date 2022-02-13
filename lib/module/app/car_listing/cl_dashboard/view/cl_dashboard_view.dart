@@ -1,3 +1,4 @@
+import 'package:flutterx/config/default_config.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 
@@ -153,65 +154,84 @@ class ClDashboardView extends StatelessWidget {
                                     height: 6.0,
                                   ),
                                   //Sub Text 2
+
                                   Container(
                                     child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.home,
-                                              size: 14.0,
-                                              color: Colors.orange,
-                                            ),
-                                            SizedBox(
-                                              width: 4.0,
-                                            ),
-                                            Text(
-                                              "${item["land_size"]}sqft",
-                                              style: TextStyle(
+                                        if (MyDefaultConfig()
+                                                .productListBinding
+                                                .extraInfo1 !=
+                                            null)
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                MyDefaultConfig()
+                                                    .productListBinding
+                                                    .extraInfoIcon1,
+                                                size: 14.0,
                                                 color: Colors.orange,
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        Spacer(),
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.home,
-                                              size: 14.0,
-                                              color: Colors.orange,
-                                            ),
-                                            SizedBox(
-                                              width: 4.0,
-                                            ),
-                                            Text(
-                                              "${item["room_count"]}",
-                                              style: TextStyle(
+                                              SizedBox(
+                                                width: 4.0,
+                                              ),
+                                              Text(
+                                                "${item[MyDefaultConfig().productListBinding.extraInfo1] ?? "-"}",
+                                                style: TextStyle(
+                                                  color: Colors.orange,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        if (MyDefaultConfig()
+                                                .productListBinding
+                                                .extraInfo2 !=
+                                            null)
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                MyDefaultConfig()
+                                                    .productListBinding
+                                                    .extraInfoIcon2,
+                                                size: 14.0,
                                                 color: Colors.orange,
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        Spacer(),
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.home,
-                                              size: 14.0,
-                                              color: Colors.orange,
-                                            ),
-                                            SizedBox(
-                                              width: 4.0,
-                                            ),
-                                            Text(
-                                              "${item["bath_room_count"]}",
-                                              style: TextStyle(
+                                              SizedBox(
+                                                width: 4.0,
+                                              ),
+                                              Text(
+                                                "${item[MyDefaultConfig().productListBinding.extraInfo2] ?? "-"}",
+                                                style: TextStyle(
+                                                  color: Colors.orange,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        if (MyDefaultConfig()
+                                                .productListBinding
+                                                .extraInfo3 !=
+                                            null)
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                MyDefaultConfig()
+                                                    .productListBinding
+                                                    .extraInfoIcon3,
+                                                size: 14.0,
                                                 color: Colors.orange,
                                               ),
-                                            ),
-                                          ],
-                                        ),
+                                              SizedBox(
+                                                width: 4.0,
+                                              ),
+                                              Text(
+                                                "${item[MyDefaultConfig().productListBinding.extraInfo3] ?? "-"}",
+                                                style: TextStyle(
+                                                  color: Colors.orange,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
                                   ),
@@ -320,7 +340,7 @@ class ClDashboardView extends StatelessWidget {
                                               ),
                                               Expanded(
                                                 child: Text(
-                                                  "${item["address"]}",
+                                                  "${item["city"]}",
                                                   style: TextStyle(
                                                     fontSize: 10,
                                                     color: Colors.grey[400],
@@ -334,63 +354,82 @@ class ClDashboardView extends StatelessWidget {
                                           ),
                                           Container(
                                             child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.home,
-                                                      size: 14.0,
-                                                      color: Colors.orange,
-                                                    ),
-                                                    SizedBox(
-                                                      width: 4.0,
-                                                    ),
-                                                    Text(
-                                                      "${item["land_size"]}sqft",
-                                                      style: TextStyle(
+                                                if (MyDefaultConfig()
+                                                        .productListBinding
+                                                        .extraInfo1 !=
+                                                    null)
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        MyDefaultConfig()
+                                                            .productListBinding
+                                                            .extraInfoIcon1,
+                                                        size: 14.0,
                                                         color: Colors.orange,
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Spacer(),
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.home,
-                                                      size: 14.0,
-                                                      color: Colors.orange,
-                                                    ),
-                                                    SizedBox(
-                                                      width: 4.0,
-                                                    ),
-                                                    Text(
-                                                      "${item["room_count"]}",
-                                                      style: TextStyle(
+                                                      SizedBox(
+                                                        width: 4.0,
+                                                      ),
+                                                      Text(
+                                                        "${item[MyDefaultConfig().productListBinding.extraInfo1] ?? "-"}",
+                                                        style: TextStyle(
+                                                          color: Colors.orange,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                if (MyDefaultConfig()
+                                                        .productListBinding
+                                                        .extraInfo2 !=
+                                                    null)
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        MyDefaultConfig()
+                                                            .productListBinding
+                                                            .extraInfoIcon2,
+                                                        size: 14.0,
                                                         color: Colors.orange,
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Spacer(),
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.home,
-                                                      size: 14.0,
-                                                      color: Colors.orange,
-                                                    ),
-                                                    SizedBox(
-                                                      width: 4.0,
-                                                    ),
-                                                    Text(
-                                                      "${item["bath_room_count"]}",
-                                                      style: TextStyle(
+                                                      SizedBox(
+                                                        width: 4.0,
+                                                      ),
+                                                      Text(
+                                                        "${item[MyDefaultConfig().productListBinding.extraInfo2] ?? "-"}",
+                                                        style: TextStyle(
+                                                          color: Colors.orange,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                if (MyDefaultConfig()
+                                                        .productListBinding
+                                                        .extraInfo3 !=
+                                                    null)
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        MyDefaultConfig()
+                                                            .productListBinding
+                                                            .extraInfoIcon3,
+                                                        size: 14.0,
                                                         color: Colors.orange,
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
+                                                      SizedBox(
+                                                        width: 4.0,
+                                                      ),
+                                                      Text(
+                                                        "${item[MyDefaultConfig().productListBinding.extraInfo3] ?? "-"}",
+                                                        style: TextStyle(
+                                                          color: Colors.orange,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
                                               ],
                                             ),
                                           ),
