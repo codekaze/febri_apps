@@ -45,3 +45,5 @@ class MyDefaultConfig {
     ),
   ];
 }
+
+CarApi carApi = CarApi();
