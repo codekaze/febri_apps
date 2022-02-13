@@ -52,7 +52,7 @@ class _ExTextFieldState extends State<ExTextField>
   }
 
   setValue(value) {
-    controller.text = value;
+    controller.text = value ?? "";
     Input.set(widget.id, value);
   }
 

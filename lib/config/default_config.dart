@@ -43,6 +43,18 @@ class MyDefaultConfig {
       id: "price",
       label: "Price",
     ),
+    ExTextField(
+      id: "brand",
+      label: "Brand",
+    ),
+    ExTextField(
+      id: "cc",
+      label: "cc",
+    ),
+    ExTextField(
+      id: "city",
+      label: "city",
+    ),
   ];
 }
 
