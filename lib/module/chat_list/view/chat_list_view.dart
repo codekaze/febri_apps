@@ -78,22 +78,6 @@ class ChatListView extends StatelessWidget {
                         ),
                       ),
                     ),
-                    /*
-                    InkWell(
-                      onTap: () {
-                        Get.to(ChatDetailView());
-                      },
-                      child: CircleAvatar(
-                          //
-                          ),
-                    ),
-                    */
-                    /*
-                    TODO: Ica
-                    1. Buat List Pesan dari Users
-                    2. Ketika daftar chat di klik, masuk ke ChatDetailView()
-                    3. Ketika daftar user di klik, masuk ke ChatDetailView()
-                    */
                     Row(
                       children: [
                         Container(
