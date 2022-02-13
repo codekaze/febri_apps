@@ -1,9 +1,6 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class ClDashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,33 +17,40 @@ class ClDashboardView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(12),
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                    FireStreamDocument(
+                      stream: UserService().ref.stream,
+                      onReceivedData: (data) {
+                        return Container(
+                          padding: EdgeInsets.all(12),
+                          child: Row(
                             children: [
-                              Text(
-                                "Hello!",
-                                style: TextStyle(fontSize: 10),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Hello!",
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                  Text(
+                                    "${data!["name"]}",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                "James Butler",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                              Spacer(),
+                              CircleAvatar(
+                                backgroundColor: Colors.green,
+                                backgroundImage: NetworkImage(
+                                  "${data["photo_url"]}",
                                 ),
                               ),
                             ],
                           ),
-                          Spacer(),
-                          CircleAvatar(
-                              backgroundColor: Colors.green,
-                              backgroundImage: NetworkImage(
-                                  "https://i.ibb.co/9HLHFMB/photo-1529156349890-84021ffa9107-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwy-ODA4-ODh8-MHwxf-H.jpg")),
-                        ],
-                      ),
+                        );
+                      },
                     ),
                     SizedBox(
                       height: 10.0,
