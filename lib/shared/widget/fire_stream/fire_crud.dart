@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutterx/core.dart';
 
 class FireListItem {
@@ -28,6 +29,7 @@ class FireCrud extends StatelessWidget {
   final bool enableEdit;
   final bool enableDelete;
   final bool enableApproval;
+  final bool approvalIndicator;
 
   //Custom Builder
   final Function(Map item)? itemBuilder;
@@ -43,6 +45,7 @@ class FireCrud extends StatelessWidget {
     this.enableEdit = true,
     this.enableDelete = true,
     this.enableApproval = false,
+    this.approvalIndicator = false,
 
     //Custom Builder
     this.itemBuilder,
@@ -301,7 +304,49 @@ class FireCrud extends StatelessWidget {
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
+                                                      SizedBox(
+                                                        height: 6.0,
+                                                      ),
                                                       Text("$itemSubtitle"),
+                                                      if (approvalIndicator) ...[
+                                                        SizedBox(
+                                                          height: 6.0,
+                                                        ),
+                                                        if (item["status"] ==
+                                                            "Pending")
+                                                          Row(
+                                                            children: [
+                                                              Icon(Icons.timer),
+                                                              SizedBox(
+                                                                width: 4.0,
+                                                              ),
+                                                              Text("Pending"),
+                                                            ],
+                                                          ),
+                                                        if (item["status"] ==
+                                                            "Rejected")
+                                                          Row(
+                                                            children: [
+                                                              Icon(
+                                                                  Icons.cancel),
+                                                              SizedBox(
+                                                                width: 4.0,
+                                                              ),
+                                                              Text("Rejected"),
+                                                            ],
+                                                          ),
+                                                        if (item["status"] ==
+                                                            "Approved")
+                                                          Row(
+                                                            children: [
+                                                              Icon(Icons.check),
+                                                              SizedBox(
+                                                                width: 4.0,
+                                                              ),
+                                                              Text("Approved"),
+                                                            ],
+                                                          ),
+                                                      ],
                                                     ],
                                                   ),
                                           ),
@@ -316,8 +361,19 @@ class FireCrud extends StatelessWidget {
                                                   InkWell(
                                                     onTap: () async {
                                                       showConfirmDialog(
-                                                        "Confirm",
+                                                        "Confirm Reject",
                                                         "Are you sure?",
+                                                        onConfirm: () {
+                                                          log(item.toString());
+                                                          service.update(
+                                                              item["id"], {
+                                                            "status":
+                                                                "Rejected",
+                                                          });
+                                                          // service.delete(
+                                                          //     item["id"]);
+                                                          Get.back();
+                                                        },
                                                       );
                                                     },
                                                     child: CircleAvatar(
@@ -333,7 +389,21 @@ class FireCrud extends StatelessWidget {
                                                     width: 10.0,
                                                   ),
                                                   InkWell(
-                                                    onTap: () async {},
+                                                    onTap: () async {
+                                                      showConfirmDialog(
+                                                        "Confirm Approve",
+                                                        "Are you sure?",
+                                                        onConfirm: () {
+                                                          log(item.toString());
+                                                          service.update(
+                                                              item["id"], {
+                                                            "status":
+                                                                "Approved",
+                                                          });
+                                                          Get.back();
+                                                        },
+                                                      );
+                                                    },
                                                     child: CircleAvatar(
                                                       backgroundColor:
                                                           successColor,

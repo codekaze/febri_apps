@@ -27,6 +27,7 @@ class AdminProductApprovalView extends StatelessWidget {
             subtitle: "price",
           ),
           enableApproval: true,
+          approvalIndicator: true,
         );
 
         return Scaffold(

@@ -58,6 +58,8 @@ extension FireCoreAbstractExt on FireCore {
     value["created_by"] = Fire.currentUser!.uid;
     value["created_at"] = Fire.timestamp();
     value["updated_at"] = Fire.timestamp();
+    value["status"] = "Pending";
+
     log(ref.toString());
     return await ref.add(value);
   }
