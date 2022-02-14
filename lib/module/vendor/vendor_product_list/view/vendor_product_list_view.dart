@@ -19,6 +19,7 @@ class VendorProductListView extends StatelessWidget {
             title: "product_name",
             subtitle: "price",
           ),
+          approvalIndicator: true,
         );
       },
     );

@@ -26,6 +26,9 @@ class AdminProductApprovalView extends StatelessWidget {
             title: "product_name",
             subtitle: "price",
           ),
+          enableAdd: false,
+          enableDelete: false,
+          enableEdit: false,
           enableApproval: true,
           approvalIndicator: true,
         );
