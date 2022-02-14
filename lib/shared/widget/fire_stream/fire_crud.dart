@@ -27,10 +27,11 @@ class FireCrud extends StatelessWidget {
   final bool enableAdd;
   final bool enableEdit;
   final bool enableDelete;
+  final bool enableApproval;
 
   //Custom Builder
   final Function(Map item)? itemBuilder;
-  final Stream<QuerySnapshot<Object?>>? customRef;
+  final dynamic customRef;
 
   FireCrud({
     required this.title,
@@ -41,6 +42,7 @@ class FireCrud extends StatelessWidget {
     this.enableAdd = true,
     this.enableEdit = true,
     this.enableDelete = true,
+    this.enableApproval = false,
 
     //Custom Builder
     this.itemBuilder,
@@ -57,12 +59,17 @@ class FireCrud extends StatelessWidget {
               title: Text("$title"),
               actions: [
                 if (kDebugMode) ...[
-                  ExButton(
-                    label: "Delete All",
-                    color: Colors.orange,
-                    onPressed: () async {
+                  InkWell(
+                    onTap: () async {
                       service.deleteAll();
                     },
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Icon(
+                        Icons.delete_outlined,
+                        color: dangerColor,
+                      ),
+                    ),
                   ),
                 ],
                 ...actions,
@@ -274,37 +281,73 @@ class FireCrud extends StatelessWidget {
                                         top: 8.0,
                                         bottom: 8.0,
                                       ),
-                                      child: ListTile(
-                                        leading: listItem.photoUrl == null
-                                            ? null
-                                            : ExImage(
-                                                "$photoUrl",
-                                                height: 50.0,
-                                                width: 50.0,
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            leading: listItem.photoUrl == null
+                                                ? null
+                                                : ExImage(
+                                                    "$photoUrl",
+                                                    height: 50.0,
+                                                    width: 50.0,
+                                                  ),
+                                            title: listItem.title == null
+                                                ? null
+                                                : Text("$itemTitle"),
+                                            subtitle: listItem.subtitle == null
+                                                ? null
+                                                : Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text("$itemSubtitle"),
+                                                    ],
+                                                  ),
+                                          ),
+                                          if (enableApproval) ...[
+                                            Divider(),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(6.0),
+                                              child: Row(
+                                                children: [
+                                                  Spacer(),
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      showConfirmDialog(
+                                                        "Confirm",
+                                                        "Are you sure?",
+                                                      );
+                                                    },
+                                                    child: CircleAvatar(
+                                                      backgroundColor:
+                                                          dangerColor,
+                                                      child: Icon(
+                                                        Icons.cancel,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 10.0,
+                                                  ),
+                                                  InkWell(
+                                                    onTap: () async {},
+                                                    child: CircleAvatar(
+                                                      backgroundColor:
+                                                          successColor,
+                                                      child: Icon(
+                                                        Icons.check_circle,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                        // : Container(
-                                        //     height: 50.0,
-                                        //     width: 50.0,
-                                        //     decoration: BoxDecoration(
-                                        //       color: Colors.grey[200],
-                                        //       borderRadius:
-                                        //           BorderRadius.all(
-                                        //               Radius.circular(
-                                        //                   16.0)),
-                                        //       image: DecorationImage(
-                                        //         image: NetworkImage(
-                                        //           "$photoUrl",
-                                        //         ),
-                                        //         fit: BoxFit.cover,
-                                        //       ),
-                                        //     ),
-                                        //   ),
-                                        title: listItem.title == null
-                                            ? null
-                                            : Text("$itemTitle"),
-                                        subtitle: listItem.subtitle == null
-                                            ? null
-                                            : Text("$itemSubtitle"),
+                                            ),
+                                          ],
+                                        ],
                                       ),
                                     ),
                                   ),

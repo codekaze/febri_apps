@@ -55,6 +55,7 @@ extension FireCoreAbstractExt on FireCore {
   }
 
   Future add(Map<String, dynamic> value) async {
+    value["created_by"] = Fire.currentUser!.uid;
     value["created_at"] = Fire.timestamp();
     value["updated_at"] = Fire.timestamp();
     log(ref.toString());

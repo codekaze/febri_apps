@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/module/admin/admin_dashboard/widget/menu_icon.dart';
+import 'package:flutterx/module/auth/admin_product_approval/view/admin_product_approval_view.dart';
+import 'package:flutterx/module/auth/admin_reset/view/admin_reset_view.dart';
+import 'package:flutterx/module/auth/admin_setting/view/admin_setting_view.dart';
 import '../controller/admin_dashboard_controller.dart';
 
 import 'package:get/get.dart';
@@ -19,6 +22,9 @@ class AdminDashboardView extends StatelessWidget {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 20.0,
+              ),
               Container(
                 padding: EdgeInsets.only(
                   left: 20.0,
@@ -28,24 +34,19 @@ class AdminDashboardView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MenuIcon(
-                      icon: Icons.restore,
-                      label: "Vendor Approval",
-                      onTap: () {},
+                      icon: Icons.car_rental,
+                      label: "Product\nApproval",
+                      onTap: () => Get.to(AdminProductApprovalView()),
                     ),
                     MenuIcon(
                       icon: Icons.restore,
-                      label: "Vendor Approval",
-                      onTap: () {},
+                      label: "Vendor\nApproval",
+                      onTap: () => Get.to(AdminResetView()),
                     ),
                     MenuIcon(
-                      icon: Icons.restore,
-                      label: "Vendor Approval",
-                      onTap: () {},
-                    ),
-                    MenuIcon(
-                      icon: Icons.restore,
-                      label: "Vendor Approval",
-                      onTap: () {},
+                      icon: Icons.settings,
+                      label: "App\nSetting",
+                      onTap: () => Get.to(AdminSettingView()),
                     ),
                   ],
                 ),

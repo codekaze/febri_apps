@@ -27,6 +27,9 @@
         "vendor/vendor_product_list",
         "auth/admin_login",
         "auth/register",
+        "auth/admin_setting",
+        "auth/admin_product_approval",
+        "auth/admin_reset",
         "auth/forgot_password",
         "chat_detail",
         "developer/fire_test"
