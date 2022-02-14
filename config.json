@@ -30,6 +30,7 @@
         "auth/admin_setting",
         "auth/admin_product_approval",
         "auth/admin_reset",
+        "auth/admin_users",
         "auth/forgot_password",
         "chat_detail",
         "developer/fire_test"

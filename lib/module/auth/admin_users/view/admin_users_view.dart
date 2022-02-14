@@ -1,30 +1,27 @@
-import 'package:fireverse/fireglobal.dart';
+import 'package:fireverse/fireverse.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/config/default_config.dart';
 import 'package:flutterx/core.dart';
-import '../controller/admin_product_approval_controller.dart';
+import '../../../../service/user_service/app_user_service.dart';
+import '../controller/admin_users_controller.dart';
 
 import 'package:get/get.dart';
 
-class AdminProductApprovalView extends StatelessWidget {
+class AdminUsersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AdminProductApprovalController>(
-      init: AdminProductApprovalController(),
+    return GetBuilder<AdminUsersController>(
+      init: AdminUsersController(),
       builder: (controller) {
         controller.view = this;
 
         return FireCrud(
-          title: "Product Approval",
+          title: "Users",
           formFields: MyDefaultConfig().productFields,
-          service: ProductService(),
-          customRef: Fire.snapshot(
-            collectionName: ProductService().collectionName,
-          ),
+          service: AppUserService(),
           listItem: FireListItem(
             photoUrl: "photo_url",
-            title: "product_name",
-            subtitle: "price",
+            title: "name",
           ),
           enableAdd: false,
           enableDelete: false,

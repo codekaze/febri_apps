@@ -3,6 +3,7 @@ import 'package:flutterx/module/admin/admin_dashboard/widget/menu_icon.dart';
 import 'package:flutterx/module/auth/admin_product_approval/view/admin_product_approval_view.dart';
 import 'package:flutterx/module/auth/admin_reset/view/admin_reset_view.dart';
 import 'package:flutterx/module/auth/admin_setting/view/admin_setting_view.dart';
+import 'package:flutterx/module/auth/admin_users/view/admin_users_view.dart';
 import '../controller/admin_dashboard_controller.dart';
 
 import 'package:get/get.dart';
@@ -39,8 +40,13 @@ class AdminDashboardView extends StatelessWidget {
                       onTap: () => Get.to(AdminProductApprovalView()),
                     ),
                     MenuIcon(
+                      icon: Icons.supervised_user_circle_sharp,
+                      label: "Users",
+                      onTap: () => Get.to(AdminUsersView()),
+                    ),
+                    MenuIcon(
                       icon: Icons.restore,
-                      label: "Vendor\nApproval",
+                      label: "Reset\nData",
                       onTap: () => Get.to(AdminResetView()),
                     ),
                     MenuIcon(

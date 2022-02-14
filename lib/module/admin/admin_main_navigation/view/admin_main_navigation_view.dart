@@ -22,12 +22,13 @@ class AdminMainNavigationView extends StatelessWidget {
             ),
           ),
           child: DefaultTabController(
-            length: 2,
+            length: 3,
             child: Scaffold(
               body: IndexedStack(
                 index: controller.selectedIndex,
                 children: [
                   AdminDashboardView(),
+                  ChatListView(),
                   ProfileView(),
                 ],
               ),
@@ -45,6 +46,11 @@ class AdminMainNavigationView extends StatelessWidget {
                       NetworkImage("https://i.ibb.co/VCsfCth/3884324.png"),
                     ),
                     label: "Dashboard",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: ImageIcon(
+                        NetworkImage("https://i.ibb.co/yVV4Ttf/566565.png")),
+                    label: "Chat",
                   ),
                   BottomNavigationBarItem(
                     icon: ImageIcon(
