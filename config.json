@@ -1,5 +1,6 @@
 {
     "modules": [
+        "tutorial/tutorial_dashboard",
         "app/car_listing/cl_main_navigation",
         "app/car_listing/cl_dashboard",
         "app/car_listing/cl_product_detail",
