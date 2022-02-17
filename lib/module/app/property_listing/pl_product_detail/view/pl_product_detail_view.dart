@@ -19,13 +19,48 @@ class PlProductDetailView extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("PlProductDetail"),
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  item["product_name"],
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
+                Text(item["address"]),
+              ],
+            ),
+            actions: [
+              Container(
+                width: 57.0,
+                child: Icon(
+                  Icons.bookmark,
+                ),
+              ),
+            ],
           ),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
+                  //TODO: Angga
+                  //1. Buat gambar cover, source-nya ambil dari item["photo_url"]
+
+                  Divider(),
+                  Divider(),
+                  Text(
+                    "Example",
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+
                   Container(
                     height: 160.0,
                     decoration: BoxDecoration(
