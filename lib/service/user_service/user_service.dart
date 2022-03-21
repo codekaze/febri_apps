@@ -8,6 +8,12 @@ class UserService {
     );
   }
 
+  dynamic get snapshot {
+    return Fire.snapshot(
+      collectionName: "${prefix}users/${Fire.currentUser!.uid}",
+    );
+  }
+
   initializeUser({
     String? name,
   }) async {

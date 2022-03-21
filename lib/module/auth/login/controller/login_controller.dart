@@ -57,6 +57,7 @@ class LoginController extends GetxController {
   handleAuth(auth) async {
     await UserService().initializeUser();
     if (auth != null) {
+      await Get.deleteAll();
       Get.offAll(AppSession.homePage);
     } else {
       showError("Login failed", "invalid username or password");

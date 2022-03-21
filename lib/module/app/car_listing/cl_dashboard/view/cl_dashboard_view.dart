@@ -1,6 +1,7 @@
 import 'package:flutterx/config/default_config.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterx/service/user_service/new_user_service.dart';
 
 class ClDashboardView extends StatelessWidget {
   @override
@@ -19,7 +20,7 @@ class ClDashboardView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     FireStreamDocument(
-                      stream: UserService().ref.stream,
+                      stream: NewUserService().stream(),
                       onReceivedData: (data) {
                         return Container(
                           padding: EdgeInsets.all(12),

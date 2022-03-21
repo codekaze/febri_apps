@@ -27,27 +27,7 @@ class FireStreamDocument extends StatelessWidget {
       return StreamBuilder(
         stream: stream,
         builder: (context, stream) {
-          if (stream.connectionState == ConnectionState.waiting) {
-            if (onLoading == null) {
-              return Center(
-                child: SpinKitRing(
-                  color: Get.theme.primaryColor,
-                ),
-              );
-            }
-          }
-
-          if (stream.hasError) {
-            if (onError == null) {
-              return Center(child: Text(stream.error.toString()));
-            }
-          }
-
-          if (stream.data == null) {
-            if (onEmpty != null) {
-              return onEmpty!();
-            }
-          }
+          if (stream.data == null) return Container();
 
           var d = (stream.data as dynamic);
           Map? item;
