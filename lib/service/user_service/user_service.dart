@@ -1,18 +1,8 @@
 import 'package:fireverse/fireglobal.dart';
 import 'package:flutterx/core.dart';
 
-class UserService {
-  dynamic get ref {
-    return Fire.getRef(
-      collectionName: "${prefix}users/${Fire.currentUser!.uid}",
-    );
-  }
-
-  dynamic get snapshot {
-    return Fire.snapshot(
-      collectionName: "${prefix}users/${Fire.currentUser!.uid}",
-    );
-  }
+class UserService extends FireCore {
+  final String collectionName = "${prefix}users/${Fire.currentUser!.uid}";
 
   initializeUser({
     String? name,

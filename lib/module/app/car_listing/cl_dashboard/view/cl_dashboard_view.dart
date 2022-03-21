@@ -20,7 +20,7 @@ class ClDashboardView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     FireStreamDocument(
-                      stream: NewUserService().stream(),
+                      stream: UserService().stream(),
                       onReceivedData: (data) {
                         return Container(
                           padding: EdgeInsets.all(12),
