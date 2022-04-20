@@ -55,7 +55,8 @@ class LocationPickerMap extends StatefulWidget {
   LocationPickerMapState createState() => LocationPickerMapState();
 }
 
-class LocationPickerMapState extends State<LocationPickerMap> {
+class LocationPickerMapState extends State<LocationPickerMap>
+    implements InputControlState {
   bool loading = true;
   double currentLatitude = -6.200000;
   double currentLongitude = 106.816666;
@@ -102,7 +103,21 @@ class LocationPickerMapState extends State<LocationPickerMap> {
     currentLongitude = widget.longitude ?? currentLongitude;
 
     searchController = TextEditingController();
+    Input.inputController[widget.id] = this;
     initData();
+  }
+
+  setValue(value) {
+    var loc = value.split(",");
+    currentLatitude = loc[0];
+    currentLongitude = loc[0];
+    Input.set(widget.id, loc);
+  }
+
+  resetValue() {
+    currentLatitude = 0.0;
+    currentLongitude = 0.0;
+    Input.set(widget.id, null);
   }
 
   bool updatePosition = false;

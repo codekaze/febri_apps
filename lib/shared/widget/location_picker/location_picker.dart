@@ -20,7 +20,8 @@ class ExLocationPicker extends StatefulWidget {
   _ExLocationPickerState createState() => _ExLocationPickerState();
 }
 
-class _ExLocationPickerState extends State<ExLocationPicker> {
+class _ExLocationPickerState extends State<ExLocationPicker>
+    implements InputControlState {
   @override
   void initState() {
     super.initState();
@@ -39,6 +40,21 @@ class _ExLocationPickerState extends State<ExLocationPicker> {
       return true;
     }
     return false;
+  }
+
+  setValue(value) {
+    // TODO: Deny
+    // var loc = value.split(",");
+    // currentLatitude = loc[0];
+    // currentLongitude = loc[0];
+    // Input.set(widget.id, loc);
+  }
+
+  resetValue() {
+    // TODO: Deny
+    // currentLatitude = 0.0;
+    // currentLongitude = 0.0;
+    // Input.set(widget.id, null);
   }
 
   @override

@@ -42,22 +42,15 @@ class MyDefaultConfig {
     ExTextField(
       id: "price",
       label: "Price",
-    ),
-    ExTextField(
-      id: "brand",
-      label: "Brand",
-    ),
-    ExTextField(
-      id: "cc",
-      label: "cc",
-    ),
-    ExTextField(
-      id: "city",
-      label: "city",
+      keyboardType: TextInputType.numberWithOptions(),
     ),
     ExLocationPicker(
       id: "location",
       label: "Location",
+    ),
+    ExTextArea(
+      id: "full_address",
+      label: "Full Address",
     ),
   ];
 }
