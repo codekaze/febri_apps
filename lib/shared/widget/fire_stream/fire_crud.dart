@@ -118,6 +118,8 @@ class FireCrud extends StatelessWidget {
                         FireForm(
                           title: "Add ${title.replaceAll(" List", "")} Form",
                           onSave: () async {
+                            print(Input.get("location"));
+                            return;
                             Map<String, dynamic> values = {};
                             Map<String, dynamic> labels = {};
 

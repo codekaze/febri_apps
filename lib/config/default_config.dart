@@ -55,6 +55,10 @@ class MyDefaultConfig {
       id: "city",
       label: "city",
     ),
+    ExLocationPicker(
+      id: "location",
+      label: "Location",
+    ),
   ];
 }
 
