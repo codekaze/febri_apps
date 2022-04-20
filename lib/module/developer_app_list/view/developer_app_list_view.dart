@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
-import 'package:flutterx/module/tutorial/tutorial_dashboard/view/tutorial_dashboard_view.dart';
 
 class DeveloperAppListView extends StatelessWidget {
   @override
@@ -13,15 +12,6 @@ class DeveloperAppListView extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text("Developer Dashboard"),
-            actions: [
-              InkWell(
-                onTap: () => Get.to(TutorialDashboardView()),
-                child: Container(
-                  width: 57,
-                  child: Icon(Icons.help),
-                ),
-              ),
-            ],
           ),
           body: SafeScrollView(
             child: Padding(
