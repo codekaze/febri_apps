@@ -22,4 +22,14 @@ class TutorialAddToCartController extends GetxController {
   void onClose() {
     super.onClose();
   }
+
+  double get total {
+    double orderTotal = 0;
+    for (var restaurant in restaurants) {
+      for (var product in restaurant["products"]) {
+        orderTotal += product["qty"] * product["price"];
+      }
+    }
+    return orderTotal;
+  }
 }
