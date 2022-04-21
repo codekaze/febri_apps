@@ -2,6 +2,7 @@ import 'package:fireverse/fireglobal.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:flutterx/module/splash/view/splash_view.dart';
 import 'package:universal_io/io.dart';
 
 void main() async {
@@ -18,7 +19,11 @@ void main() async {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: defaultTheme,
-    home: DeveloperAppListView(),
+    home: SplashView(
+      onReady: () {
+        Get.to(DeveloperAppListView());
+      },
+    ),
   ));
 
   //Run in Emulator Mode (Windows)

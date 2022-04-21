@@ -34,6 +34,7 @@
         "auth/admin_users",
         "auth/forgot_password",
         "chat_detail",
-        "developer/fire_test"
+        "developer/fire_test",
+        "splash"
     ]
 }
