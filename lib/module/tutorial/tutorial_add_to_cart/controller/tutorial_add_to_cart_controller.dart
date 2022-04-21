@@ -27,6 +27,9 @@ class TutorialAddToCartController extends GetxController {
     double orderTotal = 0;
     for (var restaurant in restaurants) {
       for (var product in restaurant["products"]) {
+        if (product["qty"] == null) product["qty"] = 0;
+        if (product["price"] == null) product["price"] = 0;
+
         orderTotal += product["qty"] * product["price"];
       }
     }
