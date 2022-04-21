@@ -21,7 +21,7 @@ void main() async {
     theme: defaultTheme,
     home: SplashView(
       onReady: () {
-        Get.to(DeveloperAppListView());
+        Get.off(DeveloperAppListView());
       },
     ),
   ));

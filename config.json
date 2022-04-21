@@ -1,6 +1,5 @@
 {
     "modules": [
-        "tutorial/tutorial_dashboard",
         "app/car_listing/cl_main_navigation",
         "app/car_listing/cl_dashboard",
         "app/car_listing/cl_product_detail",
@@ -35,6 +34,8 @@
         "auth/forgot_password",
         "chat_detail",
         "developer/fire_test",
-        "splash"
+        "splash",
+        "tutorial/tutorial_dashboard",
+        "tutorial/tutorial_add_to_cart"
     ]
 }
