@@ -36,6 +36,7 @@
         "developer/fire_test",
         "splash",
         "tutorial/tutorial_dashboard",
-        "tutorial/tutorial_add_to_cart"
+        "tutorial/tutorial_add_to_cart",
+        "tutorial/tutorial_order_detail"
     ]
 }

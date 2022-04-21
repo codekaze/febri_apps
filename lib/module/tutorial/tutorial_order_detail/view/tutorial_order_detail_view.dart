@@ -1,59 +1,73 @@
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterx/module/tutorial/tutorial_order_detail/view/tutorial_order_detail_view.dart';
+import 'package:flutterx/core.dart';
 import '../../../../shared/widget/button/button.dart';
-import '../controller/tutorial_add_to_cart_controller.dart';
+import '../controller/tutorial_order_detail_controller.dart';
 
 import 'package:get/get.dart';
 
-class TutorialAddToCartView extends StatelessWidget {
+class TutorialOrderDetailView extends StatelessWidget {
+  final List restaurants;
+  final double total;
+
+  TutorialOrderDetailView({
+    required this.restaurants,
+    required this.total,
+  });
+
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<TutorialAddToCartController>(
-      init: TutorialAddToCartController(),
+    return GetBuilder<TutorialOrderDetailController>(
+      init: TutorialOrderDetailController(),
       builder: (controller) {
         controller.view = this;
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("TutorialAddToCart"),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: Text(
-                    "${controller.restaurants.length} Restaurants",
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.0,
-                    ),
-                  ),
-                ),
-              )
-            ],
+            title: Text("TutorialOrderDetail"),
           ),
           bottomNavigationBar: Container(
-            child: Row(
+            child: ListView(
+              shrinkWrap: true,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "\$${controller.total}",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                ExLocationPicker(
+                  id: "shipping_address",
+                  label: "Shipping Address",
                 ),
-                Spacer(),
-                ExButton(
-                  width: 160.0,
-                  label: "Checkout",
-                  onPressed: () => Get.to(TutorialOrderDetailView(
-                    restaurants: controller.restaurants,
-                    total: controller.total,
-                  )),
+                ExRadio(
+                  id: "payment_method",
+                  label: "Payment Method",
+                  items: [
+                    {
+                      "label": "Cash",
+                      "value": "Cash",
+                    },
+                    {
+                      "label": "Credit Card",
+                      "value": "Credit Card",
+                    }
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "\$${total}",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    ExButton(
+                      width: 160.0,
+                      label: "Confirm",
+                      onPressed: () {
+                        showSuccess("Success", "Your order is success!");
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -61,9 +75,9 @@ class TutorialAddToCartView extends StatelessWidget {
           body: Container(
             padding: const EdgeInsets.all(20.0),
             child: ListView.builder(
-              itemCount: controller.restaurants.length,
+              itemCount: restaurants.length,
               itemBuilder: (context, index) {
-                var restaurant = controller.restaurants[index];
+                var restaurant = restaurants[index];
                 return Card(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -86,6 +100,7 @@ class TutorialAddToCartView extends StatelessWidget {
                             var product = restaurant["products"][productIndex];
                             if (product["qty"] == null) product["qty"] = 0;
 
+                            if (product["qty"] == 0) return Container();
                             return Container(
                               padding: EdgeInsets.all(4.0),
                               child: Row(
@@ -105,37 +120,10 @@ class TutorialAddToCartView extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  InkWell(
-                                    onTap: () {
-                                      if (product["qty"] <= 0) return;
-                                      product["qty"]--;
-                                      controller.update();
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(
-                                        Icons.remove,
-                                        size: 16.0,
-                                      ),
-                                    ),
-                                  ),
                                   Text(
                                     "${product["qty"] ?? 0}",
                                     style: TextStyle(
                                       fontSize: 14.0,
-                                    ),
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      product["qty"]++;
-                                      controller.update();
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(
-                                        Icons.add,
-                                        size: 16.0,
-                                      ),
                                     ),
                                   ),
                                 ],
