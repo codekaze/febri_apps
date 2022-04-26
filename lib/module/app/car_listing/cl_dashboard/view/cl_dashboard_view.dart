@@ -105,138 +105,143 @@ class ClDashboardView extends StatelessWidget {
                         itemBuilder: (context, index) {
                           var item = CarApi.products[index];
 
-                          return Card(
-                            child: Container(
-                              width: 200.0,
-                              padding: EdgeInsets.all(16.0),
-                              child: Column(
-                                children: [
-                                  //Image
-                                  Expanded(
-                                    child: Container(
-                                      width: Get.width,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(20.0)),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            item["photo_url"],
+                          return InkWell(
+                            onTap: () => Get.to(ClProductDetailView(
+                              item: item,
+                            )),
+                            child: Card(
+                              child: Container(
+                                width: 200.0,
+                                padding: EdgeInsets.all(16.0),
+                                child: Column(
+                                  children: [
+                                    //Image
+                                    Expanded(
+                                      child: Container(
+                                        width: Get.width,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(20.0)),
+                                          image: DecorationImage(
+                                            image: NetworkImage(
+                                              item["photo_url"],
+                                            ),
+                                            fit: BoxFit.cover,
                                           ),
-                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 6.0,
-                                  ),
-                                  //Sub Text 1
-                                  Container(
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "${item["product_name"]}",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Spacer(),
-                                        Text(
-                                          "\$${item["price"]}",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.purple,
-                                          ),
-                                        ),
-                                      ],
+                                    SizedBox(
+                                      height: 6.0,
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 6.0,
-                                  ),
-                                  //Sub Text 2
+                                    //Sub Text 1
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "${item["product_name"]}",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Spacer(),
+                                          Text(
+                                            "\$${item["price"]}",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.purple,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 6.0,
+                                    ),
+                                    //Sub Text 2
 
-                                  Container(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        if (MyDefaultConfig()
-                                                .productListBinding
-                                                .extraInfo1 !=
-                                            null)
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                MyDefaultConfig()
-                                                    .productListBinding
-                                                    .extraInfoIcon1,
-                                                size: 14.0,
-                                                color: Colors.orange,
-                                              ),
-                                              SizedBox(
-                                                width: 4.0,
-                                              ),
-                                              Text(
-                                                "${item[MyDefaultConfig().productListBinding.extraInfo1] ?? "-"}",
-                                                style: TextStyle(
+                                    Container(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          if (MyDefaultConfig()
+                                                  .productListBinding
+                                                  .extraInfo1 !=
+                                              null)
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  MyDefaultConfig()
+                                                      .productListBinding
+                                                      .extraInfoIcon1,
+                                                  size: 14.0,
                                                   color: Colors.orange,
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        if (MyDefaultConfig()
-                                                .productListBinding
-                                                .extraInfo2 !=
-                                            null)
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                MyDefaultConfig()
-                                                    .productListBinding
-                                                    .extraInfoIcon2,
-                                                size: 14.0,
-                                                color: Colors.orange,
-                                              ),
-                                              SizedBox(
-                                                width: 4.0,
-                                              ),
-                                              Text(
-                                                "${item[MyDefaultConfig().productListBinding.extraInfo2] ?? "-"}",
-                                                style: TextStyle(
+                                                SizedBox(
+                                                  width: 4.0,
+                                                ),
+                                                Text(
+                                                  "${item[MyDefaultConfig().productListBinding.extraInfo1] ?? "-"}",
+                                                  style: TextStyle(
+                                                    color: Colors.orange,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          if (MyDefaultConfig()
+                                                  .productListBinding
+                                                  .extraInfo2 !=
+                                              null)
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  MyDefaultConfig()
+                                                      .productListBinding
+                                                      .extraInfoIcon2,
+                                                  size: 14.0,
                                                   color: Colors.orange,
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        if (MyDefaultConfig()
-                                                .productListBinding
-                                                .extraInfo3 !=
-                                            null)
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                MyDefaultConfig()
-                                                    .productListBinding
-                                                    .extraInfoIcon3,
-                                                size: 14.0,
-                                                color: Colors.orange,
-                                              ),
-                                              SizedBox(
-                                                width: 4.0,
-                                              ),
-                                              Text(
-                                                "${item[MyDefaultConfig().productListBinding.extraInfo3] ?? "-"}",
-                                                style: TextStyle(
+                                                SizedBox(
+                                                  width: 4.0,
+                                                ),
+                                                Text(
+                                                  "${item[MyDefaultConfig().productListBinding.extraInfo2] ?? "-"}",
+                                                  style: TextStyle(
+                                                    color: Colors.orange,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          if (MyDefaultConfig()
+                                                  .productListBinding
+                                                  .extraInfo3 !=
+                                              null)
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  MyDefaultConfig()
+                                                      .productListBinding
+                                                      .extraInfoIcon3,
+                                                  size: 14.0,
                                                   color: Colors.orange,
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                      ],
+                                                SizedBox(
+                                                  width: 4.0,
+                                                ),
+                                                Text(
+                                                  "${item[MyDefaultConfig().productListBinding.extraInfo3] ?? "-"}",
+                                                  style: TextStyle(
+                                                    color: Colors.orange,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           );
@@ -264,182 +269,190 @@ class ClDashboardView extends StatelessWidget {
                         itemBuilder: (context, index) {
                           var item = CarApi.products[index];
 
-                          return Card(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(16.0),
+                          return InkWell(
+                            onTap: () => Get.to(ClProductDetailView(
+                              item: item,
+                            )),
+                            child: Card(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(16.0),
+                                  ),
                                 ),
-                              ),
-                              padding: const EdgeInsets.only(
-                                left: 16.0,
-                                right: 16.0,
-                                top: 8.0,
-                                bottom: 8.0,
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 100.0,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(20.0)),
-                                      image: DecorationImage(
-                                        image: NetworkImage(
-                                          item["photo_url"],
+                                padding: const EdgeInsets.only(
+                                  left: 16.0,
+                                  right: 16.0,
+                                  top: 8.0,
+                                  bottom: 8.0,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 100.0,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20.0)),
+                                        image: DecorationImage(
+                                          image: NetworkImage(
+                                            item["photo_url"],
+                                          ),
+                                          fit: BoxFit.cover,
                                         ),
-                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
 
-                                  //TODO: ANGGA (isi Gambar)
+                                    //TODO: ANGGA (isi Gambar)
 
-                                  Expanded(
-                                    child: Container(
-                                      padding: EdgeInsets.all(10.0),
+                                    Expanded(
+                                      child: Container(
+                                        padding: EdgeInsets.all(10.0),
 
-                                      height: 100.0,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Text(
-                                                "${item["product_name"]}",
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                              Spacer(),
-                                              Text(
-                                                "\$${item["price"]}",
-                                                style: TextStyle(
-                                                    color: Colors.purple,
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 4.0,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.map,
-                                                size: 16,
-                                              ),
-                                              SizedBox(
-                                                width: 4.0,
-                                              ),
-                                              Expanded(
-                                                child: Text(
-                                                  "${item["city"]}",
-                                                  style: TextStyle(
-                                                    fontSize: 10,
-                                                    color: Colors.grey[400],
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 4.0,
-                                          ),
-                                          Container(
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                        height: 100.0,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Row(
                                               children: [
-                                                if (MyDefaultConfig()
-                                                        .productListBinding
-                                                        .extraInfo1 !=
-                                                    null)
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        MyDefaultConfig()
-                                                            .productListBinding
-                                                            .extraInfoIcon1,
-                                                        size: 14.0,
-                                                        color: Colors.orange,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 4.0,
-                                                      ),
-                                                      Text(
-                                                        "${item[MyDefaultConfig().productListBinding.extraInfo1] ?? "-"}",
-                                                        style: TextStyle(
-                                                          color: Colors.orange,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                if (MyDefaultConfig()
-                                                        .productListBinding
-                                                        .extraInfo2 !=
-                                                    null)
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        MyDefaultConfig()
-                                                            .productListBinding
-                                                            .extraInfoIcon2,
-                                                        size: 14.0,
-                                                        color: Colors.orange,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 4.0,
-                                                      ),
-                                                      Text(
-                                                        "${item[MyDefaultConfig().productListBinding.extraInfo2] ?? "-"}",
-                                                        style: TextStyle(
-                                                          color: Colors.orange,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                if (MyDefaultConfig()
-                                                        .productListBinding
-                                                        .extraInfo3 !=
-                                                    null)
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        MyDefaultConfig()
-                                                            .productListBinding
-                                                            .extraInfoIcon3,
-                                                        size: 14.0,
-                                                        color: Colors.orange,
-                                                      ),
-                                                      SizedBox(
-                                                        width: 4.0,
-                                                      ),
-                                                      Text(
-                                                        "${item[MyDefaultConfig().productListBinding.extraInfo3] ?? "-"}",
-                                                        style: TextStyle(
-                                                          color: Colors.orange,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
+                                                Text(
+                                                  "${item["product_name"]}",
+                                                  style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Spacer(),
+                                                Text(
+                                                  "\$${item["price"]}",
+                                                  style: TextStyle(
+                                                      color: Colors.purple,
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
                                               ],
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(
+                                              height: 4.0,
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.map,
+                                                  size: 16,
+                                                ),
+                                                SizedBox(
+                                                  width: 4.0,
+                                                ),
+                                                Expanded(
+                                                  child: Text(
+                                                    "${item["city"]}",
+                                                    style: TextStyle(
+                                                      fontSize: 10,
+                                                      color: Colors.grey[400],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 4.0,
+                                            ),
+                                            Container(
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  if (MyDefaultConfig()
+                                                          .productListBinding
+                                                          .extraInfo1 !=
+                                                      null)
+                                                    Row(
+                                                      children: [
+                                                        Icon(
+                                                          MyDefaultConfig()
+                                                              .productListBinding
+                                                              .extraInfoIcon1,
+                                                          size: 14.0,
+                                                          color: Colors.orange,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 4.0,
+                                                        ),
+                                                        Text(
+                                                          "${item[MyDefaultConfig().productListBinding.extraInfo1] ?? "-"}",
+                                                          style: TextStyle(
+                                                            color:
+                                                                Colors.orange,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  if (MyDefaultConfig()
+                                                          .productListBinding
+                                                          .extraInfo2 !=
+                                                      null)
+                                                    Row(
+                                                      children: [
+                                                        Icon(
+                                                          MyDefaultConfig()
+                                                              .productListBinding
+                                                              .extraInfoIcon2,
+                                                          size: 14.0,
+                                                          color: Colors.orange,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 4.0,
+                                                        ),
+                                                        Text(
+                                                          "${item[MyDefaultConfig().productListBinding.extraInfo2] ?? "-"}",
+                                                          style: TextStyle(
+                                                            color:
+                                                                Colors.orange,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  if (MyDefaultConfig()
+                                                          .productListBinding
+                                                          .extraInfo3 !=
+                                                      null)
+                                                    Row(
+                                                      children: [
+                                                        Icon(
+                                                          MyDefaultConfig()
+                                                              .productListBinding
+                                                              .extraInfoIcon3,
+                                                          size: 14.0,
+                                                          color: Colors.orange,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 4.0,
+                                                        ),
+                                                        Text(
+                                                          "${item[MyDefaultConfig().productListBinding.extraInfo3] ?? "-"}",
+                                                          style: TextStyle(
+                                                            color:
+                                                                Colors.orange,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        //TODO: ANGGA (isi Teks sesuai Design)
                                       ),
-                                      //TODO: ANGGA (isi Teks sesuai Design)
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           );
