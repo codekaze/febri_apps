@@ -152,9 +152,10 @@ class FavouriteView extends StatelessWidget {
                                           Text(
                                             "\$${item["price"]}",
                                             style: TextStyle(
-                                                color: Colors.purple,
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
+                                              color: Colors.grey[500],
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ],
                                       ),
