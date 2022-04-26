@@ -1,5 +1,6 @@
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterx/service/favorite_service/favorite_service.dart';
 
 class FavouriteView extends StatelessWidget {
   final controller = Get.put(FavouriteController());
@@ -31,10 +32,15 @@ class FavouriteView extends StatelessWidget {
                           size: 24,
                           color: Colors.grey,
                         ),
-                        suffixIcon: Icon(
-                          Icons.tune_outlined,
-                          size: 24,
-                          color: Colors.grey,
+                        suffixIcon: InkWell(
+                          onTap: () {
+                            controller.update();
+                          },
+                          child: Icon(
+                            Icons.tune_outlined,
+                            size: 24,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                     ),
@@ -85,15 +91,59 @@ class FavouriteView extends StatelessWidget {
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Row(
+                                      Column(
                                         children: [
-                                          Text(
-                                            "${item["product_name"]}",
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  "${item["product_name"]}",
+                                                  style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                              InkWell(
+                                                onTap: () {
+                                                  FavoriteService
+                                                      .updateFavoriteItem(
+                                                    item["id"],
+                                                  );
+                                                  controller.update();
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(2.0),
+                                                  child: Column(
+                                                    children: [
+                                                      if (FavoriteService.items
+                                                          .contains(item["id"]))
+                                                        ImageIcon(
+                                                          NetworkImage(
+                                                            "https://i.ibb.co/PDMfBKQ/263417.png",
+                                                          ),
+                                                          size: 18.0,
+                                                          color:
+                                                              Colors.red[400],
+                                                        ),
+                                                      if (!FavoriteService.items
+                                                          .contains(item["id"]))
+                                                        ImageIcon(
+                                                          NetworkImage(
+                                                            "https://i.ibb.co/QXbzXbq/130195.png",
+                                                          ),
+                                                          size: 18.0,
+                                                        ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          Spacer(),
+                                          SizedBox(
+                                            height: 10.0,
+                                          ),
                                           Text(
                                             "\$${item["price"]}",
                                             style: TextStyle(
