@@ -19,7 +19,7 @@ class ClProductDetailView extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text("ClProductDetail"),
+            title: Text("Product Detail"),
           ),
           bottomNavigationBar: Container(
             height: 60.0,
