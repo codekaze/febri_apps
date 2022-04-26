@@ -45,6 +45,9 @@ class FavouriteView extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
                   FireListView(
                     stream: ProductService().stream(),
                     shrinkWrap: true,
