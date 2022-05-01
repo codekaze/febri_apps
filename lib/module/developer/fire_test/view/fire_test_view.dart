@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:fireverse/fireglobal.dart';
+import 'package:fireverse/firestore/firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
 
@@ -129,6 +130,57 @@ class FireTestView extends StatelessWidget {
                     log("Test Success!");
                     log("###################");
                   },
+                ),
+                ExButton(
+                  label: "Test Firedart Stream(Windows)",
+                  color: warningColor,
+                  onPressed: () async {
+                    prefix = "cr_";
+                    if (Fire.currentUser == null)
+                      await Fire.signInAnonymously();
+                    ProductService().stream().listen(
+                      (document) {
+                        print(document);
+                      },
+                    );
+                  },
+                ),
+                ExButton(
+                  label: "Add Product",
+                  color: warningColor,
+                  onPressed: () async {
+                    prefix = "cr_";
+                    if (Fire.currentUser == null)
+                      await Fire.signInAnonymously();
+
+                    ProductService().add({
+                      "product_name": "Test",
+                      "price": 25,
+                    });
+                  },
+                ),
+                Expanded(
+                  child: StreamBuilder<dynamic>(
+                    // stream: ProductService().stream(),
+                    stream: FireDartFirestore.instance
+                        .collection(prefix + "product")
+                        .stream,
+                    builder: (context, snapshot) {
+                      if (snapshot.data == null) {
+                        return Container(
+                          child: Text("Snapshot.data is null"),
+                        );
+                      }
+                      return ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            child: Text("Data $index"),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
