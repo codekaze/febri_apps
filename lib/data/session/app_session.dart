@@ -5,4 +5,4 @@ class AppSession {
   static late bool demoMode = true;
 }
 
-late String prefix;
+late String prefix = "cr_";

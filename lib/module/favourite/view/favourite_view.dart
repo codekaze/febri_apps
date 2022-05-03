@@ -76,12 +76,14 @@ class FavouriteView extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20.0)),
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      item["photo_url"],
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
+                                  image: item["photo_url"] == null
+                                      ? null
+                                      : DecorationImage(
+                                          image: NetworkImage(
+                                            item["photo_url"],
+                                          ),
+                                          fit: BoxFit.cover,
+                                        ),
                                 ),
                               ),
 

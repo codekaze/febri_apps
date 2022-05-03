@@ -36,24 +36,19 @@ class FireListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (Platform.isWindows) {
-      return StreamBuilder(
+      return StreamBuilder<dynamic>(
         stream: stream,
-        builder: (context, stream) {
-          if (stream.data == null) return Container();
-          List items = List.from(stream.data as List);
-
-          print("STREAM BULDER LENGTH: ${items.length}");
-
-          if (items.length == 0) return Container();
+        builder: (context, snapshot) {
+          if (snapshot.data == null) return Container();
 
           return ListView.builder(
-            itemCount: items.length,
+            itemCount: snapshot.data.length,
             shrinkWrap: shrinkWrap,
             physics:
                 shrinkWrap == false ? null : NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              Map<String, dynamic> item = items[index].map;
-              var docId = items[index].id;
+              var item = snapshot.data[index].map;
+              var docId = snapshot.data[index].id;
               item["id"] = docId;
 
               if (onItemBuild != null) {
