@@ -30,6 +30,7 @@ class FireDartFirestoreGatewayStreamCache {
 
   void setListenRequest(
       ListenRequest request, FirestoreClient client, String database) {
+    print("setListenRequest:");
     // Close the request stream if this function is called for a second time;
     _listenRequestStreamController?.close();
 
@@ -103,9 +104,12 @@ class FireDartFirestoreGateway {
   }
 
   Stream<List<FireDartDocument>> streamCollection(String path) {
-    if (_listenRequestStreamMap.containsKey(path)) {
-      return _mapCollectionStream(_listenRequestStreamMap[path]!);
-    }
+    print("streamCollection: path > $path");
+    // ! NOTES: This part causes streams in windows to not work if there is more than 1 instance on different pages. So, I disabled it.
+    // if (_listenRequestStreamMap.containsKey(path)) {
+    //   print("You are here?");
+    //   return _mapCollectionStream(_listenRequestStreamMap[path]!);
+    // }
 
     var selector = StructuredQuery_CollectionSelector()
       ..collectionId = path.substring(path.lastIndexOf('/') + 1);

@@ -4,6 +4,7 @@ import 'package:fireverse/fireglobal.dart';
 import 'package:fireverse/firestore/firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/developer/fire_test/view/product_list_test_view.dart';
 
 class FireTestView extends StatelessWidget {
   @override
@@ -159,37 +160,91 @@ class FireTestView extends StatelessWidget {
                     });
                   },
                 ),
+                ExButton(
+                  label: "Product List",
+                  color: warningColor,
+                  onPressed: () async {
+                    prefix = "cr_";
+                    if (Fire.currentUser == null)
+                      await Fire.signInAnonymously();
+
+                    Get.to(ProductListTestView());
+                  },
+                ),
                 if (Fire.currentUser != null)
                   Expanded(
-                    child: StreamBuilder<dynamic>(
-                      // stream: ProductService().stream(),
-                      stream: FireDartFirestore.instance
-                          .collection(prefix + "product")
-                          .stream,
-                      builder: (context, snapshot) {
-                        if (snapshot.data == null) {
-                          return Container(
-                            child: Text("Snapshot.data is null"),
-                          );
-                        }
-                        return ListView.builder(
-                          itemCount: snapshot.data.length,
-                          itemBuilder: (context, index) {
-                            var item = snapshot.data[index];
-                            return InkWell(
-                              onTap: () {
-                                FireDartFirestore.instance
-                                    .collection(prefix + "product")
-                                    .doc(snapshot.data[index].id)
-                                    .delete();
-                              },
-                              child: Card(
-                                child: Text("Data ${item["product_name"]}"),
-                              ),
-                            );
-                          },
-                        );
-                      },
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: StreamBuilder<dynamic>(
+                            // stream: ProductService().stream(),
+                            stream: FireDartFirestore.instance
+                                .collection(prefix + "product")
+                                .stream,
+                            builder: (context, snapshot) {
+                              if (snapshot.data == null) {
+                                return Container(
+                                  child: Text("Snapshot.data is null"),
+                                );
+                              }
+                              return ListView.builder(
+                                controller: ScrollController(),
+                                itemCount: snapshot.data.length,
+                                itemBuilder: (context, index) {
+                                  var item = snapshot.data[index];
+                                  return InkWell(
+                                    onTap: () {
+                                      FireDartFirestore.instance
+                                          .collection(prefix + "product")
+                                          .doc(snapshot.data[index].id)
+                                          .delete();
+                                    },
+                                    child: Card(
+                                      child:
+                                          Text("Data ${item["product_name"]}"),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                        Divider(),
+                        Expanded(
+                          child: StreamBuilder<dynamic>(
+                            // stream: ProductService().stream(),
+                            stream: FireDartFirestore.instance
+                                .collection(prefix + "product")
+                                .stream,
+                            builder: (context, snapshot) {
+                              if (snapshot.data == null) {
+                                return Container(
+                                  child: Text("Snapshot.data is null"),
+                                );
+                              }
+                              return ListView.builder(
+                                controller: ScrollController(),
+                                itemCount: snapshot.data.length,
+                                itemBuilder: (context, index) {
+                                  var item = snapshot.data[index];
+                                  return InkWell(
+                                    onTap: () {
+                                      FireDartFirestore.instance
+                                          .collection(prefix + "product")
+                                          .doc(snapshot.data[index].id)
+                                          .delete();
+                                    },
+                                    child: Card(
+                                      child:
+                                          Text("Data ${item["product_name"]}"),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ),
               ],

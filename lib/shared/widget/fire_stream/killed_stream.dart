@@ -16,8 +16,6 @@ class KilledStream {
     // var ref = FireDartFirestore.instance.collection('test');
     // ref.stream.listen((document) => print('updated: $document'));
 
-    if (fireDartFirestoreGatewayStreamCacheInstance != null) {}
-
     log("s.isBroadcast: x ${s.isBroadcast}");
   }
 }
