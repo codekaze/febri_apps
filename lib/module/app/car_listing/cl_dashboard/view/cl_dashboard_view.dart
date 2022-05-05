@@ -96,6 +96,18 @@ class ClDashboardView extends StatelessWidget {
                     SizedBox(
                       height: 6.0,
                     ),
+                    FireListView(
+                      stream: ProductService().stream(),
+                      shrinkWrap: true,
+                      onItemBuild: (item, index, snapshot) {
+                        return Container(
+                          height: 100.0,
+                          width: 100.0,
+                          margin: EdgeInsets.all(10.0),
+                          color: Colors.blue,
+                        );
+                      },
+                    ),
                     Container(
                       height: 260,
                       width: Get.width,
