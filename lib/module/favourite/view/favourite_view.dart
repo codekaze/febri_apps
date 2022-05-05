@@ -56,8 +56,8 @@ class FavouriteView extends StatelessWidget {
                     stream: ProductService().stream(),
                     shrinkWrap: true,
                     onItemBuild: (item, index, snapshot) {
-                      // if (!FavoriteService.items.contains(item["id"]))
-                      //   return Container();
+                      if (!FavoriteService.items.contains(item["id"]))
+                        return Container();
 
                       if (!item["product_name"]
                           .toString()
