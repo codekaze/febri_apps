@@ -2,6 +2,7 @@ import 'package:flutterx/core.dart';
 
 class FavouriteController extends GetxController {
   FavouriteView? view;
+  String search = "";
 
   @override
   void onInit() {

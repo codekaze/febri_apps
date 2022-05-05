@@ -43,6 +43,10 @@ class FavouriteView extends StatelessWidget {
                           ),
                         ),
                       ),
+                      onSubmitted: (text) {
+                        controller.search = text;
+                        controller.update();
+                      },
                     ),
                   ),
                   SizedBox(
@@ -54,6 +58,12 @@ class FavouriteView extends StatelessWidget {
                     onItemBuild: (item, index, snapshot) {
                       // if (!FavoriteService.items.contains(item["id"]))
                       //   return Container();
+
+                      if (!item["product_name"]
+                          .toString()
+                          .contains(controller.search)) {
+                        return Container();
+                      }
 
                       return Card(
                         child: Container(
