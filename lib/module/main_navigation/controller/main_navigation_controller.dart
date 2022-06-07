@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class MainNavigationController extends GetxController {
   MainNavigationView? view;
   GlobalKey<ScaffoldState> key = GlobalKey();
-  int selectedTabIndex = 0;
+  int selectedIndex = 0;
 
   @override
   void onInit() {

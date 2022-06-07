@@ -1,18 +1,18 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutterx/core.dart';
-import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 class MainNavigationView extends StatelessWidget {
   final controller = Get.put(MainNavigationController());
 
   getMainView() {
-    if (controller.selectedTabIndex == 0) {
+    if (controller.selectedIndex == 0) {
       return DashboardView();
-    } else if (controller.selectedTabIndex == 1) {
+    } else if (controller.selectedIndex == 1) {
       return CartView();
-    } else if (controller.selectedTabIndex == 2) {
+    } else if (controller.selectedIndex == 2) {
       return FavouriteView();
-    } else if (controller.selectedTabIndex == 3) {
+    } else if (controller.selectedIndex == 3) {
       return ProfileView();
     }
   }
@@ -22,36 +22,41 @@ class MainNavigationView extends StatelessWidget {
     controller.view = this;
 
     return GetBuilder<MainNavigationController>(
-      builder: (_) {
-        return Scaffold(
-          key: controller.key,
-          bottomNavigationBar: FancyBottomNavigation(
-            inactiveIconColor: Colors.grey[400],
-            tabs: [
-              TabData(
-                iconData: Icons.home,
-                title: "Home",
-              ),
-              TabData(
-                iconData: Icons.shopping_bag,
-                title: "Cart",
-              ),
-              TabData(
-                iconData: Icons.favorite,
-                title: "Favourite",
-              ),
-              TabData(
-                iconData: Icons.person,
-                title: "Me",
-              ),
-            ],
-            onTabChangedListener: (selectedIndex) {
-              controller.selectedTabIndex = selectedIndex;
-              controller.update();
-            },
+      builder: (controller) {
+        return DefaultTabController(
+          length: 4,
+          child: Scaffold(
+            body: getMainView(),
+            bottomNavigationBar: BottomNavigationBar(
+              unselectedItemColor: Colors.blueGrey[500],
+              selectedItemColor: Colors.blueGrey[900],
+              currentIndex: controller.selectedIndex,
+              onTap: (newSelectedIndex) {
+                controller.selectedIndex = newSelectedIndex;
+                controller.update();
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: "Dashboard",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.list),
+                  label: "Progress",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite),
+                  label: "Bookmark",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: "Me",
+                ),
+              ],
+            ),
           ),
-          body: getMainView(),
         );
+        
       },
     );
   }
