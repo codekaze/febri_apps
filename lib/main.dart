@@ -2,6 +2,7 @@ import 'package:fireverse/fireglobal.dart';
 import 'package:flutterx/core.dart';
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:flutterx/module/login/view/login_view.dart';
 import 'package:universal_io/io.dart';
 
 void main() async {
@@ -18,7 +19,7 @@ void main() async {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     theme: defaultTheme,
-    home: MainNavigationView(),
+    home: LoginView(),
   ));
 
   //Run in Emulator Mode (Windows)

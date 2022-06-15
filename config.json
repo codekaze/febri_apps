@@ -1,14 +1,11 @@
 {
     "modules": [
-        "main_navigation",
         "login",
-        "dashboard",
-        "profile",
-        "product",
-        "pos/pos_select_table",
-        "pos/pos_order",
-        "pos/pos_order_detail",
-        "order/order_list",
-        "order/order_detail"
+        "main_navigation",
+        "home",
+        "explore",
+        "favorites",
+        "ticket",
+        "profile"
     ]
 }
