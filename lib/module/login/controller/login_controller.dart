@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import '../view/main_navigation_view.dart';
+import '../view/login_view.dart';
 
-class MainNavigationController extends GetxController {
-  MainNavigationView? view;
-  int selectedIndex = 0;
+class LoginController extends GetxController {
+  LoginView? view;
 
   @override
   void onInit() {

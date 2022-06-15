@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import '../view/main_navigation_view.dart';
+import '../view/product_view.dart';
 
-class MainNavigationController extends GetxController {
-  MainNavigationView? view;
-  int selectedIndex = 0;
+class ProductController extends GetxController {
+  ProductView? view;
 
   @override
   void onInit() {
