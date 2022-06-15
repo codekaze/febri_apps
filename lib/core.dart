@@ -7,8 +7,6 @@ export 'package:flutterx/data/session/property/food_recipe_api.dart';
 export 'package:flutterx/data/session/property/furniture_api.dart';
 export 'package:flutterx/data/session/property/property_api.dart';
 export 'package:flutterx/main.dart';
-export 'package:flutterx/module/main_navigation/controller/main_navigation_controller.dart';
-export 'package:flutterx/module/main_navigation/view/main_navigation_view.dart';
 export 'package:flutterx/responsive.dart';
 export 'package:flutterx/shared/abstract/input_control/input_control.dart';
 export 'package:flutterx/shared/util/firebase/firecore.dart';
