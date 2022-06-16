@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 
 class FireListView extends StatelessWidget {
   final dynamic stream;
-
   final Function? onEmptyDocs;
   final String? title;
   final bool shrinkWrap;
+  final Axis? scrollDirection;
   // final bool? showLoading;
   final Function(
     Map item,
@@ -31,6 +31,7 @@ class FireListView extends StatelessWidget {
     this.onEmptyDocs,
     this.onSnapshots,
     this.shrinkWrap = true,
+    this.scrollDirection,
   });
 
   @override
@@ -46,6 +47,7 @@ class FireListView extends StatelessWidget {
             shrinkWrap: shrinkWrap,
             physics:
                 shrinkWrap == false ? null : NeverScrollableScrollPhysics(),
+            scrollDirection: scrollDirection ?? Axis.vertical,
             itemBuilder: (context, index) {
               var item = snapshot.data[index].map;
               var docId = snapshot.data[index].id;
@@ -104,6 +106,7 @@ class FireListView extends StatelessWidget {
                 shrinkWrap: shrinkWrap,
                 physics:
                     shrinkWrap == false ? null : NeverScrollableScrollPhysics(),
+                scrollDirection: scrollDirection ?? Axis.vertical,
                 itemBuilder: (context, index) {
                   var item = (querySnapshot.docs[index].data() as Map);
                   var docId = querySnapshot.docs[index].id;

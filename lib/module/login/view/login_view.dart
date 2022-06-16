@@ -1,3 +1,4 @@
+import 'package:fireverse/fireverse.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
@@ -48,17 +49,24 @@ class LoginView extends StatelessWidget {
                         ),
                         ExButton(
                           label: "Login",
-                          onPressed: () {
+                          onPressed: () async {
                             var email = Input.get("email");
                             var password = Input.get("password");
 
-                            if (email == "febri@demo.com" &&
-                                password == "123456") {
-                              Get.off(MainNavigationView());
-                            } else {
-                              showError("Login failed",
-                                  "Wrong username or password!");
-                            }
+                            // if (email == "febri@demo.com" &&
+                            //     password == "123456") {
+                            //   Get.off(MainNavigationView());
+                            // } else {
+                            //   showError("Login failed",
+                            //       "Wrong username or password!");
+                            // }
+
+                            //TODO: Ganti login anynomous dengan login menggunakan email dan password (Fire.signIn())
+                            //TODO: Jika password salah, tampilkan pesan "Wrong username or password"
+                            //TODO: jangan lupa hapus kode Fire.signInAnonymously();
+
+                            await Fire.signInAnonymously();
+                            Get.off(MainNavigationView());
                           },
                         ),
                       ],
