@@ -11,6 +11,7 @@ class TicketView extends StatelessWidget {
       builder: (controller) {
         controller.view = this;
 
+        //TODO: buat list order (orders)
         return Scaffold(
           appBar: AppBar(
             title: Text("Ticket"),

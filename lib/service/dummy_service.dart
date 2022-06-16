@@ -15,6 +15,9 @@ class DummyService {
       collectionName: "events",
     );
 
+    //TODO: Tambahkan lebih banyak dummy events (3-5)
+    //TODO: Tambahkan field lokasi, lokasi: "Margajaya, Bogor"
+
     await Fire.add(
       collectionName: "events",
       value: {
@@ -61,6 +64,9 @@ class DummyService {
     );
   }
 
-  static createUsers() async {}
+  static createUsers() async {
+    //TODO: Buat dummy data order 10 (collection: orders)
+    //TODO: Tampilkan data order di TicketView
+  }
   static createOrders() async {}
 }
