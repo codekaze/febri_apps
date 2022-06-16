@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import '../view/explore_view.dart';
+import '../view/developer_view.dart';
 
-class ExploreController extends GetxController {
-  ExploreView? view;
+class DeveloperController extends GetxController {
+  DeveloperView? view;
 
   @override
   void onInit() {

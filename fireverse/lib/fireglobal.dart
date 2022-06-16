@@ -540,6 +540,20 @@ class Fire {
     }
   }
 
+  static deleteAll({
+    required String collectionName,
+  }) async {
+    var items = await Fire.get(
+      collectionName: "$collectionName",
+    );
+    print(items.length);
+    for (var item in items) {
+      await Fire.delete(
+        collectionName: "$collectionName/${item.id}",
+      );
+    }
+  }
+
   static timestamp() {
     if (Platform.isWindows) {
       return DateTime.now();

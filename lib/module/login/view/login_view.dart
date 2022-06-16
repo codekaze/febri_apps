@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterx/core.dart';
+import 'package:flutterx/module/developer/view/developer_view.dart';
 import 'package:flutterx/module/main_navigation/view/main_navigation_view.dart';
 import '../controller/login_controller.dart';
 
@@ -63,6 +65,19 @@ class LoginView extends StatelessWidget {
                     ),
                   ),
                 ),
+                if (kDebugMode)
+                  InkWell(
+                    onTap: () => Get.to(DeveloperView()),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        "Go to Developer Page",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),
