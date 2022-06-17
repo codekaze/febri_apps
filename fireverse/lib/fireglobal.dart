@@ -432,9 +432,9 @@ class Fire {
 
     try {
       if (Platform.isWindows) {
-        return ref.stream;
+        return (ref as FireDartCollectionReference).stream;
       } else {
-        return ref.snapshot();
+        return (ref as fs.CollectionReference).snapshots();
       }
     } on Exception catch (_) {
       print(_);

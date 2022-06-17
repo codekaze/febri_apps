@@ -67,6 +67,7 @@ class DummyService {
   static createUsers() async {
     //TODO: Buat dummy data order 10 (collection: orders)
     //TODO: Tampilkan data order di TicketView
+    // order_date, payment_method (Cash),
   }
   static createOrders() async {}
 }
