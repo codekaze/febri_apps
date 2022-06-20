@@ -95,6 +95,13 @@ await Fire.delete(
 );
 ```
 
+#### Firestore Delete All
+```
+await Fire.deleteAll(
+  collectionName: "product",
+);
+```
+
 #### Firestore Snapshot
 ```
 await Fire.snapshot(
