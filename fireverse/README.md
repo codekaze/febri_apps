@@ -28,6 +28,7 @@ Basically, this package is a combination of FireDart and the official Firebase l
 - [x] .add
 - [x] .update 
 - [x] .delete
+- [x] .deleteAll
 
 #### Utility
 - [ ] Timestamp
